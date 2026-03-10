@@ -1,0 +1,81 @@
+from typing import List, Dict
+
+TARGET_CARDS = {
+    "Shinhan": [
+        "Mr.Life",
+        "Deep Dream",
+        "Deep Dream Platinum+",
+        "Deep Oil",
+        "Point Plan",
+        "Point Plan+",
+        "Simple",
+        "Simple+",
+        "The CLASSIC+",
+        "Air One",
+        "B.Big",
+        "Big Plus",
+        "YOLO",
+        "Hi-Point",
+    ],
+    "KB": [
+        "KB My WE:SH 카드",
+        "KB Easy Pick 카드",
+        "KB The Easy 카드",
+        "KB Star 카드",
+        "KB 국민 굿데이 카드",
+        "KB 직장인 보너스 체크카드",
+        "KB 마이원 카드",
+        "KB 탄탄대로 Miz&Mr",
+        "KB 청춘대로 톡톡카드",
+        "KB FINETECH 카드",
+    ],
+    "Hyundai": [
+        "현대카드 M",
+        "현대카드 M BOOST",
+        "현대카드 X",
+        "현대카드 X BOOST",
+        "현대카드 ZERO Edition3 (할인형)",
+        "현대카드 ZERO Edition3 (포인트형)",
+        "현대카드 ZERO Edition2 (할인형)",
+        "현대카드 ZERO Edition2 (포인트형)",
+        "현대카드 Z family",
+        "현대카드 T3",
+        "현대카드 Digital Lover",
+        "현대카드 the Red Edition6",
+        "현대카드 the Green Edition3",
+        "현대카드 the Pink Edition2",
+        "현대카드 Summit",
+    ],
+}
+
+# Normalization mapping for tricky names and variant matching
+CARD_NAME_MAPPING = {
+    "Air One (Skypass)": "Air One",
+    "Air One": "Air One",
+    "Deep Dream Platinum+": "Deep Dream Platinum+",
+    "Deep Dream": "Deep Dream",
+    "Point Plan Plus": "Point Plan+",
+    "Simple Plus": "Simple+",
+    "The CLASSIC Plus": "The CLASSIC+",
+    "Miz&Mr": "KB 탄탄대로 Miz&Mr",
+    "톡톡카드": "KB 청춘대로 톡톡카드",
+    "My WE:SH": "KB My WE:SH 카드",
+    "Easy Pick": "KB Easy Pick 카드",
+    "The Easy": "KB The Easy 카드",
+    "FINETECH": "KB FINETECH 카드",
+    "직장인 보너스": "KB 직장인 보너스 체크카드",
+    "Star": "KB Star 카드",
+    "굿데이": "KB 국민 굿데이 카드",
+    "마이원": "KB 마이원 카드",
+    "ZERO Edition3(할인형)": "현대카드 ZERO Edition3 (할인형)",
+    "ZERO Edition3(포인트형)": "현대카드 ZERO Edition3 (포인트형)",
+    "ZERO Edition2(할인형)": "현대카드 ZERO Edition2 (할인형)",
+    "ZERO Edition2(포인트형)": "현대카드 ZERO Edition2 (포인트형)",
+    "the Red Edition6": "현대카드 the Red Edition6",
+    "the Green Edition3": "현대카드 the Green Edition3",
+    "the Pink Edition2": "현대카드 the Pink Edition2",
+}
+
+DOWNLOAD_DIR = "datasets/pdfs"
+DATA_OUTPUT_DIR = "datasets/text"
+INDEX_FILE = "datasets/index.csv"

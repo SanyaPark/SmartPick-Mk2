@@ -1,0 +1,57 @@
+{
+  "chunk1": {
+    "card_name": "SC제일은행-the Red",
+    "card_company": "현대카드",
+    "annual_fee": 300000,
+    "min_performance": 500000,
+    "major_categories": "General, Travel, Shopping, Life, Cultural",
+    "benefits_summary": "전 가맹점 1.5% 적립, 연간 30만원 바우처(쇼핑/여행/호텔/골프), 공항 라운지 연 10회/발레파킹 무료 및 SC제일은행 환율 우대 제공.",
+    "category": "적립",
+    "content": "전월 이용 금액 50만원 이상 시 국내외 가맹점 이용 금액의 1.5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "1회 및 연간 적립 한도 제한 없음. 신규 발급 시 카드 수령 등록월 다음 달 이용 건까지는 전월 이용 금액 50만원 미만도 혜택 제공. 세금, 공과금, 상품권, 아파트 관리비 등은 적립 제외."
+  },
+  "chunk2": {
+    "card_name": "SC제일은행-the Red",
+    "card_company": "현대카드",
+    "annual_fee": 300000,
+    "min_performance": 500000,
+    "major_categories": "General, Travel, Shopping, Life, Cultural",
+    "benefits_summary": "전 가맹점 1.5% 적립, 연간 30만원 바우처(쇼핑/여행/호텔/골프), 공항 라운지 연 10회/발레파킹 무료 및 SC제일은행 환율 우대 제공.",
+    "category": "바우처/쇼핑/여행",
+    "content": "총 30만원 상당(10만원권 3매)의 바우처를 제공합니다. 쇼핑(갤러리아백화점, 롯데/신라면세점, 더한섬닷컴, 신세계V), 여행(더현대트래블, PRIVIA), 호텔(신라, 하얏트, 조선 등), 골프(골프장, 티노파이브, 테일러메이드), M포인트(10만점 교환) 중 선택하여 사용할 수 있습니다.",
+    "conditions": "발급 첫해는 누적 100만원 이상 이용 시 제공. 2차년도부터는 전년도(발급 확정월 포함 12개월) 1,200만원 이상 이용 시 제공."
+  },
+  "chunk3": {
+    "card_name": "SC제일은행-the Red",
+    "card_company": "현대카드",
+    "annual_fee": 300000,
+    "min_performance": 500000,
+    "major_categories": "General, Travel, Shopping, Life, Cultural",
+    "benefits_summary": "전 가맹점 1.5% 적립, 연간 30만원 바우처(쇼핑/여행/호텔/골프), 공항 라운지 연 10회/발레파킹 무료 및 SC제일은행 환율 우대 제공.",
+    "category": "여행/공항 서비스",
+    "content": "① 라운지: 'THE LOUNGE' 앱을 통해 전 세계 1,000여 개 공항 라운지 무료 이용(연 10회).\n② 발레파킹: 인천국제공항(제1·2여객터미널) 및 특급호텔(그랜드 워커힐, 더 플라자 등) 무료 발레파킹(공항·호텔 통합 월 10회).",
+    "conditions": "전월 이용 금액 50만원 이상 시 제공(신규 발급 시 등록월 다음 달까지 실적 무관). 본인 회원에 한해 제공되며, 발레파킹 시 실물 카드 제시 필요."
+  },
+  "chunk4": {
+    "card_name": "SC제일은행-the Red",
+    "card_company": "현대카드",
+    "annual_fee": 300000,
+    "min_performance": 500000,
+    "major_categories": "General, Travel, Shopping, Life, Cultural",
+    "benefits_summary": "전 가맹점 1.5% 적립, 연간 30만원 바우처(쇼핑/여행/호텔/골프), 공항 라운지 연 10회/발레파킹 무료 및 SC제일은행 환율 우대 제공.",
+    "category": "금융/은행 서비스",
+    "content": "① SC제일은행 우대: 외화 현찰 환전 시 90% 우대 환율 적용(SC제일은행 영업점 방문 시), 현금카드 기능 등록 시 ATM 출금 가능.\n② M 긴급적립(선지급 포인트 서비스): 최대 50만 M포인트를 미리 적립받아 사용하고, 이후 최대 24개월 동안 카드 이용에 따른 M포인트 적립으로 상환.",
+    "conditions": "환율 우대는 본인 회원에 한하며 모바일/전신환 제외. 긴급적립 미상환액은 현금 청구됨."
+  },
+  "chunk5": {
+    "card_name": "SC제일은행-the Red",
+    "card_company": "현대카드",
+    "annual_fee": 300000,
+    "min_performance": 500000,
+    "major_categories": "General, Travel, Shopping, Life, Cultural",
+    "benefits_summary": "전 가맹점 1.5% 적립, 연간 30만원 바우처(쇼핑/여행/호텔/골프), 공항 라운지 연 10회/발레파킹 무료 및 SC제일은행 환율 우대 제공.",
+    "category": "카드 플레이트",
+    "content": "본인 회원 신청 시 특수 소재의 메탈 플레이트를 제공합니다.",
+    "conditions": "발급 수수료 10만원 별도 부과(또는 10만 M포인트로 결제 가능). 일부 ATM 기기 이용 불가하며, 수작업 제작으로 발급에 약 1주 소요."
+  }
+}

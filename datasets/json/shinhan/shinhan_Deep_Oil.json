@@ -1,0 +1,46 @@
+{
+  "chunk1": {
+    "card_name": "신한카드 Deep Oil",
+    "card_company": "신한카드",
+    "annual_fee": 10000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Coffee, Cultural",
+    "benefits_summary": "선택 정유사 10% 할인, 정비소/주차장 10% 할인, 편의점/커피/택시 5% 할인 및 롯데시네마 5천원 할인을 제공",
+    "category": "주유",
+    "content": "4개의 정유사(GS칼텍스, SK에너지, S-OIL, 에이치디현대오일뱅크) 중 직접 고른 1개 정유사 주유 이용금액 10% 결제일 할인. 정유사 미선택 시 GS칼텍스가 자동 선택되며 연 1회 변경 가능. 휘발유, 등유, 경유에 한해 할인 제공.",
+    "conditions": "전월 이용금액 30만원 이상 시 제공. 주유 및 LPG 이용금액은 전월 실적 산정에서 제외. 월 이용금액 한도는 전월 실적 30만원 이상 시 15만원, 70만원 이상 시 30만원이며 LPG는 할인 제외."
+  },
+  "chunk2": {
+    "card_name": "신한카드 Deep Oil",
+    "card_company": "신한카드",
+    "annual_fee": 10000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Coffee, Cultural",
+    "benefits_summary": "선택 정유사 10% 할인, 정비소/주차장 10% 할인, 편의점/커피/택시 5% 할인 및 롯데시네마 5천원 할인을 제공",
+    "category": "차량정비/주차",
+    "content": "스피드메이트 이용금액 10% 결제일 할인(오프라인 현장 일반결제). 전국 모든 주차장 10% 결제일 할인(신한카드 주차장 업종 등록 가맹점).",
+    "conditions": "전월 이용금액 30만원 이상 시 제공. 주유 및 LPG 이용금액은 전월 실적 산정에서 제외. 차량 서비스(정비+주차) 통합 월 이용금액 한도는 전월 실적 30만원 이상 시 15만원, 70만원 이상 시 30만원."
+  },
+  "chunk3": {
+    "card_name": "신한카드 Deep Oil",
+    "card_company": "신한카드",
+    "annual_fee": 10000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Coffee, Cultural",
+    "benefits_summary": "선택 정유사 10% 할인, 정비소/주차장 10% 할인, 편의점/커피/택시 5% 할인 및 롯데시네마 5천원 할인을 제공",
+    "category": "편의점/커피/택시",
+    "content": "편의점(GS25, CU) 5% 결제일 할인. 커피(스타벅스, 이디야) 5% 결제일 할인. 택시 5% 결제일 할인(오프라인 현장 일반결제).",
+    "conditions": "전월 이용금액 30만원 이상 시 제공. 주유 및 LPG 이용금액은 전월 실적 산정에서 제외. 생활 서비스(편의점+커피+택시) 통합 월 이용금액 한도는 전월 실적 30만원 이상 시 15만원, 70만원 이상 시 30만원. 상품권/선불카드 충전 및 온라인/자동결제 제외."
+  },
+  "chunk4": {
+    "card_name": "신한카드 Deep Oil",
+    "card_company": "신한카드",
+    "annual_fee": 10000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Coffee, Cultural",
+    "benefits_summary": "선택 정유사 10% 할인, 정비소/주차장 10% 할인, 편의점/커피/택시 5% 할인 및 롯데시네마 5천원 할인을 제공",
+    "category": "영화",
+    "content": "롯데시네마 일반관 5천원 현장 할인(홈페이지, 모바일 앱 결제 포함). 조조영화 할인 가능.",
+    "conditions": "전월 이용금액 30만원 이상 시 제공. 주유 및 LPG 이용금액은 전월 실적 산정에서 제외. 월 제공 횟수는 전월 실적 30만원 이상 시 1회, 70만원 이상 시 2회. 3D/스페셜관 및 5천원 이하 상영작 제외. 타 할인 중복 불가."
+  }
+}

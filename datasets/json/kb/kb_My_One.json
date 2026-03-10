@@ -1,0 +1,57 @@
+{
+  "chunk1": {
+    "card_name": "홈플러스 KB국민카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 3000,
+    "min_performance": 300000,
+    "major_categories": "Shopping, Food, Life, EduHealth",
+    "benefits_summary": "홈플러스 최대 10% 할인 및 무이자 할부, 포인트 추가 적립을 제공하며 패밀리레스토랑, 미용 업종, 이동통신요금 할인 혜택을 포함하는 생활 밀착형 카드",
+    "category": "쇼핑(대형마트)",
+    "content": "홈플러스(할인점, 익스프레스, 문화센터, 온라인몰) 및 홈플러스 입점 애슐리 이용 시 5%~10% 청구할인. 홈플러스 건당 5만원 이상 결제 시 2~3개월 무이자 할부 제공. 홈플러스 이용 시 마이홈플러스포인트 기본 적립 외 0.5% 추가 적립.",
+    "conditions": "건당 5만원 이상 이용 시 할인 제공. 전월 이용실적별 할인율: 30만원 이상 5%, 60만원 이상 7%, 90만원 이상 10%. 월 할인 한도 3만원. 최초 카드 사용등록일로부터 90일간 실적 미달 시에도 5% 적용. 쇼핑몰 입점 매장 및 상품권 구매 제외."
+  },
+  "chunk2": {
+    "card_name": "홈플러스 KB국민카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 3000,
+    "min_performance": 300000,
+    "major_categories": "Shopping, Food, Life, EduHealth",
+    "benefits_summary": "홈플러스 최대 10% 할인 및 무이자 할부, 포인트 추가 적립을 제공하며 패밀리레스토랑, 미용 업종, 이동통신요금 할인 혜택을 포함하는 생활 밀착형 카드",
+    "category": "외식",
+    "content": "패밀리레스토랑(아웃백, VIPS, TGIF) 이용 시 10% 청구할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 1일 1회, 월 2회 제공. 월간 통합 할인한도(미용 업종 포함 여부 불명확하나 섹션 내 표기상 별도 한도 또는 통합 한도 확인 필요, 문맥상 각 영역별 한도 또는 통합 한도로 추정되나 문서상 '월간 통합 할인한도 2만원'이 각 항목 밑에 기재됨) 2만원."
+  },
+  "chunk3": {
+    "card_name": "홈플러스 KB국민카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 3000,
+    "min_performance": 300000,
+    "major_categories": "Shopping, Food, Life, EduHealth",
+    "benefits_summary": "홈플러스 최대 10% 할인 및 무이자 할부, 포인트 추가 적립을 제공하며 패밀리레스토랑, 미용 업종, 이동통신요금 할인 혜택을 포함하는 생활 밀착형 카드",
+    "category": "미용",
+    "content": "미용업종(미용실, 피부미용) 이용 시 청구할인 (할인율 미기재, 맥락상 10% 또는 정액 할인 추정 불가하나 혜택 존재 명시됨)",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월간 통합 할인한도 2만원."
+  },
+  "chunk4": {
+    "card_name": "홈플러스 KB국민카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 3000,
+    "min_performance": 300000,
+    "major_categories": "Shopping, Food, Life, EduHealth",
+    "benefits_summary": "홈플러스 최대 10% 할인 및 무이자 할부, 포인트 추가 적립을 제공하며 패밀리레스토랑, 미용 업종, 이동통신요금 할인 혜택을 포함하는 생활 밀착형 카드",
+    "category": "통신",
+    "content": "이동통신요금 자동이체 시 월 3,000원 정액 할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 자동납부 금액 1만원 이상 시 적용. 유무선 통합청구방식 자동납부 건은 제외. 최초 사용등록일로부터 90일간 실적 미달 시에도 제공."
+  },
+  "chunk5": {
+    "card_name": "홈플러스 KB국민카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 3000,
+    "min_performance": 300000,
+    "major_categories": "Shopping, Food, Life, EduHealth",
+    "benefits_summary": "홈플러스 최대 10% 할인 및 무이자 할부, 포인트 추가 적립을 제공하며 패밀리레스토랑, 미용 업종, 이동통신요금 할인 혜택을 포함하는 생활 밀착형 카드",
+    "category": "보험/교육",
+    "content": "홈플러스 구매물품 보상보험 무료가입(가입기간 1년, 보상한도 500만원), 맛있는교육 영어 캠프 할인(국내캠프 10만원, 해외캠프 20만원, 관리형 조기유학 50만원)",
+    "conditions": "보험: 최초 카드 발급 시 1회 제공. 교육: 맛있는교육 홈페이지 및 고객센터 문의 필요."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "chunk1": {
+    "card_name": "현대카드 M",
+    "card_company": "현대카드",
+    "annual_fee": 30000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Food, Travel, Life",
+    "benefits_summary": "국내외 가맹점 1.5% 적립, 온라인쇼핑/외식/해외 5% 적립 및 최대 50만 M포인트 긴급적립(선지급) 서비스 제공.",
+    "category": "적립",
+    "content": "전월 이용 금액 50만원 이상 시 국내외 모든 가맹점 이용 금액의 1.5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "1회 및 연간 적립 한도 제한 없음. 신규 발급 시 발급월 다음 달 이용 건까지는 전월 이용 금액 50만원 미만도 혜택 제공. 세금, 공과금, 상품권, 아파트 관리비, 무이자 할부 등은 적립 제외."
+  },
+  "chunk2": {
+    "card_name": "현대카드 M",
+    "card_company": "현대카드",
+    "annual_fee": 30000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Food, Travel, Life",
+    "benefits_summary": "국내외 가맹점 1.5% 적립, 온라인쇼핑/외식/해외 5% 적립 및 최대 50만 M포인트 긴급적립(선지급) 서비스 제공.",
+    "category": "쇼핑/외식/해외",
+    "content": "전월 이용 금액 100만원 이상 시 온라인 쇼핑몰(네이버쇼핑, 쿠팡, G마켓, 옥션, 11번가, SSG.COM, 컬리), 일반음식점, 해외 온·오프라인 가맹점 이용 시 5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "대상점 통합 월 1만 M포인트 적립 한도(초과 시 기본 1.5% 적립률 적용). 네이버쇼핑은 네이버 도메인 한정, 쿠팡이츠 제외. 신규 발급 시 발급월 다음 달까지는 100만원 미만이어도 혜택 제공."
+  },
+  "chunk3": {
+    "card_name": "현대카드 M",
+    "card_company": "현대카드",
+    "annual_fee": 30000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Food, Travel, Life",
+    "benefits_summary": "국내외 가맹점 1.5% 적립, 온라인쇼핑/외식/해외 5% 적립 및 최대 50만 M포인트 긴급적립(선지급) 서비스 제공.",
+    "category": "금융 서비스",
+    "content": "M 긴급적립(선지급 포인트 서비스): 최대 50만 M포인트를 미리 적립받아 사용하고, 이후 최대 24개월 동안 카드 이용에 따른 M포인트 적립으로 상환하는 서비스입니다.",
+    "conditions": "상환되지 못한 긴급적립 M포인트 잔액은 1 M포인트=1원으로 환산되어 별도 현금 청구됨. 현대카드 앱을 통해 신청."
+  },
+  "chunk4": {
+    "card_name": "현대카드 M",
+    "card_company": "현대카드",
+    "annual_fee": 30000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Food, Travel, Life",
+    "benefits_summary": "국내외 가맹점 1.5% 적립, 온라인쇼핑/외식/해외 5% 적립 및 최대 50만 M포인트 긴급적립(선지급) 서비스 제공.",
+    "category": "포인트 사용",
+    "content": "① 일상 사용처: 외식, 편의점/마트, 쇼핑, 영화 등 제휴처에서 포인트 사용.\n② 자동차 구매: 현대자동차·기아 신차 구매 시 5년간 200만 M포인트까지 사용.\n③ M몰: 포인트 전용몰에서 50~100% 사용.\n④ 교환: H-Coin 전환, 연회비 결제, 항공 마일리지 및 상품권 교환.",
+    "conditions": "일상 사용처 및 자동차 구매 등은 1 M포인트=1원으로 사용되나, H-Coin 전환 및 연회비 결제 등 현금성 교환 시 1 M포인트=2/3원으로 환산 적용. 정지/해지 시 사용 제한될 수 있음."
+  }
+}

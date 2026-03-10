@@ -1,0 +1,68 @@
+{
+  "chunk1": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "적립",
+    "content": "전월 이용 금액 50만원 이상 시 국내외 가맹점 이용 금액의 1.5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "1회 및 연간 적립 한도 제한 없음. 신규 발급 시 카드 수령 등록월 다음 달 이용 건까지는 전월 이용 금액 50만원 미만도 혜택 제공. 세금, 공과금, 상품권, 아파트 관리비 등은 적립 제외."
+  },
+  "chunk2": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "여행/해외",
+    "content": "전월 이용 금액 100만원 이상 시 여행(국내 항공사/여행사/특급호텔/면세점), 해외 가맹점(온·오프라인) 이용 금액의 5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "대상 영역별 월 5만 M포인트 적립 한도(초과 시 기본 1.5% 적립률 적용). 신규 발급 시 등록월 다음 달까지는 100만원 미만이어도 혜택 제공."
+  },
+  "chunk3": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "바우처/여행/쇼핑",
+    "content": "적립된 M포인트를 10만 포인트당 10만원권 바우처로 교환하여 여행(PRIVIA, 더현대트래블), 호텔(신라, 그랜드 하얏트 등), 면세점(롯데, 신라)에서 사용할 수 있습니다. 연간 최대 100만 M포인트(바우처 10매)까지 교환 가능합니다.",
+    "conditions": "M 긴급적립으로 받은 포인트로는 교환 불가. 항공권 결제 시 순수 항공 요금에만 적용. 연간 한도는 카드 발급월 포함 12개월 기준."
+  },
+  "chunk4": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "여행/공항 서비스",
+    "content": "① 라운지: 'THE LOUNGE' 앱을 통해 전 세계 1,000여 개 공항 라운지 무료 이용(연 5회).\n② 발레파킹: 인천국제공항(제1·2여객터미널) 및 특급호텔(그랜드 워커힐, 더 플라자 등) 무료 발레파킹(공항·호텔 통합 월 5회).",
+    "conditions": "전월 이용 금액 50만원 이상 시 제공(신규 발급 시 등록월 다음 달까지 실적 무관). 본인 회원에 한해 제공되며, 발레파킹 주차 비용은 별도 정산."
+  },
+  "chunk5": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "금융 서비스",
+    "content": "M 긴급적립(선지급 포인트 서비스): 최대 50만 M포인트를 미리 적립받아 사용하고, 이후 최대 24개월 동안 카드 이용에 따른 M포인트 적립으로 상환하는 서비스입니다.",
+    "conditions": "상환되지 못한 긴급적립 M포인트 잔액은 1 M포인트=1원으로 환산되어 별도 현금 청구됨. 긴급적립 포인트로는 바우처 교환 불가."
+  },
+  "chunk6": {
+    "card_name": "the Green Edition3",
+    "card_company": "현대카드",
+    "annual_fee": 150000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Shopping, Life, General",
+    "benefits_summary": "여행/해외 5% 적립, 전 가맹점 1.5% 적립, 연간 100만 M포인트 바우처 교환(여행/호텔/면세점), 공항 라운지/발레파킹 무료 및 메탈 플레이트 제공.",
+    "category": "카드 플레이트",
+    "content": "본인 회원 신청 시 특수 소재의 메탈 플레이트를 제공합니다.",
+    "conditions": "발급 수수료 10만원 별도 부과(또는 10만 M포인트로 결제 가능). 일부 ATM 기기 이용 불가하며, 수작업 제작으로 발급에 약 1주 소요."
+  }
+}

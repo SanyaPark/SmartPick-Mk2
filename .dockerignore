@@ -1,0 +1,14 @@
+**/__pycache__
+.venv
+node_modules
+.next
+dist
+build
+datasets/embeddings_cache/chroma_db
+*.pyc
+.git
+.gitignore
+Dockerfile*
+package-lock.json
+apps/frontend/.next
+apps/frontend/node_modules

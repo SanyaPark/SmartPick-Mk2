@@ -1,0 +1,123 @@
+{
+  "chunk1": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "카페/외식",
+    "content": "Time Plan DAY(07시~15시) 10% 결제일 할인. 카페(스타벅스, 투썸플레이스, 폴바셋, 커피빈, 메가커피, 이디야), 음식점(한식, 일식, 양식, 중식, 일반대중음식, 패스트푸드, 뷔페 업종).",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Time Plan 통합 월 할인 한도(전월 실적 40~80만: 5천원, 80~120만: 1만원, 120~180만: 1만5천원, 180만 이상: 2만원) 내 적용. 각 영역별 일 1회, 할인 전 이용금액 1만원까지 할인(회당 최대 1천원). 오프라인 매장 및 스타벅스 사이렌오더 등 스마트 오더 이용 시 적용. 백화점/마트 등 입점 매장 제외."
+  },
+  "chunk2": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "편의점/배달",
+    "content": "Time Plan NIGHT(18시~22시) 10% 결제일 할인. 편의점(CU, GS25, 세븐일레븐, 이마트24), 배달앱(배달의민족, 요기요, 쿠팡이츠, 땡겨요).",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Time Plan 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 할인 전 이용금액 1만원까지 할인(회당 최대 1천원). 편의점은 오프라인 매장 이용 시 적용. 배달앱은 앱 내 카드결제 시 적용(현장결제 제외)."
+  },
+  "chunk3": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "쇼핑/잡화",
+    "content": "Daily Plan 쇼핑 10% 결제일 할인. 마트(이마트, 트레이더스, 롯데마트), 온라인쇼핑(네이버플러스 스토어, 쿠팡, SSG.COM, 무신사, 29CM), 아울렛(신세계/현대/롯데 프리미엄 아울렛), 잡화(올리브영, 다이소).",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Daily Plan 통합 월 할인 한도(전월 실적 40~80만: 1만5천원, 80~120만: 2만5천원, 120~180만: 3만5천원, 180만 이상: 5만원) 내 적용. 각 영역별 일 1회, 월 5회, 할인 전 이용금액 5만원까지 할인(회당 최대 5천원). 마트/아울렛/다이소는 오프라인 매장 한정. 온라인쇼핑 멤버십/구독료 제외."
+  },
+  "chunk4": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "교통/주유",
+    "content": "Daily Plan 이동 5% 결제일 할인. 주유(SK에너지, GS칼텍스, HD현대오일뱅크, S-OIL), 카쉐어링(쏘카), 주차(주차장 업종, 카카오T 주차), 택시(택시 업종, 카카오T 택시).",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Daily Plan 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 5회, 할인 전 이용금액 5만원까지 할인(회당 최대 2천5백원). 주유는 LPG 제외. 카카오T는 앱 자동결제 시 적용."
+  },
+  "chunk5": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "해외/의료/생활",
+    "content": "Daily Plan 생활 5% 결제일 할인. 해외(해외 일시불), 병원·약국(종합/개인/치과/응급실/약국), 미용실(이용/미용), 온라인서점(교보문고, YES24).",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Daily Plan 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 5회, 할인 전 이용금액 5만원까지 할인. 해외 이용은 Mastercard 브랜드 한정, 수수료 부과됨."
+  },
+  "chunk6": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "특화 서비스",
+    "content": "Plan Day 서비스: 매월 1일 Time Plan, Daily Plan 서비스 2배 할인 적용. 각 서비스 대상 거래 중 승인 순서 기준 첫 번째 거래에 할인율 2배 적용(서비스당 1회).",
+    "conditions": "Time/Daily Plan 월 통합 한도 및 횟수 한도 내에서 제공. Daily Plan 해외 영역은 제외. 매월 1일 승인 건에 한함."
+  },
+  "chunk7": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "공과금/구독/피트니스",
+    "content": "Monthly Plan 정기결제 최대 20% 할인. 공과금(아파트관리비, 도시가스, 전기, 통신) 10%, 디지털구독/멤버십(넷플릭스, 유튜브, 티빙, 디즈니+, 밀리의서재, 네이버/쿠팡 멤버십) 20%, 피트니스(스포츠/수영/골프 등) 5%.",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. Monthly Plan 정기결제 통합 한도(전월 실적별 5천원~2만원) 내 적용. 공과금/구독은 자동납부/정기결제 필수. 할인 전 이용금액 한도(공과금 5만, 구독 1만, 피트니스 10만) 존재."
+  },
+  "chunk8": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "영화/캐시백",
+    "content": "영화 예매(CGV, 롯데시네마) 5천원 결제일 할인. Monthly 리워드 캐시백(전월 실적에 따라 3천원 또는 5천원).",
+    "conditions": "전월 이용금액 40만원 이상 시 영화 할인(월 1회, 1.2만원 이상 결제 시). 리워드는 전월 150만원 이상 시 3천원, 180만원 이상 시 5천원 제공(중복 불가)."
+  },
+  "chunk9": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "장보기 캐시백",
+    "content": "Annual Plan 장보기 3만원 캐시백(연 1회). 마트(이마트, 트레이더스, 롯데마트) 3만원 이상 결제 시 3만원 캐시백.",
+    "conditions": "연회비 청구 주기 내 연 1회 제공. 발급 2차년도부터는 전년도 이용금액 1,000만원 이상 시 제공(초년도는 조건 없음). 오프라인 매장 한정."
+  },
+  "chunk10": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "차량정비/테마파크",
+    "content": "스피드메이트 정비 현장 할인(엔진오일 3만원/30% 할인, 에어컨필터/가스/부동액 1만원 할인). 테마파크(에버랜드/롯데월드 자유이용권 50%, 캐리비안베이 30%) 할인.",
+    "conditions": "전월 이용금액 30만원 이상 시 제공. 통합 월 1회, 연 3회 제공. 정비 할인은 현장 할인, 테마파크는 본인 한정."
+  },
+  "chunk11": {
+    "card_name": "신한카드 Discount Plan+",
+    "card_company": "신한카드",
+    "annual_fee": 50000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Traffic, Food, Coffee, Life, EduHealth, Cultural, Travel",
+    "benefits_summary": "시간대별(Day/Night) 및 영역별(쇼핑, 교통, 생활) 최대 10% 할인과 매월 정기결제/영화 할인, 연간 장보기 캐시백 및 차량정비/테마파크 혜택을 제공",
+    "category": "프리미엄 서비스",
+    "content": "국제브랜드사(Mastercard) 플래티늄 서비스 제공.",
+    "conditions": "해외겸용 카드 발급 시 제공. 세부 내용은 브랜드사 서비스 안내장 참조."
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "chunk1": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "적립",
+    "content": "전월 이용 금액 50만원 이상 시 국내외 가맹점 이용 금액의 1.5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "1회 및 연간 적립 한도 제한 없음. 신규 발급 시 카드 수령 등록월 다음 달 이용 건까지는 전월 이용 금액 50만원 미만도 혜택 제공. 세금, 공과금, 상품권, 아파트 관리비, 무이자 할부 등은 적립 제외."
+  },
+  "chunk2": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "교육/의료/여행/골프",
+    "content": "전월 이용 금액 100만원 이상 시 교육(학원/유치원), 병원(병원/약국), 여행(국내 항공사/여행사/특급호텔), 골프(골프장/골프연습장) 영역에서 5% M포인트 적립 혜택을 제공합니다.",
+    "conditions": "대상 영역 통합 월 2만 M포인트 적립 한도(초과 시 기본 1.5% 적립 적용). 국내 가맹점에 한함. 신규 발급 시 등록월 다음 달까지는 100만원 미만이어도 혜택 제공."
+  },
+  "chunk3": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "바우처/쇼핑/여행",
+    "content": "쇼핑(백화점 상품권), 호텔(특급호텔 숙박/F&B), 여행(더현대트래블), M포인트(20만 포인트 교환) 중 택 1하여 사용할 수 있는 15만원권 바우처를 연 1회 제공합니다.",
+    "conditions": "발급 첫해는 누적 100만원 이상 이용 시, 2차년도부터는 전년도 1,200만원 이상 이용 시 제공. 바우처는 본인 회원 모바일 제공, 항공권 결제 시 순수 항공 요금에만 적용 가능."
+  },
+  "chunk4": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "여행/공항 서비스",
+    "content": "① 라운지: 'THE LOUNGE' 앱을 통해 전 세계 공항 라운지 무료 이용(연 5회).\n② 발레파킹: 인천국제공항(제1·2여객터미널) 및 특급호텔(그랜드 워커힐, 더 플라자 등) 무료 발레파킹(공항·호텔 통합 월 5회).",
+    "conditions": "전월 이용 금액 50만원 이상 시 제공(신규 발급 시 등록월 다음 달까지 실적 무관). 본인 회원에 한해 제공되며, 발레파킹 주차 비용은 별도 정산."
+  },
+  "chunk5": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "금융 서비스",
+    "content": "M 긴급적립(선지급 포인트 서비스): 최대 50만 M포인트를 미리 적립받아 사용하고, 이후 최대 24개월 동안 카드 이용에 따른 M포인트 적립으로 상환하는 서비스입니다.",
+    "conditions": "상환되지 못한 긴급적립 M포인트 잔액은 1 M포인트=1원으로 환산되어 별도 현금 청구됨. 현대카드 앱을 통해 신청."
+  },
+  "chunk6": {
+    "card_name": "현대카드 Summit",
+    "card_company": "현대카드",
+    "annual_fee": 200000,
+    "min_performance": 500000,
+    "major_categories": "General, EduHealth, Travel, Cultural, Shopping, Life",
+    "benefits_summary": "교육, 병원, 여행, 골프 5% 적립, 전 가맹점 1.5% 적립, 연간 15만원 바우처 및 공항 라운지/발레파킹 무료 제공, 최대 50만 M포인트 긴급적립 가능.",
+    "category": "카드 플레이트",
+    "content": "본인 회원 신청 시 프리미엄 메탈 플레이트를 제공합니다.",
+    "conditions": "발급 수수료 10만원 별도 부과(또는 10만 M포인트로 결제 가능). 일부 ATM 기기 이용 불가하며, 수작업 제작으로 발급에 약 1주 소요."
+  }
+}

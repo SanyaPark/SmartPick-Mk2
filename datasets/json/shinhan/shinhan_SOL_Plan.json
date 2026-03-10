@@ -1,0 +1,57 @@
+{
+  "chunk1": {
+    "card_name": "신한카드 SOL Plan",
+    "card_company": "신한카드",
+    "annual_fee": 33000,
+    "min_performance": 400000,
+    "major_categories": "General, Traffic, Shopping, Food, Cultural, Life, Travel",
+    "benefits_summary": "국내외 최대 1.5% 적립, 주유/쇼핑/배달 최대 5% 적립을 제공하며 계좌 잔액 실적에 따라 OTT/멤버십 추가 적립 및 포인트 박스 10% 추가 입금 혜택을 제공",
+    "category": "국내외 적립",
+    "content": "국내 및 해외 이용금액 SOL포인트 적립. 전월 실적 40만원 이상 100만원 미만 시 1.0%, 100만원 이상 시 1.5% 적립.",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. 기본 적립과 특별 적립 통합 월 5만 포인트 한도 내 적립. 해외 이용금액은 최종 원화 청구금액 기준 적립(해외 현금인출 제외). 세금(지방세/국세), 4대보험, 아파트관리비, 도시가스/전기/수도요금, 상품권/선불카드, 무이자할부, 학교 납입금 등은 적립 제외."
+  },
+  "chunk2": {
+    "card_name": "신한카드 SOL Plan",
+    "card_company": "신한카드",
+    "annual_fee": 33000,
+    "min_performance": 400000,
+    "major_categories": "General, Traffic, Shopping, Food, Cultural, Life, Travel",
+    "benefits_summary": "국내외 최대 1.5% 적립, 주유/쇼핑/배달 최대 5% 적립을 제공하며 계좌 잔액 실적에 따라 OTT/멤버십 추가 적립 및 포인트 박스 10% 추가 입금 혜택을 제공",
+    "category": "주유/쇼핑/배달",
+    "content": "특별 적립 서비스 제공. 전월 실적 40만원 이상 100만원 미만 시 2.5%, 100만원 이상 시 5% 적립.\n1. 주유: SK에너지, GS칼텍스.\n2. 온라인쇼핑: 쿠팡, SSG.COM, 무신사, 29CM.\n3. 배달: 땡겨요, 배달의민족, 요기요, 쿠팡이츠.",
+    "conditions": "전월 이용금액 40만원 이상 시 제공. 기본 적립과 특별 적립 통합 월 5만 포인트 한도 내 적립. 각 영역별 이용금액 기준 월 30만원까지 서비스 적용. 주유는 LPG 제외. 온라인쇼핑은 공식 홈페이지/앱 이용 시 적립(유료 멤버십, 구독료, 항공권 등 제외). 배달은 앱 내 카드결제 시 적립(현장결제 제외)."
+  },
+  "chunk3": {
+    "card_name": "신한카드 SOL Plan",
+    "card_company": "신한카드",
+    "annual_fee": 33000,
+    "min_performance": 400000,
+    "major_categories": "General, Traffic, Shopping, Food, Cultural, Life, Travel",
+    "benefits_summary": "국내외 최대 1.5% 적립, 주유/쇼핑/배달 최대 5% 적립을 제공하며 계좌 잔액 실적에 따라 OTT/멤버십 추가 적립 및 포인트 박스 10% 추가 입금 혜택을 제공",
+    "category": "구독/멤버십",
+    "content": "담을수록 SOLSOL 서비스: OTT(넷플릭스, 유튜브 프리미엄, 티빙, 디즈니플러스) 및 멤버십(네이버플러스 멤버십, 쿠팡 와우 멤버십) 이용금액의 100% SOL포인트 적립.",
+    "conditions": "전월 카드 이용금액 100만원 이상 AND 결제계좌(신한은행) 일 잔액 100만원 이상 일수가 15일 이상인 경우 제공. 잔액 100만원 이상 시 5천 포인트, 200만원 이상 시 1만 5천 포인트 한도 적용. 공식 홈페이지 정기결제 건에 한함(인앱결제/통신요금 합산 제외). 유튜브 프리미엄은 PC 정기결제만 적용."
+  },
+  "chunk4": {
+    "card_name": "신한카드 SOL Plan",
+    "card_company": "신한카드",
+    "annual_fee": 33000,
+    "min_performance": 400000,
+    "major_categories": "General, Traffic, Shopping, Food, Cultural, Life, Travel",
+    "benefits_summary": "국내외 최대 1.5% 적립, 주유/쇼핑/배달 최대 5% 적립을 제공하며 계좌 잔액 실적에 따라 OTT/멤버십 추가 적립 및 포인트 박스 10% 추가 입금 혜택을 제공",
+    "category": "금융 서비스",
+    "content": "모을수록 SOLSOL 서비스: 적립된 SOL포인트를 'SOL Plan 포인트박스'로 모으면 10% 추가 입금.",
+    "conditions": "유효한 'SOL Plan 포인트박스' 보유 시 제공. 당월 적립된 포인트가 익월 20일경 입금될 때 10% 추가되어 입금됨. 포인트박스 미보유 시 마이신한포인트로 자동 전환(추가 입금 없음)."
+  },
+  "chunk5": {
+    "card_name": "신한카드 SOL Plan",
+    "card_company": "신한카드",
+    "annual_fee": 33000,
+    "min_performance": 400000,
+    "major_categories": "General, Traffic, Shopping, Food, Cultural, Life, Travel",
+    "benefits_summary": "국내외 최대 1.5% 적립, 주유/쇼핑/배달 최대 5% 적립을 제공하며 계좌 잔액 실적에 따라 OTT/멤버십 추가 적립 및 포인트 박스 10% 추가 입금 혜택을 제공",
+    "category": "프리미엄 서비스",
+    "content": "국제브랜드사(Mastercard) 플래티늄 서비스 제공.",
+    "conditions": "해외겸용(Mastercard) 카드 발급 시 제공. 세부 내용은 브랜드사 서비스 안내장 참조."
+  }
+}

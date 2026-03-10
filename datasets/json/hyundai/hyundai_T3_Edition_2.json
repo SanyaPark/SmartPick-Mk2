@@ -1,0 +1,68 @@
+{
+  "chunk1": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "항공 마일리지 적립",
+    "content": "대한항공: 당월 이용금액 200만원 미만 시 1,500원당 0.8 마일리지, 200만원 이상 시 1.0 마일리지 적립.\n아시아나항공: 당월 이용금액 200만원 미만 시 1,000원당 0.8 마일리지, 200만원 이상 시 1.0 마일리지 적립.\n연간 보너스: 연간 이용금액 2,400만원 이상 시, 연간 누적 마일리지의 10%를 보너스 마일리지로 제공.",
+    "conditions": "당월 이용금액 50만원 미만 시 적립 제외.\n적립 제외 대상: 장기/단기카드대출, 연회비, 제수수료, 이자, 세금(지방세/국세), 도시가스요금, 대학(원) 등록금, 자동납부수수료, 할인서비스 및 무이자할부 이용금액 등."
+  },
+  "chunk2": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "여행/라운지",
+    "content": "Priority Pass 카드 제공: 세계 700여 개 공항 라운지 무료 이용 가능. 연 5회 무료 입장 혜택 제공.",
+    "conditions": "국내전용카드 제외. 본인 회원 한정(가족 불가).\n초년도: 라운지 이용 2일 전까지 누적 이용금액 100만원 이상 시 무료.\n2차년도 이후: 전년도 이용금액 1,200만원 이상 시 자동 갱신 및 혜택 제공."
+  },
+  "chunk3": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "여행/공항 서비스",
+    "content": "모바일 해외데이터 로밍 1일 이용권 제공 (SKT/kt/LG U+ 중 택 1).\n인천국제공항 교통할인권 제공 (고속도로 무료통행권, 공항철도 직통열차 8,000원 할인, 리무진버스 1만원 할인 중 택 1).",
+    "conditions": "전월 이용금액 50만원 이상 시 제공.\n각 서비스별 본인+가족 합산 월 1회, 연 2회 한도.\n인천국제공항 내 현대카드 지정 장소에서 당일 출발 항공권과 카드 제시 후 수령."
+  },
+  "chunk4": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "주차/교통",
+    "content": "서울 및 대도시 제휴 주차장 주말 무료 주차 서비스 제공.",
+    "conditions": "전월 이용금액 50만원 이상 시 제공.\n본인+가족 합산 일 1회, 연 20회 한도.\n제휴 주차장은 현대카드 홈페이지/앱 참조."
+  },
+  "chunk5": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "쇼핑/카페/문화/보험",
+    "content": "쇼핑: 롯데/신세계 프리미엄 아웃렛, 유니클로/ZARA/H&M 10% 할인.\n커피: 스타벅스, 커피빈, 투썸플레이스, 엔제리너스, 탐앤탐스 건당 500원 할인.\n문화: CGV, 메가박스 3,000원(1만원 이하 결제) 또는 6,000원(1만원 초과 결제) 할인.\n보험: 푸본현대생명 ZERO 보험 상품 5% 할인.",
+    "conditions": "전월 이용금액 50만원 이상 시 제공.\n쇼핑: 월 1회/연 2회, 건당 1만원 한도.\n커피: 일 1회/연 30회.\n문화: 월 1회/연 6회.\n보험: 월 1건/연 3만원 한도."
+  },
+  "chunk6": {
+    "card_name": "현대카드 T3 Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 70000,
+    "min_performance": 500000,
+    "major_categories": "Travel, Traffic, Shopping, Life, Coffee, Cultural",
+    "benefits_summary": "대한항공/아시아나항공 마일리지 적립(최대 1.0) 및 연간 보너스 마일리지 제공. 전 세계 공항 라운지 무료 이용(PP카드), 인천공항 교통/로밍 혜택, 주말 무료 주차 및 다양한 생활 할인 서비스 제공.",
+    "category": "여행/항공/문화",
+    "content": "PRIVIA 여행: 항공권 7~10% 청구 할인, 여행 상품 3~7% 할인, 3개월 무이자할부.\n클럽서비스: 현대카드 Storage 전시 무료, 프리미엄 레스토랑(파인다이닝) 및 패션 편집샵 10% 할인, 특1급 호텔 객실/F&B 우대.",
+    "conditions": "PRIVIA 항공권 할인: 전월 실적 50만원 이상 시 제공, 연간 1,000만원 이용금액 한도 내 적용. 발권대행료 및 TAX/유류할증료 할인 제외."
+  }
+}

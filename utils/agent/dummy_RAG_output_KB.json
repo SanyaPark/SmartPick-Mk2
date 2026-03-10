@@ -1,0 +1,70 @@
+{
+    "chunk1": {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "card_company": "KB국민카드",
+        "annual_fee": 10000,
+        "min_performance": 300000,
+        "major_categories": [
+            "Coffee",
+            "Food",
+            "Shopping",
+            "Traffic",
+            "Life"
+        ],
+        "benefits_summary": "스타벅스 50%, 패스트푸드 20%, 간편결제 10%, 대중교통/통신 10% 할인 및 간편결제 중복 할인 혜택 제공",
+        "category": "카페",
+        "content": "스타벅스 50% 청구할인을 제공합니다. 간편결제(Pay) 할인 서비스와 중복 적용이 가능하여, 스타벅스에서 간편결제 이용 시 최대 60% 혜택을 받을 수 있습니다.",
+        "conditions": "전월 이용실적 30만원 이상 시 제공되며, 월 할인 한도는 1만원입니다. 단, 상품권 구매 및 건물 내 임대매장 이용금액은 할인 대상에서 제외됩니다."
+    },
+    "chunk2": {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "card_company": "KB국민카드",
+        "annual_fee": 10000,
+        "min_performance": 300000,
+        "major_categories": [
+            "Coffee",
+            "Food",
+            "Shopping",
+            "Traffic",
+            "Life"
+        ],
+        "benefits_summary": "스타벅스 50%, 패스트푸드 20%, 간편결제 10%, 대중교통/통신 10% 할인 및 간편결제 중복 할인 혜택 제공",
+        "category": "외식",
+        "content": "버거 및 패스트푸드 업종(맥도날드, 버거킹, 롯데리아, 쉐이크쉑 등) 이용 시 20% 청구할인을 제공합니다.",
+        "conditions": "전월 이용실적 30만원 이상 시 제공되며, 월 할인 한도는 5천원입니다. 상품권 구매 및 건물 내 임대매장 이용금액은 서비스 제외 대상입니다."
+    },
+    "chunk3": {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "card_company": "KB국민카드",
+        "annual_fee": 10000,
+        "min_performance": 300000,
+        "major_categories": [
+            "Coffee",
+            "Food",
+            "Shopping",
+            "Traffic",
+            "Life"
+        ],
+        "benefits_summary": "스타벅스 50%, 패스트푸드 20%, 간편결제 10%, 대중교통/통신 10% 할인 및 간편결제 중복 할인 혜택 제공",
+        "category": "쇼핑/간편결제",
+        "content": "온/오프라인에서 이용되는 모든 간편결제(삼성페이, 네이버페이, 카카오페이, KB국민 앱카드 등) 이용 시 10% 청구할인을 제공합니다. 이 혜택은 타 서비스(스타벅스, 외식 등)와 중복 적용이 가능하며, 중복 시 각각의 할인 한도가 차감됩니다.",
+        "conditions": "전월 이용실적 30만원 이상 시 제공되며, 월 할인 한도는 5천원입니다. ISP, MISP 이용금액은 제외됩니다."
+    },
+    "chunk4": {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "card_company": "KB국민카드",
+        "annual_fee": 10000,
+        "min_performance": 300000,
+        "major_categories": [
+            "Coffee",
+            "Food",
+            "Shopping",
+            "Traffic",
+            "Life"
+        ],
+        "benefits_summary": "스타벅스 50%, 패스트푸드 20%, 간편결제 10%, 대중교통/통신 10% 할인 및 간편결제 중복 할인 혜택 제공",
+        "category": "대중교통/통신",
+        "content": "대중교통(버스, 지하철), 택시 이용금액 및 이동통신요금(SKT, KT, LG U+) 자동납부 시 10% 청구할인을 제공합니다.",
+        "conditions": "전월 이용실적 30만원 이상 시 제공되며, 월 할인 한도는 5천원입니다. 시외버스, 고속버스, 모바일 티머니, 인터넷/IPTV 결합상품 및 알뜰폰은 할인에서 제외됩니다. 버스/지하철 요금은 실제 사용일이 아닌 명세서상 기재된 이용일 기준으로 서비스가 제공됩니다."
+    }
+}

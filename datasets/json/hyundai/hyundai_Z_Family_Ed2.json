@@ -1,0 +1,46 @@
+{
+  "chunk1": {
+    "card_name": "현대카드Z family Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 20000,
+    "min_performance": 500000,
+    "major_categories": "Shopping, EduHealth, Traffic, Life",
+    "benefits_summary": "온라인 쇼핑, 학원, 병원/약국, 주유, 생활요금(통신/관리비/가스) 5대 생활 밀착 영역에서 10% 청구 할인 혜택 제공.",
+    "category": "쇼핑",
+    "content": "네이버쇼핑, 쿠팡, G마켓, 옥션, 11번가, SSG.COM, 컬리 이용 시 10% 청구 할인.",
+    "conditions": "전월 이용금액 50만원 이상 시 월 6천원, 100만원 이상 시 월 1만원 할인 한도 제공. 대상 온라인 쇼핑몰 통합 1일 1회 할인 적용(본인+가족 합산). 네이버쇼핑은 네이버 도메인 가맹점 한정, 쿠팡이츠 제외. 공식 홈페이지 및 앱 내 결제 건에 한해 적용."
+  },
+  "chunk2": {
+    "card_name": "현대카드Z family Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 20000,
+    "min_performance": 500000,
+    "major_categories": "Shopping, EduHealth, Traffic, Life",
+    "benefits_summary": "온라인 쇼핑, 학원, 병원/약국, 주유, 생활요금(통신/관리비/가스) 5대 생활 밀착 영역에서 10% 청구 할인 혜택 제공.",
+    "category": "교육/의료",
+    "content": "학원(입시, 예체능, 자동차학원 등) 및 병원·약국(종합병원, 한의원, 약국 등) 업종 이용 시 10% 청구 할인.",
+    "conditions": "각 영역별(학원/병원·약국) 전월 이용금액 50만원 이상 시 월 6천원, 100만원 이상 시 월 1만원 할인 한도 제공. 각 영역별 통합 1일 1회 할인 적용. 동물병원, 의료기기, 요양병원 제외."
+  },
+  "chunk3": {
+    "card_name": "현대카드Z family Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 20000,
+    "min_performance": 500000,
+    "major_categories": "Shopping, EduHealth, Traffic, Life",
+    "benefits_summary": "온라인 쇼핑, 학원, 병원/약국, 주유, 생활요금(통신/관리비/가스) 5대 생활 밀착 영역에서 10% 청구 할인 혜택 제공.",
+    "category": "주유",
+    "content": "GS칼텍스, SK에너지, HD현대오일뱅크, S-OIL 이용 시 10% 청구 할인.",
+    "conditions": "전월 이용금액 50만원 이상 시 월 6천원, 100만원 이상 시 월 1만원 할인 한도 제공. 대상 주유소 통합 1일 1회 할인 적용(본인+가족 합산)."
+  },
+  "chunk4": {
+    "card_name": "현대카드Z family Edition2",
+    "card_company": "현대카드",
+    "annual_fee": 20000,
+    "min_performance": 500000,
+    "major_categories": "Shopping, EduHealth, Traffic, Life",
+    "benefits_summary": "온라인 쇼핑, 학원, 병원/약국, 주유, 생활요금(통신/관리비/가스) 5대 생활 밀착 영역에서 10% 청구 할인 혜택 제공.",
+    "category": "공과금/통신",
+    "content": "이동통신요금(SKT, KT, LG U+), 아파트 관리비, 도시가스 요금 정기결제 시 10% 청구 할인.",
+    "conditions": "전월 이용금액 50만원 이상 시 월 6천원, 100만원 이상 시 월 1만원 할인 한도 제공. 정기결제 건에 한해 통합 할인 적용. 알뜰폰/선불폰/결합상품 제외. 관리사무소 일괄 납부 도시가스 요금 및 납부대행사 미계약 아파트 제외."
+  }
+}

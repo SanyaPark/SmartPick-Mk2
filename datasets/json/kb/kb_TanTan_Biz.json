@@ -1,0 +1,46 @@
+{
+  "chunk1": {
+    "card_name": "KB국민 탄탄대로 Biz카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Traffic, Shopping, Life, Others",
+    "benefits_summary": "주유, 대형마트, 인터넷쇼핑 적립을 선택 제공하며 가맹점 운영지원(렌탈/보안/용품), 4대보험/공과금, 온라인몰 5% 적립 및 세무지원을 제공하는 사업자 특화 카드",
+    "category": "선택형 서비스(주유/쇼핑)",
+    "content": "다음 4가지 옵션 중 택 1하여 적립 제공 (Biz Favorite):\n1. 주유(SK, GS칼텍스) 리터당 100점 + 대형마트/식자재/인터넷쇼핑 10% 적립\n2. 주유(SK, GS칼텍스) 리터당 130점 적립\n3. 대형마트/식자재(이마트, 롯데마트, 홈플러스, 하나로식자재매장) 20% 적립\n4. 인터넷쇼핑몰(G마켓, 옥션, 11번가, 인터파크, 롯데닷컴, 신세계몰) 20% 적립",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. [적립한도] 1구간(40만원 이상) 1만~1.5만점/월 20만원 주유금액, 2구간(80만원 이상) 1.5만~3만점/월 30만원 주유금액(선택 옵션별 상이). Biz Favorite 서비스 받은 이용건 전체는 전월 실적 산정에서 제외."
+  },
+  "chunk2": {
+    "card_name": "KB국민 탄탄대로 Biz카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Traffic, Shopping, Life, Others",
+    "benefits_summary": "주유, 대형마트, 인터넷쇼핑 적립을 선택 제공하며 가맹점 운영지원(렌탈/보안/용품), 4대보험/공과금, 온라인몰 5% 적립 및 세무지원을 제공하는 사업자 특화 카드",
+    "category": "가맹점 운영/공과금",
+    "content": "Biz Basic 서비스(5% 적립):\n1. 가맹점 운영지원: 정수기 렌탈(코웨이, 청호나이스, 쿠쿠, 교원, SK매직), 보안 및 용역(세콤, 캡스, 텔레캅), 문구 및 사무용기기(알파, 오피스디포 등)\n2. 4대 사회보험/통신/전기·수도: 건강/고용/산재/국민연금, 통신요금, 전기수도요금",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 각 영역별(운영지원/공과금) 월 5천점 적립 한도. 건당 1만원 이상 이용 시 적립. 각종 세금 및 공과금은 전월 실적 산정에서 제외되나 해당 혜택 적립은 제공됨."
+  },
+  "chunk3": {
+    "card_name": "KB국민 탄탄대로 Biz카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Traffic, Shopping, Life, Others",
+    "benefits_summary": "주유, 대형마트, 인터넷쇼핑 적립을 선택 제공하며 가맹점 운영지원(렌탈/보안/용품), 4대보험/공과금, 온라인몰 5% 적립 및 세무지원을 제공하는 사업자 특화 카드",
+    "category": "쇼핑(B2B)",
+    "content": "온라인몰(SK행복스토어, 플러스 O2O) 5% 적립",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 월 5천점 적립 한도. 건당 1만원 이상 이용 시 적립."
+  },
+  "chunk4": {
+    "card_name": "KB국민 탄탄대로 Biz카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Traffic, Shopping, Life, Others",
+    "benefits_summary": "주유, 대형마트, 인터넷쇼핑 적립을 선택 제공하며 가맹점 운영지원(렌탈/보안/용품), 4대보험/공과금, 온라인몰 5% 적립 및 세무지원을 제공하는 사업자 특화 카드",
+    "category": "비즈니스 지원",
+    "content": "마이비즈 사업지원: 전자세금계산서 무료발행, 부가세 환급지원 등",
+    "conditions": "KB국민 탄탄대로 Biz카드 회원 대상 제공."
+  }
+}

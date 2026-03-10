@@ -1,0 +1,79 @@
+{
+  "chunk1": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "주유",
+    "content": "주유소, 충전소 업종 이용 시 리터당 60원 청구할인 (1일 이용금액 한도 10만원)",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월 할인 대상 이용금액 한도: 1구간(30만원 이상) 20만원, 2구간(60만원 이상) 40만원, 3구간(120만원 이상) 40만원. 기준유가는 GS칼텍스 본사 고시 휘발유가 적용(경유, 등유, LPG는 비례 적용)."
+  },
+  "chunk2": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "쇼핑(마트)",
+    "content": "대형마트(이마트, 롯데마트, 홈플러스) 이용 시 10% 청구할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월 할인 대상 이용금액 한도: 1구간(30만원 이상) 3만원, 2구간(60만원 이상) 5만원, 3구간(120만원 이상) 10만원. 온라인 쇼핑몰, 상품권 구매, 건물 내 임대매장 및 SSM(이마트 에브리데이, 홈플러스 익스프레스, 롯데슈퍼) 제외."
+  },
+  "chunk3": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "통신",
+    "content": "통신 업종(전화요금, 인터넷이용료, 케이블TV) 10% 청구할인 (휴대폰, 유선전화, 국제전화, 인터넷전화, IPTV)",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월 할인 대상 이용금액 한도: 3만원 (최대 3천원 할인)."
+  },
+  "chunk4": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "대중교통",
+    "content": "대중교통(버스, 지하철, 택시) 10% 청구할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월 할인 대상 이용금액 한도: 5만원 (최대 5천원 할인). 시외버스, 고속버스 제외."
+  },
+  "chunk5": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "해외 이용",
+    "content": "해외 이용(해외직구 포함) 5% 할인 캐시백",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 월 할인 대상 이용금액 한도: 20만원 (최대 1만원 캐시백). 다음달 둘째 주 결제계좌로 입금."
+  },
+  "chunk6": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "식음료/쇼핑/의료",
+    "content": "음식점(일반/휴게/패밀리레스토랑/일반주점), 커피전문점, 편의점, 약국 10% 청구할인",
+    "conditions": "전월 이용실적 60만원 이상(2구간) 시 제공. 월 할인 대상 이용금액 한도: 5만원 (최대 5천원 할인). 제과/아이스크림, 패스트푸드, 유흥주점 제외."
+  },
+  "chunk7": {
+    "card_name": "KB국민 굿데이올림카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 300000,
+    "major_categories": "Traffic, Shopping, Life, Travel, Food, Coffee, EduHealth, Cultural",
+    "benefits_summary": "주유, 대형마트, 통신, 대중교통, 해외 이용 할인을 기본 제공하며, 실적에 따라 음식점, 커피, 편의점, 약국, 학원, 피트니스 업종 추가 할인을 제공하는 카드",
+    "category": "교육/문화",
+    "content": "학원(문리/외국어/예체능/기술/자동차학원 및 독서실), 피트니스(종합스포츠센터) 10% 청구할인",
+    "conditions": "전월 이용실적 120만원 이상(3구간) 시 제공. 월 할인 대상 이용금액 한도: 30만원 (최대 3만원 할인). PG(결제대행) 이용금액, 유아교육기관, 학습자재, 레포츠클럽/수영장/골프/요가 등 제외."
+  }
+}

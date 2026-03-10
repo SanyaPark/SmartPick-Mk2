@@ -1,0 +1,112 @@
+{
+  "chunk1": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "공과금/보험",
+    "content": "국세/지방세 7천원 환급할인, 보험료 2천원 환급할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. [국세/지방세] 건당 이용금액 10만원 이상 시 월 1회. [보험료] 건당 이용금액 10만원 이상 시 월 1회. 월간 통합할인한도 내에서 적용됨. 국세/지방세 및 보험료는 신용카드 소득공제 비대상 항목임."
+  },
+  "chunk2": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "통신",
+    "content": "이동통신요금 자동이체 시 1천원 환급할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 건당 이용금액 5만원 이상 시 월 1회 할인. 해당 카드로 자동이체 등록 시 제공되며 유무선 통합 청구금액은 제외. 월간 통합할인한도 내에서 적용됨."
+  },
+  "chunk3": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "대중교통",
+    "content": "버스/지하철 5% 청구할인, 고속/시외버스 5% 환급할인",
+    "conditions": "전월 이용실적 30만원 이상 시 제공. 버스/지하철은 월 이용금액 2만원까지 할인 적용. 월간 통합할인한도 내에서 적용됨."
+  },
+  "chunk4": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "주유/차량정비",
+    "content": "GS칼텍스 리터당 주중 50원/주말 60원 환급할인, 스피드메이트 엔진오일 교환 2만원 현장할인 및 정비공임 10% 현장 할인(무료 안전점검 서비스 포함)",
+    "conditions": "[주유] 전월 이용실적 20만원 이상 시 제공. 건당 10만원/월 30만원 이용금액까지 할인. LPG 제외. [정비] 전월 이용실적 30만원 이상 시 연 1회 제공(수입차 및 1.4톤 이상 제외). 정비 할인은 월간 통합할인한도 예외 적용."
+  },
+  "chunk5": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "테마파크",
+    "content": "에버랜드 50% 환급할인",
+    "conditions": "전월 이용실적 20만원 이상 시 제공. 건당 이용금액 3만원~5만원까지 할인. 현장티켓 발매 시에만 적용. 월간 통합할인한도 내에서 적용됨."
+  },
+  "chunk6": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "외식",
+    "content": "아웃백 10% 환급할인",
+    "conditions": "전월 이용실적 20만원 이상 시 제공. 건당 이용금액 3만원~10만원까지 할인. 백화점 및 대형할인점 입점 점포 제외. 월간 통합할인한도 내에서 적용됨."
+  },
+  "chunk7": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "쇼핑(백화점)",
+    "content": "롯데백화점, 신세계백화점, 현대백화점 5% 환급할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 건당 이용금액 5만원~10만원까지 할인. 월간 통합할인한도 내에서 적용됨."
+  },
+  "chunk8": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "포인트 적립(식음료)",
+    "content": "해피포인트 가맹점 1,000원 이상 이용 시 5% 현장적립",
+    "conditions": "해피포인트 가맹점(SPC 계열 등) 이용 시 적립. 통신사 카드 할인 또는 사이즈 업그레이드 서비스 적용 시 미적립될 수 있음."
+  },
+  "chunk9": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "렌터카",
+    "content": "SK렌터카 할인 (연 2회)",
+    "conditions": "월간 통합할인한도 예외 적용 서비스. 세부 내용은 SK렌터카 고객센터 참조."
+  },
+  "chunk10": {
+    "card_name": "KB국민 직장인보너스 체크카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 0,
+    "min_performance": 200000,
+    "major_categories": "Life, Traffic, Cultural, Food, Shopping",
+    "benefits_summary": "국세/지방세, 보험료, 통신요금 등 생활 밀착형 공제 혜택과 주유, 백화점, 외식, 놀이공원 할인을 제공하는 직장인 특화 체크카드",
+    "category": "금융 서비스",
+    "content": "소액신용결제서비스 (최고 30만원 이내 소액신용한도 부여)",
+    "conditions": "계좌 잔액 부족 시 또는 은행 전산장애로 체크카드 사용 불가 시 신용카드로 거래 처리됨. 할부 및 포인트리 복합결제 불가."
+  }
+}

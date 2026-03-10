@@ -1,0 +1,68 @@
+{
+  "chunk1": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "간편결제(쇼핑)",
+    "content": "KB Pay 이용 시 10% 할인",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 월 할인한도 5천원. 건당 할인 한도 2,500원. 할인 받은 이용 건은 전월 실적 산정에서 제외됨."
+  },
+  "chunk2": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "쇼핑/식음료",
+    "content": "음식점, 편의점(CU, GS25) 이용 시 10% 할인",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 월 할인한도 5천원. 할인 받은 이용 건은 전월 실적 산정에서 제외됨."
+  },
+  "chunk3": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "통신",
+    "content": "이동통신요금(SKT, KT, LG U+, Liiv M) 자동이체 시 10% 할인",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 월 할인한도 5천원. 할인 받은 이용 건은 전월 실적 산정에서 제외됨."
+  },
+  "chunk4": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "디지털 콘텐츠",
+    "content": "OTT(넷플릭스, 유튜브, 웨이브, 티빙, 디즈니) 이용 시 30% 할인",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. 월 할인한도 5천원. 할인 받은 이용 건은 전월 실적 산정에서 제외됨."
+  },
+  "chunk5": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "선택형 서비스(식음료/문화/생활)",
+    "content": "다음 3가지 서비스 팩 중 택 1하여 혜택 제공 (더욱 진심 서비스):\n1. 먹는데 진심: 배달앱(배달의민족, 요기요, 마켓컬리), 커피 업종 5% 할인\n2. 노는데 진심: 택시, 커피 업종 5% 할인 및 영화관(CGV, 롯데시네마, 메가박스) 30% 할인\n3. 관리에 진심: 미용실, 스포츠, 올리브영, 온라인서점(교보문고, YES24) 5% 할인",
+    "conditions": "전월 이용실적 40만원 이상 시 제공. [할인 한도] '먹는데 진심' 및 '노는데 진심'의 배달/커피/택시 영역은 월 5천원, 영화는 연 4회(연 2만원) 한도. '관리에 진심'은 월 1만원 한도. 할인 받은 이용 건은 전월 실적 산정에서 제외됨."
+  },
+  "chunk6": {
+    "card_name": "KB국민 My WE:SH 카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 400000,
+    "major_categories": "Shopping, Food, Life, Cultural, Traffic, Coffee",
+    "benefits_summary": "KB Pay, 음식점, 편의점, 통신비 10% 할인 및 OTT 30% 할인을 제공하며, 식음료/놀이/관리 중 하나를 선택하는 맞춤형 혜택과 생일 월 한도 2배 등의 특화 서비스를 제공합니다.",
+    "category": "특화 서비스(한도상향/실적유예)",
+    "content": "1. Happy Birth Month: 회원의 생일이 속한 월에는 '더욱 진심 서비스'(선택형 서비스)의 월 할인 한도를 2배로 제공 (연 1회)\n2. 전월실적 채워드림: 전월 실적이 40만원 미만인 경우, 부족 금액이 5만원 이내이면 할인 서비스를 제공받을 수 있도록 실적 인정 (연 2회)",
+    "conditions": "전월실적 채워드림 서비스는 연 2회 제공."
+  }
+}

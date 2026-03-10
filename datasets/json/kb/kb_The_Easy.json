@@ -1,0 +1,68 @@
+{
+  "chunk1": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "General",
+    "content": "국내외 전 가맹점 0.7% 적립(적립형 선택 시) 또는 할인(할인형 선택 시)",
+    "conditions": "전월 실적 조건 및 적립/할인 한도 없음. 무이자할부, 상품권, 공과금, 등록금 등은 제외."
+  },
+  "chunk2": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "쇼핑(마트/편의점)",
+    "content": "7대 영역(The Easy 서비스) 중 쇼핑 업종 혜택:\n1. 대형마트: 이마트, 롯데마트, 홈플러스\n2. 편의점\n[적립형] 월간 이용횟수가 가장 높은 상위 2개 영역에 포함될 경우 총 이용금액의 3% 추가 적립\n[할인형] 건당 이용금액이 가장 높은 상위 2건에 포함될 경우 5% 추가 할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 월 한도(7대 영역 통합): 1만점(50만원 이상), 2만점(100만원 이상). [제외] 온라인쇼핑몰, 상품권, 건물 내 입점매장, SSM(롯데슈퍼, 이마트에브리데이, 홈플러스 익스프레스) 등."
+  },
+  "chunk3": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "Traffic",
+    "content": "7대 영역(The Easy 서비스) 중 주유 업종 혜택:\n1. 주유소 및 충전소(LPG) 업종\n[적립형] 월간 이용횟수가 가장 높은 상위 2개 영역에 포함될 경우 총 이용금액의 3% 추가 적립\n[할인형] 건당 이용금액이 가장 높은 상위 2건에 포함될 경우 5% 추가 할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 월 한도(7대 영역 통합): 1만점(50만원 이상), 2만점(100만원 이상)."
+  },
+  "chunk4": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "Coffee",
+    "content": "7대 영역(The Easy 서비스) 중 커피 업종 혜택:\n1. 커피 전문점 업종\n[적립형] 월간 이용횟수가 가장 높은 상위 2개 영역에 포함될 경우 총 이용금액의 3% 추가 적립\n[할인형] 건당 이용금액이 가장 높은 상위 2건에 포함될 경우 5% 추가 할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 월 한도(7대 영역 통합): 1만점(50만원 이상), 2만점(100만원 이상). [제외] 상품권 구입 및 선불식 충전카드 이용금액."
+  },
+  "chunk5": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "교육/미용",
+    "content": "7대 영역(The Easy 서비스) 중 학원 및 미용 업종 혜택:\n1. 학원: 기술/사무/가정계/문리계/외국어/예체능계/자동차/독서실/기타학원 업종\n2. 미용: 미용원, 이용원 업종\n[적립형] 월간 이용횟수가 상위 2개 영역일 시 3% 추가 적립\n[할인형] 건당 이용금액이 상위 2건일 시 5% 추가 할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 월 한도(7대 영역 통합): 1만점(50만원 이상), 2만점(100만원 이상). [제외] PG(인터넷결제), 유아교육기관, 학습자재, 대형마트/백화점 입점 매장 등."
+  },
+  "chunk6": {
+    "card_name": "KB국민 The Easy카드",
+    "card_company": "KB국민카드",
+    "annual_fee": 15000,
+    "min_performance": 500000,
+    "major_categories": "General, Shopping, Traffic, Coffee, Life, EduHealth, Others",
+    "benefits_summary": "국내외 전 가맹점 0.7% 기본 혜택과 7대 영역(마트, 편의점, 커피, 주유, 학원, 미용, 생활) 중 이용 패턴에 따라 상위 영역/건에 대해 3% 적립 또는 5% 할인을 제공",
+    "category": "Life",
+    "content": "7대 영역(The Easy 서비스) 중 생활 업종 혜택:\n1. 통신요금: 3대 통신사(SKT, KT Olleh, LG U+) 자동납부 이용금액(이동통신, 유선전화, 인터넷결합상품)\n2. 아파트관리비: KB국민카드를 통해 자동납부 등록한 건\n[적립형] 월간 이용횟수 상위 2개 영역 시 3% 추가 적립\n[할인형] 건당 이용금액 상위 2건 시 5% 추가 할인",
+    "conditions": "전월 이용실적 50만원 이상 시 제공. 월 한도(7대 영역 통합): 1만점(50만원 이상), 2만점(100만원 이상). [제외] 알뜰폰, 아파트관리비 이용금액은 전월 실적 산정에서 제외됨."
+  }
+}
