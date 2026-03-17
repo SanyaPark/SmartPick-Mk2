@@ -20,6 +20,7 @@ from langchain_core.runnables import RunnableConfig
 from langchain.tools import tool
 
 from apps.backend.tools.rag_search import card_rag_search
+from apps.backend.agent.prompts import ANALYZE_PROMPT, BENEFIT_PROMPT, QA_PROMPT
 
 # ===========================< Setting >============================
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
@@ -157,47 +158,7 @@ def analyze_input_node(state: AgentState):
     # 전체 대화 히스토리를 LLM에게 전달하여 '맥락'을 이해시킴
     conversation_history = state["messages"]
 
-    system_prompt = """
-    당신은 신용카드 추천 서비스의 엄격한 '입력 검증자'입니다.
-    당신의 목표는 사용자와의 **전체 대화 내역**을 분석하여 검색 조건('지출', '카테고리')과 '검색 쿼리'를 추출하는 것입니다..
-    
-    [카테고리 매핑 상세 가이드라인] 
-
-    'General (무조건/범용)': '"어디서나 혜택", "전 가맹점 할인", "아무데서나 적립", "실적 상관없이" 관련 언급 시 매핑.',
-    'Shopping (쇼핑/결제)': '마트, 편의점(CU/GS25 등), 온라인/오프라인 쇼핑, 간편결제(온라인페이), 올리브영, 무신사, 네이버페이, 쿠팡, 옷 쇼핑 등.',
-    'Traffic (교통/차량)': '주유소, 버스, 지하철, 택시, 자동차 보험, 모빌리티 서비스.',
-    'Food (외식/배달)': '식비, 맛집, 배달 앱(배달의민족, 요기요 등), 저녁 외식 등.',
-    'Coffee (카페/디저트)': '스타벅스, 투썸, 빵집, 디저트 가게.',
-    'Cultural (문화/디지털)': '문화, 레저, 스포츠(헬스장, 골프 등), 구독, 디지털 콘텐츠(넷플릭스, 유튜브 프리미엄, 멜론 등), 영화관, 전시회.',
-    'Travel (여행/항공)': '항공, 면세점, 호텔, 에어비앤비, 해외 직구, 라운지 이용.',
-    'Life (생활/납부)': '핸드폰 요금, 공과금(전기세, 수도세 등),  아파트 관리비, 자동납부, 렌탈, 금융, 보험료 납부.',
-    'EduHealth (교육/의료)': '교육, 육아, 병원, 약국, 건강보조식품 등.' 
-    - [중요] 위 카테고리에 명확히 속하지 않는 모든 소비는 억지로 끼워맞추지 말고 반드시 'Others'로 분류하세요.
-    
-    [지출 금액(budget) 추출 및 계산 규칙]
-    1. 단일 총액 명시: "한 달에 60만원 써" -> 정수 600000 추출.
-    2. 항목별 합산: "교통 10만, 식비 30만" -> 모두 합산하여 정수 400000 추출. 단, "총 100만 원 중 쇼핑 30만 원"처럼 전체와 부분이 혼재하면 합산하지 말고 전체 금액(100만 원)만 추출.
-    3. 범위형 지출(하이브리드 처리): "20~25만원", "30만원 안팎" 등 범위를 제시하면, 보수적인 실적 필터링을 위해 **가장 작은 금액(최소값)**을 추출하세요. (예: "20~25만원" -> 200000)
-        만약 "최대 30만원"이나 "30만원 이하"처럼 상한선만 주어지면 해당 상한선(30만원)을 추출하세요.
-    4. 상관없음: 지출에 신경 쓰지 않는다고 명시하면 'INF'로 추출. 모호하면(예: "돈 좀 씀") None 처리하고 '상관없어' 또는 특정 숫자를 입력하도록 재질문 유도.
-        └ 지출 금액을 '입력하지 않는 것'과 '지출 금액과 상관없이 추천받고 싶은 것'을 명확하게 구분하세요.
-    
-    [검색 쿼리(search_query) 생성 규칙]
-    - 추출된 예산, 카테고리를 통합하여 RAG 검색 엔진이 이해하기 쉬운 완결된 자연어 문장을 만드세요.
-    - [중요: 문맥 보존] 유저가 예산을 "20~25만원"으로 입력한 경우, budget 필드에는 최소값(20만원)을 넣더라도, search_query에는 **"월 20~25만원 정도 지출하는"** 식으로 유저의 원래 범위와 뉘앙스를 그대로 살려 적으세요.
-    - [학생/미성년자 예외 처리] 유저가 '학생', '대학생', '미성년자'임을 언급했다면, search_query에 반드시 **"체크카드"** 또는 **"학생용"** 키워드를 포함시켜 신용카드가 아닌 적절한 카드가 검색되도록 유도하세요.
-    
-    [검증 규칙]
-    - 사용자 입력이 세부 정보 없이 "카드 추천"만 있으면, is_sufficient=False입니다.
-    - 가능하다면 "몇십만 원"과 같은 모호한 금액을 특정 정수 추정치로 취급하세요.
-    
-    [중요: 사용자 맥락 파악 및 쿼리 생성]
-    - 'search_query' 필드에는 추출된 예산, 카테고리를 통합하여 검색 엔진이 잘 이해할 수 있는 하나의 문장을 만드세요.
-    - [학생/미성년자 예외 처리]: 사용자가 '학생', '대학생', '미성년자'임을 언급했다면, 발급이 어려운 신용카드 대신 반드시 **"체크카드"** 또는 **"학생용"**이라는 키워드를 search_query에 명시하여 추천 방향을 전환하세요.
-    
-    카드 추천 및 추출할 카테고리와 관련 없는 대화(날씨 등)는 is_relevant=False로 처리하세요.
-    예산(budget)이나 소비 패턴이 구체적인 수치와 함께 변동되면 무조건 update_criteria로 분류하고 재검색을 유도하세요.
-    """
+    system_prompt = ANALYZE_PROMPT
 
     # 구조화된 출력(Structured Output) 사용
     structured_llm = llm.with_structured_output(IntentAnalysis)
@@ -320,25 +281,12 @@ def call_search_tool_node(state: AgentState):
             }
 
         # 3. [변경] 단일 LLM 호출하지만, JSON 포맷으로 요청하여 매핑 가능하게 함
-        benefit_prompt = f"""
-        유저 쿼리: {analysis.search_query}
-        유저 관심 분야: {analysis.categories}
-        관심 분야 상세 설명: {category_summary}
-        추천 카드 및 전체 혜택: {json.dumps(grouped_cards, ensure_ascii=False)}
-        
-        위 데이터를 바탕으로 각 카드별로 유저 주요 지출 분야와 일치하는 핵심 혜택을 2~3개씩 추출해 불릿 포인트('- ')로 요약해줘.
-        
-        [작성 및 자가 검증 지시사항]
-        1. **무오류 원칙**: 데이터에 없는 수치(할인율, 금액)를 절대 조작하거나 지어내지 마세요. 
-        2. **수치 보존**: 연회비, 실적 기준 등 모든 숫자는 원본 데이터와 100% 일치해야 합니다.
-        3. **맞춤형 요약**: 사용자의 관심 카테고리에 해당하는 혜택을 최우선으로 배치하세요.
-        4. **출력 형식**: [중요] 반드시 아래 JSON 포맷을 엄수하세요. (마크다운 없이 JSON만)
-        {{
-            "카드명1": "- 혜택 내용 1\\n- 혜택 내용 2",
-            "카드명2": "- 혜택 내용 1\\n- 혜택 내용 2"
-        }}
-        키(Key)는 입력된 'card_name'과 정확히 일치해야 함.
-        """
+        benefit_prompt = BENEFIT_PROMPT.format(
+            search_query=analysis.search_query,
+            categories=analysis.categories,
+            category_summary=category_summary,
+            grouped_cards_json=json.dumps(grouped_cards, ensure_ascii=False),
+        )
 
         llm_raw = llm.invoke([SystemMessage(content=benefit_prompt)]).content
         llm_response = (
@@ -429,15 +377,7 @@ def answer_qa_node(state: AgentState):
     # State에 보존해둔 RAG 원본 데이터 꺼내기
     raw_data = state.get("last_raw_data", "이전 검색 결과 원본이 존재하지 않습니다.")
 
-    qa_prompt = f"""
-    당신은 신용카드 상담사입니다. 사용자가 이전에 추천받은 카드에 대해 추가 질문을 했습니다.
-    대화 내역에 없는 상세한 혜택이나 정보는 아래의 'RAG 원본 데이터'를 확인하여 답변하세요.
-    
-    [RAG 원본 데이터]
-    {raw_data}
-    
-    질문에 대해 간결하고 정확하게 답변하며, 데이터에 없는 내용은 "해당 정보는 카드사 약관을 확인해야 합니다"라고 안내하세요.
-    """
+    qa_prompt = QA_PROMPT.format(raw_data=raw_data)
 
     # 시스템 프롬프트 + 전체 대화 기록을 넘겨서 문맥에 맞는 답변 생성
     response = llm.invoke([SystemMessage(content=qa_prompt)] + state["messages"])
