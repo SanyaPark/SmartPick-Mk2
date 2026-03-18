@@ -7,7 +7,9 @@
 
 import os
 import json
+import time
 import uuid
+
 from datetime import datetime
 from pathlib import Path
 from typing import Annotated, Dict, List, Literal, Optional
@@ -369,6 +371,7 @@ if __name__ == "__main__":
     }
 
     def run_test(case_id: str):
+
         case = TEST_CASES[case_id]
         print(f"\n{'=' * 20} [테스트: {case['name']}] {'=' * 20}")
         print(f"  총 월소비: {case['total_budget']:,}원")
@@ -377,6 +380,9 @@ if __name__ == "__main__":
         print()
 
         _init_test_log(case["total_budget"], case["category_spending"])
+
+        # 테스트 시작 시간 측정
+        start_time = time.time()
 
         session_id = f"test_{uuid.uuid4().hex[:6]}"
         config: RunnableConfig = {"configurable": {"thread_id": session_id}}
@@ -393,6 +399,11 @@ if __name__ == "__main__":
                     print(f"[{key}] {value['messages'][-1].content}")
                 if "filtered_cards" in value:
                     print(f"  [필터 결과] {len(value['filtered_cards'])}개 카드 통과")
+
+        # 테스트 종료 시간 측정
+        elapsed = time.time() - start_time
+        _test_log["elapsed_seconds"] = round(elapsed, 2)
+        print(f"\n[TIME] 소요 시간: {elapsed:.1f}초")
 
         _save_test_log(case["name"])
         print(f"{'=' * 60}\n")
