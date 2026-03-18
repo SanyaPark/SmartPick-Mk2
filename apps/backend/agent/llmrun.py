@@ -234,10 +234,15 @@ def rank_and_explain_node(state: AgentState):
             "messages": [AIMessage(content="계산 중 오류가 발생했습니다. 다시 시도해주세요.")]
         }
 
-    # 2. total_discount 기준 정렬 → 상위 3개
+    # 2. details에서 월간 할인 합산 (코드 계산) → 정렬 → 상위 3개
+    for card_data in calc_results.values():
+        total_discount = sum(d.get("discount", 0) for d in card_data.get("details", []))
+        card_data["total_discount"] = total_discount
+        card_data["total_yearly_discount"] = total_discount * 12
+
     ranked = sorted(
         calc_results.items(),
-        key=lambda x: x[1].get("total_discount", 0),
+        key=lambda x: x[1]["total_discount"],
         reverse=True,
     )[:3]
 

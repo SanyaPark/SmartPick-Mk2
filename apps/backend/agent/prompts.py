@@ -151,31 +151,20 @@ CALC_PROMPT_V2 = """
 3. conditions에 월 한도가 명시되어 있으면, 계산 결과가 한도를 초과할 경우 한도 금액까지만 인정할 것.
 4. 유저의 소비 카테고리와 카드 혜택의 category가 일치하는 항목만 계산할 것. 관련 없는 혜택은 0원 처리.
 5. 데이터에 명시되지 않은 수치는 절대 추정하거나 지어내지 말 것. 확인 불가 시 0원 처리.
+6. details의 category 값은 반드시 [유저 소비 패턴]에 있는 영문 키워드(Coffee, Traffic, Shopping 등)를 그대로 사용할 것. 한글로 번역하지 말 것.
 
 [출력 형식] 반드시 아래 JSON 포맷만 출력하세요. 마크다운이나 설명 없이 JSON만.
-{
-  "cards": [
-    {
-      "card_name": "모니모카드",
-      "card_company": "삼성카드",
-
-      "monthly_benefit": 30000,
-      "yearly_benefit": 360000,
-
-      "category_benefits": [
-        {"category": "교통", "monthly_benefit": 10000},
-        {"category": "편의점/마트", "monthly_benefit": 5000},
-        {"category": "외식/배달", "monthly_benefit": 20000},
-        {"category": "월세", "monthly_benefit": 0}
-      ],
-
-      "additional_info": {
-        "title": "추가 정보 보기",
-        "summary": "전월실적 30만원 이상, 연회비 1만원, 편의점 10% 할인, 교통 10% 할인, 커피 30% 할인, 월 최대 3만원 한도"
-      }
-    }
-  ]
-}
+{{
+    "카드명1": {{
+        "card_company": "카드사명",
+        "annual_fee": 연회비(숫자),
+        "details": [
+            {{"category": "Coffee", "spending": 50000, "rate": "5%", "discount": 2500, "note": "월 한도 5천점 이내"}},
+            {{"category": "Traffic", "spending": 100000, "rate": "해당없음", "discount": 0, "note": ""}}
+        ]
+    }},
+    "카드명2": {{ ... }}
+}}
 """
 
 
