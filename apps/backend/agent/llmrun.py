@@ -24,7 +24,7 @@ from langchain_core.runnables import RunnableConfig
 from apps.backend.agent.prompts import CALC_PROMPT, EXPLAIN_PROMPT, QA_PROMPT
 
 # ===========================< Setting >============================
-load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+load_dotenv(Path(__file__).resolve().parents[3] / ".env")
 
 REQUIRED_KEYS = ["LANGSMITH_API_KEY", "UPSTAGE_API_KEY"]
 for key in REQUIRED_KEYS:
@@ -117,6 +117,18 @@ def calculate_discounts_node(state: AgentState):
     if not filtered_cards:
         return {}
 
+    # 유저가 선택한 카테고리와 major_categories가 겹치는 카드만 선별
+    user_categories = set(category_spending.keys())
+    relevant_cards = [
+        card for card in filtered_cards
+        if any(cat in card.get("major_categories", "") for cat in user_categories)
+    ]
+
+    if not relevant_cards:
+        relevant_cards = filtered_cards[:10]
+
+    print(f"  카테고리 매칭 후 카드 수: {len(relevant_cards)}개 (유저 카테고리: {user_categories})")
+
     # 유저 소비 패턴 텍스트
     spending_lines = [f"월 총 소비: {total_budget:,}원"]
     for cat, amount in category_spending.items():
@@ -125,7 +137,7 @@ def calculate_discounts_node(state: AgentState):
 
     # 카드 데이터 구성 (LLM에게 전달할 형태)
     cards_data = {}
-    for card in filtered_cards:
+    for card in relevant_cards:
         cards_data[card["card_name"]] = {
             "card_company": card["card_company"],
             "annual_fee": card["annual_fee"],
@@ -279,22 +291,22 @@ if __name__ == "__main__":
         "1": {
             "name": "카페 + 교통 위주 소비자",
             "total_budget": 500000,
-            "category_spending": {"카페/디저트": 50000, "교통": 100000, "쇼핑": 150000},
+            "category_spending": {"Coffee": 50000, "Traffic": 100000, "Shopping": 150000},
         },
         "2": {
             "name": "여행 + 쇼핑 고소비자",
             "total_budget": 1000000,
-            "category_spending": {"여행/해외": 300000, "쇼핑": 200000, "외식/배달": 200000},
+            "category_spending": {"Travel": 300000, "Shopping": 200000, "Food": 200000},
         },
         "3": {
             "name": "생활비 중심 알뜰 소비자",
             "total_budget": 300000,
-            "category_spending": {"대중교통": 50000, "편의점": 30000, "식비": 100000},
+            "category_spending": {"Traffic": 50000, "Shopping": 30000, "Food": 100000},
         },
         "4": {
             "name": "주유 + 차량 관리 위주",
             "total_budget": 700000,
-            "category_spending": {"주유": 150000, "차량정비/주차": 50000, "쇼핑": 200000},
+            "category_spending": {"Traffic": 150000, "Shopping": 200000, "Life": 100000},
         },
     }
 
