@@ -8,6 +8,7 @@
 import os
 import json
 import uuid
+from datetime import datetime
 from pathlib import Path
 from typing import Annotated, Dict, List, Literal, Optional
 from typing_extensions import NotRequired, TypedDict
@@ -37,6 +38,40 @@ os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
 MODEL = "solar-pro2"
 llm = init_chat_model(model=MODEL, temperature=0.0)
+
+# ===========================< Test Log >============================
+TEST_LOG_DIR = Path(__file__).resolve().parents[3] / "test_logs"
+PROMPT_VERSIONS = {"CALC_PROMPT": "V1", "EXPLAIN_PROMPT": "V2", "QA_PROMPT": "V1"}
+
+_test_log: dict = {}
+
+
+def _init_test_log(total_budget: int, category_spending: dict):
+    """테스트 로그 초기화."""
+    global _test_log
+    _test_log = {
+        "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "model": MODEL,
+        "prompt_versions": PROMPT_VERSIONS,
+        "input": {
+            "total_budget": total_budget,
+            "category_spending": category_spending,
+        },
+        "filter": {},
+        "calc_raw": {},
+        "top3": [],
+        "explain_raw": "",
+    }
+
+
+def _save_test_log(case_name: str):
+    """테스트 로그를 JSON 파일로 저장."""
+    TEST_LOG_DIR.mkdir(exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    safe_name = case_name.replace(" ", "_").replace("+", "")
+    filepath = TEST_LOG_DIR / f"{ts}_{safe_name}.json"
+    filepath.write_text(json.dumps(_test_log, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\n[LOG] 테스트 로그 저장: {filepath}")
 
 # ===========================< Data Loading >============================
 
@@ -96,6 +131,9 @@ def filter_cards_node(state: AgentState):
 
     print(f"  전체 {len(all_cards)}개 → 실적 충족 {len(filtered)}개")
 
+    _test_log["filter"]["total_cards"] = len(all_cards)
+    _test_log["filter"]["after_performance"] = len(filtered)
+
     if not filtered:
         return {
             "messages": [AIMessage(
@@ -128,6 +166,7 @@ def calculate_discounts_node(state: AgentState):
         relevant_cards = filtered_cards[:10]
 
     print(f"  카테고리 매칭 후 카드 수: {len(relevant_cards)}개 (유저 카테고리: {user_categories})")
+    _test_log["filter"]["after_category"] = len(relevant_cards)
 
     # 유저 소비 패턴 텍스트
     spending_lines = [f"월 총 소비: {total_budget:,}원"]
@@ -153,6 +192,8 @@ def calculate_discounts_node(state: AgentState):
         }
 
     print(f"  LLM에 전달할 카드 수: {len(cards_data)}")
+    print(f"\n[DEBUG] user_spending:\n{user_spending}")
+    print(f"\n[DEBUG] cards_data:\n{json.dumps(cards_data, ensure_ascii=False, indent=2)[:3000]}...")  # 앞 3000자만
 
     calc_prompt = CALC_PROMPT.format(
         user_spending=user_spending,
@@ -164,6 +205,14 @@ def calculate_discounts_node(state: AgentState):
         llm_raw if isinstance(llm_raw, str)
         else json.dumps(llm_raw, ensure_ascii=False)
     )
+
+    # 테스트 로그: calc 원본 저장
+    try:
+        _test_log["calc_raw"] = json.loads(
+            llm_response.replace("```json", "").replace("```", "").strip()
+        )
+    except json.JSONDecodeError:
+        _test_log["calc_raw"] = llm_response
 
     return {"calc_result_json": llm_response}
 
@@ -206,6 +255,10 @@ def rank_and_explain_node(state: AgentState):
     )
 
     explanation = llm.invoke([SystemMessage(content=explain_prompt)]).content
+
+    # 테스트 로그: top3 + explain 원본 저장
+    _test_log["top3"] = [{"card_name": name, **data} for name, data in ranked]
+    _test_log["explain_raw"] = explanation if isinstance(explanation, str) else str(explanation)
 
     # 4. 최종 응답 구성
     response_parts = []
@@ -318,6 +371,8 @@ if __name__ == "__main__":
             print(f"  - {cat}: {amt:,}원")
         print()
 
+        _init_test_log(case["total_budget"], case["category_spending"])
+
         session_id = f"test_{uuid.uuid4().hex[:6]}"
         config: RunnableConfig = {"configurable": {"thread_id": session_id}}
 
@@ -334,6 +389,7 @@ if __name__ == "__main__":
                 if "filtered_cards" in value:
                     print(f"  [필터 결과] {len(value['filtered_cards'])}개 카드 통과")
 
+        _save_test_log(case["name"])
         print(f"{'=' * 60}\n")
 
     # 인터랙티브 메뉴
