@@ -90,6 +90,10 @@ class PDFMarkdownExtractor:
     def _normalize_markdown(markdown: str) -> str:
         if not markdown:
             return ""
+        
+        # Remove pymupdf4llm picture omission tags
+        markdown = re.sub(r"\*?\*?==> picture.*?intentionally omitted <==\*?\*?\n?", "", markdown)
+        
         markdown = markdown.replace("\r\n", "\n").replace("\r", "\n")
         markdown = "\n".join(line.rstrip() for line in markdown.split("\n"))
         markdown = re.sub(r"\n{3,}", "\n\n", markdown)
