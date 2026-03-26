@@ -1,7 +1,7 @@
 """
-계산 기반 카드 추천 로직 (신규 기획)
+계산 기반 카드 추천 로직 (v2)
 
-흐름: 구조화된 입력 → 전월실적 필터 → LLM 할인금액 계산 → 정렬 → LLM 추천 설명
+흐름: 유저 입력 → 필터링 → 스코어링(Top7) → 코드 계산 → 랭킹 → LLM 설명
 기존 agent.py(대화형)와 독립적으로 동작합니다.
 """
 
@@ -23,13 +23,15 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import SystemMessage, AIMessage, AnyMessage
 from langchain_core.runnables import RunnableConfig
+from langsmith import traceable
+from langfuse import observe, Langfuse
 
-from apps.backend.agent.prompts import CALC_PROMPT, EXPLAIN_PROMPT, QA_PROMPT
+from apps.backend.agent.prompts import EXPLAIN_PROMPT, QA_PROMPT
 
 # ===========================< Setting >============================
 load_dotenv(Path(__file__).resolve().parents[3] / ".env")
 
-REQUIRED_KEYS = ["LANGSMITH_API_KEY", "UPSTAGE_API_KEY"]
+REQUIRED_KEYS = ["LANGSMITH_API_KEY", "UPSTAGE_API_KEY", "LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY"]
 for key in REQUIRED_KEYS:
     if not os.getenv(key):
         print(f"[WARN] {key}가 환경 변수에 설정되지 않았습니다.")
@@ -38,12 +40,15 @@ os.environ["LANGSMITH_TRACING_V2"] = "true"
 os.environ["LANGSMITH_PROJECT"] = "Smart_Pick"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
+# LangFuse 초기화 (OTEL 기반 자동 계측)
+langfuse = Langfuse()
+
 MODEL = "solar-pro2"
 llm = init_chat_model(model=MODEL, temperature=0.0)
 
 # ===========================< Test Log >============================
 TEST_LOG_DIR = Path(__file__).resolve().parents[3] / "test_logs"
-PROMPT_VERSIONS = {"CALC_PROMPT": "V1", "EXPLAIN_PROMPT": "V2", "QA_PROMPT": "V1"}
+PROMPT_VERSIONS = {"EXPLAIN_PROMPT": "V3", "QA_PROMPT": "V1"}
 
 _test_log: dict = {}
 
@@ -60,7 +65,8 @@ def _init_test_log(total_budget: int, category_spending: dict):
             "category_spending": category_spending,
         },
         "filter": {},
-        "calc_raw": {},
+        "scores": [],
+        "calc_results": [],
         "top3": [],
         "explain_raw": "",
     }
@@ -77,69 +83,88 @@ def _save_test_log(case_name: str):
 
 # ===========================< Data Loading >============================
 
-DATASETS_DIR = Path(__file__).resolve().parents[3] / "datasets" / "json"
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+DATASETS_DIR = PROJECT_ROOT / "datasets" / "json_v2"
+DIGEST_DIR = PROJECT_ROOT / "datasets" / "digest"
 
 
 def load_all_cards() -> list[dict]:
-    """datasets/json/ 하위의 모든 카드 JSON 파일을 로드하여 카드 단위로 정리합니다."""
+    """datasets/json_v2/ 하위의 모든 카드 JSON을 로드합니다."""
     all_cards = []
     for company_dir in DATASETS_DIR.iterdir():
         if not company_dir.is_dir():
             continue
         for json_file in company_dir.glob("*.json"):
             data = json.loads(json_file.read_text(encoding="utf-8"))
-            chunks = list(data.values())
-            if not chunks:
+            if not data.get("card_name"):
                 continue
-            meta = chunks[0]
-            all_cards.append({
-                "card_name": meta.get("card_name"),
-                "card_company": meta.get("card_company"),
-                "annual_fee": meta.get("annual_fee", 0),
-                "min_performance": meta.get("min_performance", 0),
-                "major_categories": meta.get("major_categories", ""),
-                "benefits_summary": meta.get("benefits_summary", ""),
-                "chunks": chunks,
-            })
+            # digest 파일 경로 저장
+            digest_path = DIGEST_DIR / company_dir.name / f"{json_file.stem}.md"
+            data["_digest_path"] = str(digest_path)
+            data["_file_stem"] = json_file.stem
+            all_cards.append(data)
     return all_cards
+
+
+def load_digest(card: dict) -> str:
+    """카드의 compact digest 마크다운을 로드합니다."""
+    digest_path = Path(card.get("_digest_path", ""))
+    if digest_path.exists():
+        return digest_path.read_text(encoding="utf-8")
+    return f"# {card.get('card_name', '알 수 없음')}\n(digest 파일 없음)"
 
 
 # ===========================< State >============================
 
 class AgentState(TypedDict):
     messages: Annotated[List[AnyMessage], add_messages]
-    # 구조화된 유저 입력
+    # 유저 입력
     total_budget: NotRequired[Optional[int]]
     category_spending: NotRequired[Optional[Dict[str, int]]]
     # 중간 결과
     filtered_cards: NotRequired[Optional[list]]
-    calc_result_json: NotRequired[Optional[str]]
-    # QA용 원본 데이터 보존
+    shortlist_cards: NotRequired[Optional[list]]
+    calc_results: NotRequired[Optional[list]]
+    # 최종 결과
+    recommended_cards: NotRequired[Optional[list]]
     last_raw_data: NotRequired[Optional[str]]
 
 
 # ===========================< Nodes >============================
 
+@observe(name="filter_cards")
+@traceable(run_type="chain", name="filter_cards")
 def filter_cards_node(state: AgentState):
-    """전월실적 기준으로 카드를 필터링합니다."""
+    """전월실적 + 카테고리 겹침 기준으로 카드를 필터링합니다."""
     print("[DEBUG] filter_cards_node")
     total_budget = state.get("total_budget", 0)
+    category_spending = state.get("category_spending", {})
+    user_categories = set(category_spending.keys())
 
     all_cards = load_all_cards()
-    filtered = [
+
+    # 필터 A: 전월실적 충족
+    after_performance = [
         card for card in all_cards
-        if card["min_performance"] <= total_budget
+        if card.get("minimum_performance", 0) <= total_budget
     ]
 
-    print(f"  전체 {len(all_cards)}개 → 실적 충족 {len(filtered)}개")
+    # 필터 B: 카테고리 겹침
+    filtered = [
+        card for card in after_performance
+        if user_categories & set(card.get("card_categories", []))
+    ]
+
+    print(f"  전체 {len(all_cards)}개 → 실적 충족 {len(after_performance)}개 → 카테고리 매칭 {len(filtered)}개")
 
     _test_log["filter"]["total_cards"] = len(all_cards)
-    _test_log["filter"]["after_performance"] = len(filtered)
+    _test_log["filter"]["after_performance"] = len(after_performance)
+    _test_log["filter"]["after_category"] = len(filtered)
 
     if not filtered:
         return {
             "messages": [AIMessage(
-                content=f"월 소비 {total_budget:,}원 기준으로 전월실적을 충족하는 카드가 없습니다."
+                content=f"월 소비 {total_budget:,}원 기준으로 조건을 충족하는 카드가 없습니다."
             )],
             "filtered_cards": [],
         }
@@ -147,157 +172,233 @@ def filter_cards_node(state: AgentState):
     return {"filtered_cards": filtered}
 
 
-def calculate_discounts_node(state: AgentState):
-    """LLM을 사용하여 각 카드의 카테고리별 예상 할인금액을 계산합니다."""
-    print("[DEBUG] calculate_discounts_node")
+@observe(name="score_and_shortlist")
+@traceable(run_type="chain", name="score_and_shortlist")
+def score_and_shortlist_node(state: AgentState):
+    """카드 점수 계산 후 Top 7을 선정합니다."""
+    print("[DEBUG] score_and_shortlist_node")
     filtered_cards = state.get("filtered_cards", [])
     category_spending = state.get("category_spending", {})
     total_budget = state.get("total_budget", 0)
-
-    if not filtered_cards:
-        return {}
-
-    # 유저가 선택한 카테고리와 major_categories가 겹치는 카드만 선별
     user_categories = set(category_spending.keys())
-    relevant_cards = [
-        card for card in filtered_cards
-        if any(cat in card.get("major_categories", "") for cat in user_categories)
+
+    scored_cards = []
+    for card in filtered_cards:
+        card_categories = set(card.get("card_categories", []))
+        overlapping = user_categories & card_categories
+
+        # min_spend_score: 낮을수록 좋음 (전월실적 부담도)
+        min_perf = card.get("minimum_performance", 0)
+        min_spend_score = min_perf / total_budget if total_budget > 0 else 1.0
+
+        # fit_score: 높을수록 좋음 (카테고리 매칭 비율)
+        fit_score = len(overlapping) / len(user_categories) if user_categories else 0.0
+
+        # coverage_score: 높을수록 좋음 (매칭 카테고리의 소비 비율)
+        covered_spend = sum(category_spending.get(cat, 0) for cat in overlapping)
+        coverage_score = covered_spend / total_budget if total_budget > 0 else 0.0
+
+        # 종합 점수: fit과 coverage는 높을수록, min_spend는 낮을수록 좋음
+        total_score = (fit_score * 0.3) + (coverage_score * 0.5) + ((1 - min_spend_score) * 0.2)
+
+        scored_cards.append({
+            **card,
+            "_scores": {
+                "min_spend_score": round(min_spend_score, 3),
+                "fit_score": round(fit_score, 3),
+                "coverage_score": round(coverage_score, 3),
+                "total_score": round(total_score, 3),
+            },
+        })
+
+    # 점수 기준 정렬 → Top 7
+    scored_cards.sort(key=lambda x: x["_scores"]["total_score"], reverse=True)
+    shortlist = scored_cards[:7]
+
+    print(f"  Top 7 선정:")
+    for i, card in enumerate(shortlist):
+        s = card["_scores"]
+        print(f"    {i+1}. {card['card_name']} (fit={s['fit_score']}, coverage={s['coverage_score']}, total={s['total_score']})")
+
+    _test_log["scores"] = [
+        {"card_name": c["card_name"], **c["_scores"]} for c in shortlist
     ]
 
-    if not relevant_cards:
-        relevant_cards = filtered_cards[:10]
+    return {"shortlist_cards": shortlist}
 
-    print(f"  카테고리 매칭 후 카드 수: {len(relevant_cards)}개 (유저 카테고리: {user_categories})")
-    _test_log["filter"]["after_category"] = len(relevant_cards)
 
-    # 유저 소비 패턴 텍스트
-    spending_lines = [f"월 총 소비: {total_budget:,}원"]
-    for cat, amount in category_spending.items():
-        spending_lines.append(f"- {cat}: 월 {amount:,}원")
-    user_spending = "\n".join(spending_lines)
+@observe(name="calculate_benefits")
+@traceable(run_type="chain", name="calculate_benefits")
+def calculate_benefits_node(state: AgentState):
+    """코드로 카드별 혜택 금액을 계산합니다."""
+    print("[DEBUG] calculate_benefits_node")
+    shortlist = state.get("shortlist_cards", [])
+    category_spending = state.get("category_spending", {})
 
-    # 카드 데이터 구성 (LLM에게 전달할 형태)
-    cards_data = {}
-    for card in relevant_cards:
-        cards_data[card["card_name"]] = {
-            "card_company": card["card_company"],
-            "annual_fee": card["annual_fee"],
-            "min_performance": card["min_performance"],
-            "benefits": [
-                {
-                    "category": c.get("category", ""),
-                    "content": c.get("content", ""),
-                    "conditions": c.get("conditions", ""),
-                }
-                for c in card["chunks"]
-            ],
+    calc_results = []
+    for card in shortlist:
+        benefits_breakdown = []
+        total_monthly = 0
+
+        for benefit in card.get("benefits", []):
+            cat = benefit.get("category", "")
+            spend = category_spending.get(cat, 0)
+            rate = benefit.get("rate", 0)
+            monthly_limit = benefit.get("monthly_limit")
+
+            if spend <= 0 or rate <= 0:
+                continue
+
+            raw_amount = spend * rate
+            if monthly_limit and monthly_limit > 0:
+                amount = min(raw_amount, monthly_limit)
+            else:
+                amount = raw_amount
+
+            amount = int(amount)
+            benefits_breakdown.append({
+                "category": cat,
+                "benefit_type": benefit.get("benefit_type", ""),
+                "amount": amount,
+            })
+            total_monthly += amount
+
+        calc_results.append({
+            "card_name": card.get("card_name"),
+            "card_company": card.get("card_company"),
+            "annual_fee": card.get("annual_fee", 0),
+            "minimum_performance": card.get("minimum_performance", 0),
+            "expected_monthly_benefit": total_monthly,
+            "expected_yearly_benefit": total_monthly * 12,
+            "benefits_breakdown": benefits_breakdown,
+            "unclear_benefits": card.get("unclear_benefits", []),
+            "_scores": card.get("_scores", {}),
+            "_digest_path": card.get("_digest_path", ""),
+            "_card_data": card,
+        })
+
+        print(f"  {card['card_name']}: 월 {total_monthly:,}원 (혜택 {len(benefits_breakdown)}개)")
+
+    _test_log["calc_results"] = [
+        {
+            "card_name": r["card_name"],
+            "expected_monthly_benefit": r["expected_monthly_benefit"],
+            "benefits_breakdown": r["benefits_breakdown"],
         }
+        for r in calc_results
+    ]
 
-    print(f"  LLM에 전달할 카드 수: {len(cards_data)}")
-    print(f"\n[DEBUG] user_spending:\n{user_spending}")
-    print(f"\n[DEBUG] cards_data:\n{json.dumps(cards_data, ensure_ascii=False, indent=2)[:3000]}...")  # 앞 3000자만
-
-    calc_prompt = CALC_PROMPT.format(
-        user_spending=user_spending,
-        cards_data=json.dumps(cards_data, ensure_ascii=False, indent=2),
-    )
-
-    llm_raw = llm.invoke([SystemMessage(content=calc_prompt)]).content
-    llm_response = (
-        llm_raw if isinstance(llm_raw, str)
-        else json.dumps(llm_raw, ensure_ascii=False)
-    )
-
-    # 테스트 로그: calc 원본 저장
-    try:
-        _test_log["calc_raw"] = json.loads(
-            llm_response.replace("```json", "").replace("```", "").strip()
-        )
-    except json.JSONDecodeError:
-        _test_log["calc_raw"] = llm_response
-
-    return {"calc_result_json": llm_response}
+    return {"calc_results": calc_results}
 
 
+@observe(name="rank_and_explain")
 def rank_and_explain_node(state: AgentState):
-    """계산 결과를 파싱하여 상위 3개 카드를 선정하고 추천 이유를 설명합니다."""
+    """최종 랭킹 후 digest 기반으로 LLM 추천 설명을 생성합니다."""
     print("[DEBUG] rank_and_explain_node")
-    calc_json = state.get("calc_result_json", "")
+    calc_results = state.get("calc_results", [])
     category_spending = state.get("category_spending", {})
     total_budget = state.get("total_budget", 0)
 
-    # 1. 계산 결과 JSON 파싱
-    try:
-        cleaned = calc_json.replace("```json", "").replace("```", "").strip()
-        calc_results: dict = json.loads(cleaned)
-    except json.JSONDecodeError:
-        print(f"[WARNING] 계산 결과 JSON 파싱 실패: {calc_json[:200]}")
+    if not calc_results:
         return {
-            "messages": [AIMessage(content="계산 중 오류가 발생했습니다. 다시 시도해주세요.")]
+            "messages": [AIMessage(content="혜택 계산 결과가 없습니다.")]
         }
 
-    # 2. details에서 월간 할인 합산 (코드 계산) → 정렬 → 상위 3개
-    for card_data in calc_results.values():
-        total_discount = sum(d.get("discount", 0) for d in card_data.get("details", []))
-        card_data["total_discount"] = total_discount
-        card_data["total_yearly_discount"] = total_discount * 12
+    # 1. 최종 랭킹: 총 혜택 금액 기준 정렬 → Top 3
+    ranked = sorted(calc_results, key=lambda x: x["expected_monthly_benefit"], reverse=True)[:3]
 
-    ranked = sorted(
-        calc_results.items(),
-        key=lambda x: x[1]["total_discount"],
-        reverse=True,
-    )[:3]
-
-    top3 = {name: data for name, data in ranked}
-
-    # 3. LLM에게 추천 설명 요청
+    # 2. 유저 소비 패턴 텍스트
     spending_lines = [f"월 총 소비: {total_budget:,}원"]
     for cat, amount in category_spending.items():
         spending_lines.append(f"- {cat}: 월 {amount:,}원")
     user_spending = "\n".join(spending_lines)
 
-    explain_prompt = EXPLAIN_PROMPT.format(
-        user_spending=user_spending,
-        top3_cards=json.dumps(top3, ensure_ascii=False, indent=2),
+    # 3. 1순위 카드의 digest 로드
+    top1 = ranked[0]
+    card_digest = load_digest(top1.get("_card_data", {}))
+
+    # 4. calc_summary 텍스트 생성
+    breakdown_lines = []
+    for b in top1["benefits_breakdown"]:
+        breakdown_lines.append(f"  - {b['category']}: {b['amount']:,}원")
+    calc_summary = (
+        f"카드: {top1['card_name']} ({top1['card_company']})\n"
+        f"연회비: {top1['annual_fee']:,}원\n"
+        f"월 예상 할인: {top1['expected_monthly_benefit']:,}원 | "
+        f"연간 예상: {top1['expected_yearly_benefit']:,}원\n"
+        + "\n".join(breakdown_lines)
     )
 
+    # 5. LLM 추천 설명 생성
+    explain_prompt = EXPLAIN_PROMPT.format(
+        user_spending=user_spending,
+        card_digest=card_digest,
+        calc_summary=calc_summary,
+    )
     explanation = llm.invoke([SystemMessage(content=explain_prompt)]).content
 
-    # 테스트 로그: top3 + explain 원본 저장
-    _test_log["top3"] = [{"card_name": name, **data} for name, data in ranked]
+    # 6. 테스트 로그
+    _test_log["top3"] = [
+        {
+            "card_name": r["card_name"],
+            "expected_monthly_benefit": r["expected_monthly_benefit"],
+            "benefits_breakdown": r["benefits_breakdown"],
+            "scores": r.get("_scores", {}),
+        }
+        for r in ranked
+    ]
     _test_log["explain_raw"] = explanation if isinstance(explanation, str) else str(explanation)
 
-    # 4. 최종 응답 구성
+    # 7. 최종 응답 구성
     response_parts = []
-    for i, (name, data) in enumerate(ranked):
+    for i, card in enumerate(ranked):
         rank_label = ["1순위", "2순위", "3순위"][i]
-        total_disc = data.get("total_discount", 0)
-        annual_fee = data.get("annual_fee", 0)
-        net_benefit = (total_disc * 12) - annual_fee
+        monthly = card["expected_monthly_benefit"]
+        yearly = card["expected_yearly_benefit"]
+        annual_fee = card["annual_fee"]
+        net_benefit = yearly - annual_fee
 
-        details_lines = []
-        for d in data.get("details", []):
-            if d.get("discount", 0) > 0:
-                details_lines.append(
-                    f"  - {d['category']}: {d['spending']:,}원 x {d['rate']} = {d['discount']:,}원"
-                )
+        details = []
+        for b in card["benefits_breakdown"]:
+            details.append(f"  - {b['category']}: {b['amount']:,}원")
 
-        card_section = f"[{rank_label}] {name} ({data.get('card_company', '')})\n"
-        card_section += f"연회비: {annual_fee:,}원 | 월 예상 할인: {total_disc:,}원 | 연 순이익 추정: {net_benefit:,}원\n"
-        if details_lines:
-            card_section += "\n".join(details_lines) + "\n"
+        section = f"[{rank_label}] {card['card_name']} ({card['card_company']})\n"
+        section += f"연회비: {annual_fee:,}원 | 월 예상 할인: {monthly:,}원 | 연 순이익 추정: {net_benefit:,}원\n"
+        if details:
+            section += "\n".join(details) + "\n"
 
-        response_parts.append(card_section)
+        # unclear_benefits 표시
+        unclear = card.get("unclear_benefits", [])
+        if unclear:
+            section += f"  [참고] 추가 혜택 {len(unclear)}건 (계산 미포함)\n"
+
+        response_parts.append(section)
 
     final_response = "\n".join(response_parts)
     final_response += f"\n{'=' * 40}\n{explanation}"
 
+    # 8. UI용 최종 데이터
+    recommended_cards = [
+        {
+            "card_name": r["card_name"],
+            "card_company": r["card_company"],
+            "annual_fee": r["annual_fee"],
+            "minimum_performance": r["minimum_performance"],
+            "expected_monthly_benefit": r["expected_monthly_benefit"],
+            "benefits_breakdown": r["benefits_breakdown"],
+            "explanation": explanation if i == 0 else "",
+        }
+        for i, r in enumerate(ranked)
+    ]
+
     return {
         "messages": [AIMessage(content=final_response)],
-        "last_raw_data": json.dumps(top3, ensure_ascii=False),
+        "recommended_cards": recommended_cards,
+        "last_raw_data": json.dumps(recommended_cards, ensure_ascii=False),
     }
 
 
+@observe(name="answer_qa")
 def answer_qa_node(state: AgentState):
     """추천된 카드에 대한 후속 질문에 답변합니다."""
     print("[DEBUG] answer_qa_node")
@@ -311,10 +412,10 @@ def answer_qa_node(state: AgentState):
 
 def check_filter_result(
     state: AgentState,
-) -> Literal["calculate", "no_results"]:
-    """필터링 결과가 있으면 계산 진행, 없으면 종료."""
+) -> Literal["score", "no_results"]:
+    """필터링 결과가 있으면 스코어링 진행, 없으면 종료."""
     filtered = state.get("filtered_cards", [])
-    return "calculate" if filtered else "no_results"
+    return "score" if filtered else "no_results"
 
 
 # ===========================< Graph Construction >============================
@@ -322,21 +423,23 @@ def check_filter_result(
 workflow = StateGraph(AgentState)
 
 workflow.add_node("filter_cards", filter_cards_node)
-workflow.add_node("calculate_discounts", calculate_discounts_node)
+workflow.add_node("score_shortlist", score_and_shortlist_node)
+workflow.add_node("calculate_benefits", calculate_benefits_node)
 workflow.add_node("rank_and_explain", rank_and_explain_node)
 workflow.add_node("answer_qa", answer_qa_node)
 
-# 메인 흐름: filter → (결과 있으면) calculate → explain → END
+# 메인 흐름: filter → score → calculate → explain → END
 workflow.add_edge(START, "filter_cards")
 workflow.add_conditional_edges(
     "filter_cards",
     check_filter_result,
     {
-        "calculate": "calculate_discounts",
+        "score": "score_shortlist",
         "no_results": END,
     },
 )
-workflow.add_edge("calculate_discounts", "rank_and_explain")
+workflow.add_edge("score_shortlist", "calculate_benefits")
+workflow.add_edge("calculate_benefits", "rank_and_explain")
 workflow.add_edge("rank_and_explain", END)
 
 workflow.add_edge("answer_qa", END)
@@ -399,6 +502,8 @@ if __name__ == "__main__":
                     print(f"[{key}] {value['messages'][-1].content}")
                 if "filtered_cards" in value:
                     print(f"  [필터 결과] {len(value['filtered_cards'])}개 카드 통과")
+                if "shortlist_cards" in value:
+                    print(f"  [Top 7] {len(value['shortlist_cards'])}개 카드 선정")
 
         # 테스트 종료 시간 측정
         elapsed = time.time() - start_time
