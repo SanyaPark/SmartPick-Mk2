@@ -223,6 +223,7 @@ class AgentState(TypedDict):
 @traceable(run_type="chain", name="exp_llm_filter")
 def llm_filter_node(state: AgentState):
     """LLM이 직접 카드를 필터링하고 Top 7을 선정합니다."""
+    _node_start = time.time()
     print("[EXP] llm_filter_node")
     total_budget = state.get("total_budget", 0)
     category_spending = state.get("category_spending", {})
@@ -236,7 +237,7 @@ def llm_filter_node(state: AgentState):
         benefits_preview = []
         for b in card.get("benefits", [])[:3]:  # 상위 3개 혜택만 요약
             cat = b.get("category", "")
-            rate = b.get("rate", 0)
+            rate = b.get("rate") or 0
             benefit_type = b.get("benefit_type", "")
             if rate > 0:
                 benefits_preview.append(f"{cat}:{benefit_type} {rate*100:.0f}%")
@@ -301,7 +302,9 @@ def llm_filter_node(state: AgentState):
             for c in shortlist
         ],
         "llm_raw": raw_response,
+        "elapsed_seconds": round(time.time() - _node_start, 2),
     }
+    print(f"  [TIME] llm_filter: {_test_log['llm_filter_result']['elapsed_seconds']}초")
 
     if not shortlist:
         return {
@@ -324,6 +327,7 @@ def llm_filter_node(state: AgentState):
 @traceable(run_type="chain", name="exp_llm_calculate")
 def calculate_benefits_node(state: AgentState):
     """LLM이 카드 원본 데이터를 분석하고 계산 방법을 스스로 결정합니다."""
+    _node_start = time.time()
     print("[EXP] llm_calculate_benefits_node")
     shortlist = state.get("shortlist_cards", [])
     category_spending = state.get("category_spending", {})
@@ -380,6 +384,7 @@ def calculate_benefits_node(state: AgentState):
 
         print(f"  {card['card_name']}: 월 {monthly:,}원 | 방법: {result.get('calculation_method', 'N/A')}")
 
+    _calc_elapsed = round(time.time() - _node_start, 2)
     _test_log["calc_results"] = [
         {
             "card_name": r["card_name"],
@@ -392,6 +397,8 @@ def calculate_benefits_node(state: AgentState):
         }
         for r in calc_results
     ]
+    _test_log["calc_elapsed_seconds"] = _calc_elapsed
+    print(f"  [TIME] llm_calculate: {_calc_elapsed}초")
 
     return {"calc_results": calc_results}
 
@@ -399,6 +406,7 @@ def calculate_benefits_node(state: AgentState):
 @observe(name="exp_rank_and_explain")
 def rank_and_explain_node(state: AgentState):
     """최종 랭킹 후 LLM 추천 설명을 생성합니다."""
+    _node_start = time.time()
     print("[EXP] rank_and_explain_node")
     calc_results = state.get("calc_results", [])
     category_spending = state.get("category_spending", {})
@@ -423,7 +431,7 @@ def rank_and_explain_node(state: AgentState):
     # calc_summary
     breakdown_lines = []
     for b in top1["benefits_breakdown"]:
-        breakdown_lines.append(f"  - {b['category']}: {b['amount']:,}원")
+        breakdown_lines.append(f"  - {b['category']}: {b.get('amount', b.get('discount', 0)):,}원")
     calc_summary = (
         f"카드: {top1['card_name']} ({top1['card_company']})\n"
         f"연회비: {top1['annual_fee']:,}원\n"
@@ -463,7 +471,7 @@ def rank_and_explain_node(state: AgentState):
 
         details = []
         for b in card["benefits_breakdown"]:
-            details.append(f"  - {b['category']}: {b['amount']:,}원")
+            details.append(f"  - {b['category']}: {b.get('amount', b.get('discount', 0)):,}원")
 
         section = f"[{rank_label}] {card['card_name']} ({card['card_company']})\n"
         section += f"연회비: {annual_fee:,}원 | 월 예상 할인: {monthly:,}원 | 연 순이익 추정: {net_benefit:,}원\n"
@@ -494,6 +502,10 @@ def rank_and_explain_node(state: AgentState):
         }
         for i, r in enumerate(ranked)
     ]
+
+    _explain_elapsed = round(time.time() - _node_start, 2)
+    _test_log["explain_elapsed_seconds"] = _explain_elapsed
+    print(f"  [TIME] rank_and_explain: {_explain_elapsed}초")
 
     return {
         "messages": [AIMessage(content=final_response)],
