@@ -1,0 +1,264 @@
+{
+  "total": 32,
+  "pass": 32,
+  "warn": 0,
+  "fail": 0,
+  "details": [
+    {
+      "card_name": "현대카드 DIGITAL LOVER",
+      "file": "datasets/json_v3/hyundai/hyundai_digital_lover.json",
+      "status": "PASS",
+      "benefits_count": 2,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 M",
+      "file": "datasets/json_v3/hyundai/hyundai_m.json",
+      "status": "PASS",
+      "benefits_count": 2,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 Summit",
+      "file": "datasets/json_v3/hyundai/hyundai_summit.json",
+      "status": "PASS",
+      "benefits_count": 5,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 T3 Edition2",
+      "file": "datasets/json_v3/hyundai/hyundai_t3_edition2.json",
+      "status": "PASS",
+      "benefits_count": 10,
+      "groups_count": 4,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 the Green Edition3",
+      "file": "datasets/json_v3/hyundai/hyundai_the_green_ed3.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 the Pink Edition2",
+      "file": "datasets/json_v3/hyundai/hyundai_the_pink_ed2.json",
+      "status": "PASS",
+      "benefits_count": 5,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 the Red (SC제일은행)",
+      "file": "datasets/json_v3/hyundai/hyundai_the_red_sc.json",
+      "status": "PASS",
+      "benefits_count": 5,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 X",
+      "file": "datasets/json_v3/hyundai/hyundai_x.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 Z family",
+      "file": "datasets/json_v3/hyundai/hyundai_z_family.json",
+      "status": "PASS",
+      "benefits_count": 6,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "현대카드 ZERO Edition3 포인트형 (SC제일은행)",
+      "file": "datasets/json_v3/hyundai/hyundai_zero_ed3_point_sc.json",
+      "status": "PASS",
+      "benefits_count": 1,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 Easy pick카드",
+      "file": "datasets/json_v3/kb/kb_easy_pick.json",
+      "status": "PASS",
+      "benefits_count": 7,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 FINETECH카드",
+      "file": "datasets/json_v3/kb/kb_finetech.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "file": "datasets/json_v3/kb/kb_goodday_olym.json",
+      "status": "PASS",
+      "benefits_count": 7,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 My WE:SH카드",
+      "file": "datasets/json_v3/kb/kb_my_wesh.json",
+      "status": "PASS",
+      "benefits_count": 10,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 마이원카드",
+      "file": "datasets/json_v3/kb/kb_myone.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 Star카드",
+      "file": "datasets/json_v3/kb/kb_star.json",
+      "status": "PASS",
+      "benefits_count": 9,
+      "groups_count": 4,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "file": "datasets/json_v3/kb/kb_tantan_biz.json",
+      "status": "PASS",
+      "benefits_count": 14,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 The Easy카드",
+      "file": "datasets/json_v3/kb/kb_the_easy.json",
+      "status": "PASS",
+      "benefits_count": 3,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 직장인보너스 체크카드",
+      "file": "datasets/json_v3/kb/kb_worker_bonus_check.json",
+      "status": "PASS",
+      "benefits_count": 13,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "file": "datasets/json_v3/kb/kb_youth_toktok.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Air One",
+      "file": "datasets/json_v3/shinhan/shinhan_air_one.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "file": "datasets/json_v3/shinhan/shinhan_deep_oil.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 4,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "file": "datasets/json_v3/shinhan/shinhan_discount_plan_plus.json",
+      "status": "PASS",
+      "benefits_count": 17,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 처음",
+      "file": "datasets/json_v3/shinhan/shinhan_first.json",
+      "status": "PASS",
+      "benefits_count": 7,
+      "groups_count": 4,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 처음 체크",
+      "file": "datasets/json_v3/shinhan/shinhan_first_check.json",
+      "status": "PASS",
+      "benefits_count": 5,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Hi-Point 플래티늄",
+      "file": "datasets/json_v3/shinhan/shinhan_hi_point.json",
+      "status": "PASS",
+      "benefits_count": 33,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "메리어트 본보이 더 베스트 신한카드",
+      "file": "datasets/json_v3/shinhan/shinhan_marriott_bonvoy.json",
+      "status": "PASS",
+      "benefits_count": 11,
+      "groups_count": 1,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Mr.Life",
+      "file": "datasets/json_v3/shinhan/shinhan_mr_life.json",
+      "status": "PASS",
+      "benefits_count": 10,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Point Plan",
+      "file": "datasets/json_v3/shinhan/shinhan_point_plan.json",
+      "status": "PASS",
+      "benefits_count": 4,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Point Plan+",
+      "file": "datasets/json_v3/shinhan/shinhan_point_plan_plus.json",
+      "status": "PASS",
+      "benefits_count": 6,
+      "groups_count": 3,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 Simple 플래티늄",
+      "file": "datasets/json_v3/shinhan/shinhan_simple.json",
+      "status": "PASS",
+      "benefits_count": 3,
+      "groups_count": 2,
+      "issues": []
+    },
+    {
+      "card_name": "신한카드 The CLASSIC-S",
+      "file": "datasets/json_v3/shinhan/shinhan_the_classic_s.json",
+      "status": "PASS",
+      "benefits_count": 5,
+      "groups_count": 2,
+      "issues": []
+    }
+  ]
+}
