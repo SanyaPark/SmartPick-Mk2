@@ -1,0 +1,843 @@
+{
+  "timestamp": "2026-03-25T10:01:17",
+  "model": "solar-pro2",
+  "prompt_versions": {
+    "CALC_PROMPT": "V1",
+    "EXPLAIN_PROMPT": "V2",
+    "QA_PROMPT": "V1"
+  },
+  "input": {
+    "total_budget": 500000,
+    "category_spending": {
+      "Coffee": 50000,
+      "Traffic": 100000,
+      "Shopping": 150000
+    }
+  },
+  "filter": {
+    "total_cards": 29,
+    "after_performance": 29,
+    "after_category": 25
+  },
+  "calc_raw": {
+    "KB국민 Easy pick 카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 20000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "5%",
+          "discount": 5000,
+          "note": "월 적립한도 5천점(1구간) 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "5%",
+          "discount": 5000,
+          "note": "월 적립한도 5천점(1구간) 이내"
+        }
+      ],
+      "total_discount": 10000,
+      "total_yearly_discount": 120000
+    },
+    "KB국민 굿데이올림카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 3000,
+          "note": "월 할인한도 3만원 이내"
+        }
+      ],
+      "total_discount": 8000,
+      "total_yearly_discount": 96000
+    },
+    "KB국민 My WE:SH 카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        }
+      ],
+      "total_discount": 15000,
+      "total_yearly_discount": 180000
+    },
+    "KB국민 직장인보너스 체크카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 0,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "5%",
+          "discount": 10000,
+          "note": "월 할인한도 2만원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "5%",
+          "discount": 0,
+          "note": "전월 실적 50만원 이상 필요"
+        }
+      ],
+      "total_discount": 10000,
+      "total_yearly_discount": 120000
+    },
+    "KB국민 BeV III 카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 200000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.1%",
+          "discount": 550,
+          "note": "주중(월~목) 1.1% 적립"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.1%",
+          "discount": 1100,
+          "note": "주중(월~목) 1.1% 적립"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.1%",
+          "discount": 1650,
+          "note": "주중(월~목) 1.1% 적립"
+        }
+      ],
+      "total_discount": 3200,
+      "total_yearly_discount": 38400
+    },
+    "KB국민 청춘대로 톡톡카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 10000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "50%",
+          "discount": 10000,
+          "note": "월 할인한도 1만원 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        }
+      ],
+      "total_discount": 20000,
+      "total_yearly_discount": 240000
+    },
+    "KB국민 The Easy카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "0.7%",
+          "discount": 350,
+          "note": "기본 적립 0.7%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "0.7%",
+          "discount": 700,
+          "note": "기본 적립 0.7%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "0.7%",
+          "discount": 1050,
+          "note": "기본 적립 0.7%"
+        }
+      ],
+      "total_discount": 2100,
+      "total_yearly_discount": 25200
+    },
+    "KB국민 탄탄대로 Biz카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "20%",
+          "discount": 30000,
+          "note": "월 적립한도 1.5만점(1구간) 이내"
+        }
+      ],
+      "total_discount": 30000,
+      "total_yearly_discount": 360000
+    },
+    "홈플러스 KB국민카드": {
+      "card_company": "KB국민카드",
+      "annual_fee": 3000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "5%",
+          "discount": 7500,
+          "note": "월 할인한도 3만원 이내"
+        }
+      ],
+      "total_discount": 7500,
+      "total_yearly_discount": 90000
+    },
+    "현대카드 T3 Edition2": {
+      "card_company": "현대카드",
+      "annual_fee": 70000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "500원",
+          "discount": 500,
+          "note": "건당 500원 할인, 월 30회 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 15000,
+          "note": "월 1회, 1만원 한도 이내"
+        }
+      ],
+      "total_discount": 15500,
+      "total_yearly_discount": 186000
+    },
+    "현대카드 DIGITAL LOVER": {
+      "card_company": "현대카드",
+      "annual_fee": 20000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "5%",
+          "discount": 10000,
+          "note": "월 1만원 한도 이내"
+        }
+      ],
+      "total_discount": 10000,
+      "total_yearly_discount": 120000
+    },
+    "현대카드 M": {
+      "card_company": "현대카드",
+      "annual_fee": 30000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.5%",
+          "discount": 750,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.5%",
+          "discount": 1500,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.5%",
+          "discount": 2250,
+          "note": "기본 적립 1.5%"
+        }
+      ],
+      "total_discount": 4500,
+      "total_yearly_discount": 54000
+    },
+    "SC제일은행-the Red": {
+      "card_company": "현대카드",
+      "annual_fee": 300000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.5%",
+          "discount": 750,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.5%",
+          "discount": 1500,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.5%",
+          "discount": 2250,
+          "note": "기본 적립 1.5%"
+        }
+      ],
+      "total_discount": 4500,
+      "total_yearly_discount": 54000
+    },
+    "현대카드 Summit": {
+      "card_company": "현대카드",
+      "annual_fee": 200000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.5%",
+          "discount": 750,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.5%",
+          "discount": 1500,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.5%",
+          "discount": 2250,
+          "note": "기본 적립 1.5%"
+        }
+      ],
+      "total_discount": 4500,
+      "total_yearly_discount": 54000
+    },
+    "the Green Edition3": {
+      "card_company": "현대카드",
+      "annual_fee": 150000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.5%",
+          "discount": 750,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.5%",
+          "discount": 1500,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.5%",
+          "discount": 2250,
+          "note": "기본 적립 1.5%"
+        }
+      ],
+      "total_discount": 4500,
+      "total_yearly_discount": 54000
+    },
+    "현대카드Z family Edition2": {
+      "card_company": "현대카드",
+      "annual_fee": 20000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 6천원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 6000,
+          "note": "월 6천원 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 6000,
+          "note": "월 6천원 한도 이내"
+        }
+      ],
+      "total_discount": 17000,
+      "total_yearly_discount": 204000
+    },
+    "the Pink Edition2": {
+      "card_company": "현대카드",
+      "annual_fee": 150000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1.5%",
+          "discount": 750,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1.5%",
+          "discount": 1500,
+          "note": "기본 적립 1.5%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1.5%",
+          "discount": 2250,
+          "note": "기본 적립 1.5%"
+        }
+      ],
+      "total_discount": 4500,
+      "total_yearly_discount": 54000
+    },
+    "신한카드 The CLASSIC-S": {
+      "card_company": "신한카드",
+      "annual_fee": 100000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1%",
+          "discount": 500,
+          "note": "기본 적립 1%"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1%",
+          "discount": 1000,
+          "note": "기본 적립 1%"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1%",
+          "discount": 1500,
+          "note": "기본 적립 1%"
+        }
+      ],
+      "total_discount": 3000,
+      "total_yearly_discount": 36000
+    },
+    "신한카드 Discount Plan+": {
+      "card_company": "신한카드",
+      "annual_fee": 50000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "10%",
+          "discount": 1000,
+          "note": "월 5천원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "5%",
+          "discount": 2500,
+          "note": "월 2만5천원 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 5만원 한도 이내"
+        }
+      ],
+      "total_discount": 8500,
+      "total_yearly_discount": 102000
+    },
+    "신한카드 Deep Oil": {
+      "card_company": "신한카드",
+      "annual_fee": 10000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "5%",
+          "discount": 2500,
+          "note": "월 15만원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "쇼핑 혜택 없음"
+        }
+      ],
+      "total_discount": 2500,
+      "total_yearly_discount": 30000
+    },
+    "신한카드 SOL Plan": {
+      "card_company": "신한카드",
+      "annual_fee": 33000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "2.5%",
+          "discount": 1250,
+          "note": "월 5천 포인트 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "2.5%",
+          "discount": 2500,
+          "note": "월 5천 포인트 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "2.5%",
+          "discount": 3750,
+          "note": "월 5천 포인트 한도 이내"
+        }
+      ],
+      "total_discount": 7500,
+      "total_yearly_discount": 90000
+    },
+    "신한카드 Mr.Life": {
+      "card_company": "신한카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "10%",
+          "discount": 1000,
+          "note": "월 1천원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 1000,
+          "note": "월 1천원 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 1000,
+          "note": "월 1천원 한도 이내"
+        }
+      ],
+      "total_discount": 3000,
+      "total_yearly_discount": 36000
+    },
+    "신한카드 처음": {
+      "card_company": "신한카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "5%",
+          "discount": 1000,
+          "note": "월 5천원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "5%",
+          "discount": 1000,
+          "note": "월 5천원 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "5%",
+          "discount": 1000,
+          "note": "월 5천원 한도 이내"
+        }
+      ],
+      "total_discount": 3000,
+      "total_yearly_discount": 36000
+    },
+    "신한카드 Air One": {
+      "card_company": "신한카드",
+      "annual_fee": 51000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "1마일리지",
+          "discount": 0,
+          "note": "마일리지 적립"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "1마일리지",
+          "discount": 0,
+          "note": "마일리지 적립"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "1마일리지",
+          "discount": 0,
+          "note": "마일리지 적립"
+        }
+      ],
+      "total_discount": 0,
+      "total_yearly_discount": 0
+    },
+    "메리어트 본보이™ 더 베스트 신한카드": {
+      "card_company": "신한카드",
+      "annual_fee": 267000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "3포인트",
+          "discount": 0,
+          "note": "포인트 적립"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "3포인트",
+          "discount": 0,
+          "note": "포인트 적립"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "3포인트",
+          "discount": 0,
+          "note": "포인트 적립"
+        }
+      ],
+      "total_discount": 0,
+      "total_yearly_discount": 0
+    }
+  },
+  "top3": [
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "card_company": "KB국민카드",
+      "annual_fee": 15000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "커피 혜택 없음"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "해당없음",
+          "discount": 0,
+          "note": "교통 혜택 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "20%",
+          "discount": 30000,
+          "note": "월 적립한도 1.5만점(1구간) 이내"
+        }
+      ],
+      "total_discount": 30000,
+      "total_yearly_discount": 360000
+    },
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "card_company": "KB국민카드",
+      "annual_fee": 10000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "50%",
+          "discount": 10000,
+          "note": "월 할인한도 1만원 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 할인한도 5천원 이내"
+        }
+      ],
+      "total_discount": 20000,
+      "total_yearly_discount": 240000
+    },
+    {
+      "card_name": "현대카드Z family Edition2",
+      "card_company": "현대카드",
+      "annual_fee": 20000,
+      "details": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "rate": "10%",
+          "discount": 5000,
+          "note": "월 6천원 한도 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "rate": "10%",
+          "discount": 6000,
+          "note": "월 6천원 한도 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "rate": "10%",
+          "discount": 6000,
+          "note": "월 6천원 한도 이내"
+        }
+      ],
+      "total_discount": 17000,
+      "total_yearly_discount": 204000
+    }
+  ],
+  "explain_raw": "쇼핑과 커피 등 자주 이용하시는 카테고리에서  \n혜택을 집중적으로 받을 수 있는 카드를 추천드렸어요.  \n\n특히 'KB국민 청춘대로 톡톡카드'는 쇼핑과 커피 소비에  \n최적화된 혜택을 제공하는 카드입니다.  \n쇼핑에서는 10% 할인, 커피에서는 50% 할인으로  \n월 최대 2만원까지 혜택을 누릴 수 있어요.  \n\n현재 소비 패턴을 기준으로 월 약 2만원,  \n연간 약 24만원 수준의 혜택이 예상됩니다.",
+  "elapsed_seconds": 39.82
+}
