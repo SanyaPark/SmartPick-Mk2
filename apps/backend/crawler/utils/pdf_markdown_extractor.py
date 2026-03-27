@@ -24,10 +24,20 @@ class PDFMarkdownExtractor:
         parse_error = ""
 
         try:
-            markdown = PDFMarkdownExtractor._extract_with_pymupdf4llm(file_path)
-            parse_method = "pymupdf4llm"
+            if os.getenv("UPSTAGE_API_KEY"):
+                try:
+                    markdown = PDFMarkdownExtractor._extract_with_upstage(file_path)
+                    parse_method = "upstage"
+                except Exception as upstage_error:
+                    parse_error = f"Upstage failed: {upstage_error}"
+                    markdown = PDFMarkdownExtractor._extract_with_pymupdf4llm(file_path)
+                    parse_method = "pymupdf4llm_fallback"
+            else:
+                markdown = PDFMarkdownExtractor._extract_with_pymupdf4llm(file_path)
+                parse_method = "pymupdf4llm"
         except Exception as primary_error:
-            parse_error = str(primary_error)
+            parse_error = f"{parse_error} | " if parse_error else ""
+            parse_error += str(primary_error)
             try:
                 markdown = PDFMarkdownExtractor._extract_with_pdfplumber(file_path)
                 parse_method = "pdfplumber_fallback"
@@ -62,6 +72,31 @@ class PDFMarkdownExtractor:
                 return len(pdf.pages)
         except Exception:
             return 0
+
+    @staticmethod
+    def _extract_with_upstage(file_path: str) -> str:
+        from langchain_upstage import UpstageDocumentParseLoader
+        import re
+
+        loader = UpstageDocumentParseLoader(
+            file_path,
+            output_format="markdown",
+            split="element"
+        )
+        docs = loader.load()
+        if not docs:
+            return ""
+        
+        md_text = "\n\n".join(doc.page_content for doc in docs)
+        
+        # Ensure newlines before headers and bullets if stuck
+        md_text = re.sub(r"([^\n])(#+ )", r"\1\n\n\2", md_text)
+        md_text = re.sub(r"([^\n])([*-] )", r"\1\n\n\2", md_text)
+        md_text = re.sub(r"([^\n])([*·] )", r"\1\n\n\2", md_text)
+        
+        # Clean up excessive newlines
+        md_text = re.sub(r"\n{3,}", "\n\n", md_text)
+        return md_text.strip()
 
     @staticmethod
     def _extract_with_pymupdf4llm(file_path: str) -> str:
