@@ -253,11 +253,15 @@ def calculate_benefits_node(state: AgentState):
 
         for benefit in card.get("benefits", []):
             cat = benefit.get("category", "")
-            spend = category_spending.get(cat, 0)
+            # General/All_Domestic은 전체 소비에 적용되는 기본 혜택
+            if cat in ("General", "All_Domestic"):
+                spend = sum(category_spending.values())
+            else:
+                spend = category_spending.get(cat, 0)
             rate = benefit.get("rate", 0)
             monthly_limit = benefit.get("monthly_limit")
 
-            if spend <= 0 or rate <= 0:
+            if not spend or not rate or spend <= 0 or rate <= 0:
                 continue
 
             raw_amount = spend * rate
