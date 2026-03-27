@@ -58,8 +58,38 @@ uv run python -m apps.backend.crawler.main
 수집된 데이터는 프로젝트 루트 기준 `datasets/`에 저장됩니다.
 
 -   `datasets/pdfs/`: 다운로드된 PDF 원본 파일\
--   `datasets/text/`: 추출된 텍스트 및 메타데이터(JSON)\
+-   `datasets/text/`: 추출된 메타데이터(JSON)\
 -   `datasets/index.csv`: 전체 문서 수집 결과 인덱스
+
+`CRAWLER_PARSE_MODE=md_llm`를 사용하면 추가로 다음이 생성됩니다.
+
+-   `datasets/markdown/`: PDF에서 변환한 Markdown 파일
+-   `datasets/json_extracted/` (기본): Markdown 기반 LLM 구조화 JSON
+
+------------------------------------------------------------------------
+
+## 파싱 모드 (legacy / md_llm)
+
+기본은 `legacy`입니다.
+
+``` bash
+# 기본: PDF -> 텍스트
+uv run python -m apps.backend.crawler.main
+```
+
+``` bash
+# 신규: PDF -> Markdown -> LLM JSON
+CRAWLER_PARSE_MODE=md_llm uv run python -m apps.backend.crawler.main
+```
+
+### 주요 환경 변수
+
+-   `CRAWLER_PARSE_MODE`: `legacy` 또는 `md_llm` (기본 `legacy`)
+-   `CRAWLER_ENABLE_LLM_JSON`: `true/false` (기본 `true`)
+-   `CRAWLER_LLM_MODEL`: LLM 모델명 (기본 `solar-pro2`)
+-   `CRAWLER_LLM_MAX_INPUT_CHARS`: LLM 입력 최대 길이 (기본 `18000`)
+-   `CRAWLER_LLM_MAX_CHUNKS`: 카드 JSON chunk 최대 개수 (기본 `12`)
+-   `CRAWLER_JSON_OUTPUT_DIR`: LLM JSON 출력 디렉터리 (기본 `datasets/json_extracted`)
 
 ------------------------------------------------------------------------
 
