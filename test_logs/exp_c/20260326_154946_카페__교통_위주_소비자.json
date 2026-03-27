@@ -1,0 +1,580 @@
+{
+  "timestamp": "2026-03-26T15:49:11",
+  "model": "solar-pro2",
+  "prompt_versions": {
+    "LLM_FILTER": "V1",
+    "LLM_PLAN": "V1",
+    "ENGINE": "StrategyEngine_V1",
+    "EXPLAIN_PROMPT": "V3",
+    "QA_PROMPT": "V1"
+  },
+  "experiment": "llm_plan_strategy_engine",
+  "input": {
+    "total_budget": 500000,
+    "category_spending": {
+      "Coffee": 50000,
+      "Traffic": 100000,
+      "Shopping": 150000
+    }
+  },
+  "llm_filter_result": {
+    "total_cards": 29,
+    "selected_count": 7,
+    "selected": [
+      {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 혜택 제공",
+        "relevance_score": 0.95
+      },
+      {
+        "card_name": "KB국민 탄탄대로 Biz카드",
+        "reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 카테고리에서 높은 포인트 적립률",
+        "relevance_score": 0.92
+      },
+      {
+        "card_name": "신한카드 Discount Plan+",
+        "reason": "Coffee 10% 할인, Food 10% 할인으로 소비 패턴과의 높은 일치도",
+        "relevance_score": 0.88
+      },
+      {
+        "card_name": "KB국민 굿데이올림카드",
+        "reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 카테고리 혜택과 적절한 연회비",
+        "relevance_score": 0.85
+      },
+      {
+        "card_name": "신한카드 Deep Oil",
+        "reason": "Traffic 10% 할인, Shopping 5% 할인으로 교통 및 쇼핑 혜택 집중",
+        "relevance_score": 0.82
+      },
+      {
+        "card_name": "KB국민 My WE:SH 카드",
+        "reason": "General 10% 할인으로 모든 카테고리에서 균일한 혜택 제공",
+        "relevance_score": 0.78
+      },
+      {
+        "card_name": "현대카드 M",
+        "reason": "General 2% 포인트, Shopping 5% 포인트로 광범위한 혜택과 높은 포인트 적립률",
+        "relevance_score": 0.75
+      }
+    ],
+    "elapsed_seconds": 3.3
+  },
+  "llm_plans": [
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP",
+          "WATERFALL_APPLY"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ]
+        }
+      }
+    },
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_6": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      }
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_4": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_5": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      }
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      }
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP",
+          "WATERFALL_APPLY"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_4": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ]
+        }
+      }
+    },
+    {
+      "card_name": "KB국민 My WE:SH 카드",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {}
+      }
+    },
+    {
+      "card_name": "현대카드 M",
+      "plan": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      }
+    }
+  ],
+  "calc_results": [
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 20000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 10000,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP",
+          "WATERFALL_APPLY"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 혜택 제공"
+    },
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 88000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 65000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 23000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_6": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 카테고리에서 높은 포인트 적립률"
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "performance_met": true,
+      "expected_monthly_benefit": 9500,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2000,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_4": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_5": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "Coffee 10% 할인, Food 10% 할인으로 소비 패턴과의 높은 일치도"
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 31000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 15000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 16000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 카테고리 혜택과 적절한 연회비"
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "performance_met": true,
+      "expected_monthly_benefit": 35000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 25000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP",
+          "WATERFALL_APPLY"
+        ],
+        "benefit_strategies": {
+          "b_0": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_2": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_3": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ],
+          "b_4": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY",
+            "FALLBACK_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "Traffic 10% 할인, Shopping 5% 할인으로 교통 및 쇼핑 혜택 집중"
+    },
+    {
+      "card_name": "KB국민 My WE:SH 카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 0,
+      "category_breakdown": [],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {}
+      },
+      "llm_reason": "General 10% 할인으로 모든 카테고리에서 균일한 혜택 제공"
+    },
+    {
+      "card_name": "현대카드 M",
+      "performance_met": true,
+      "expected_monthly_benefit": 7500,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "executed_strategies": {
+        "pipeline": [
+          "PERFORMANCE_CHECK",
+          "BENEFIT_LOOP"
+        ],
+        "benefit_strategies": {
+          "b_1": [
+            "RATE_CALC",
+            "MONTHLY_LIMIT_APPLY"
+          ]
+        }
+      },
+      "llm_reason": "General 2% 포인트, Shopping 5% 포인트로 광범위한 혜택과 높은 포인트 적립률"
+    }
+  ],
+  "top3": [
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "expected_monthly_benefit": 88000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 65000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 23000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 카테고리에서 높은 포인트 적립률"
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "expected_monthly_benefit": 35000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 25000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 10% 할인, Shopping 5% 할인으로 교통 및 쇼핑 혜택 집중"
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "expected_monthly_benefit": 31000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 15000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 16000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 카테고리 혜택과 적절한 연회비"
+    }
+  ],
+  "explain_raw": "쇼핑과 교통 분야에서 자주 소비하시는 패턴을 고려해  \n**KB국민 탄탄대로 Biz카드**를 추천드립니다.  \n\n이 카드는 대형마트/온라인쇼핑 시 10~20% 포인트 적립과  \n주유소(SK, GS칼텍스) 리터당 100~130점 혜택을 제공해  \n월 15만 원 쇼핑과 10만 원 교통비 지출에 효과적입니다.  \n\n현재 소비 기준으로 월 약 8만 8천 원,  \n연간 약 105만 6천 원 수준의 혜택이 예상됩니다.  \n\n(※ 연회비 1만 5천 원 고려 시 순혜택 기준)",
+  "plan_elapsed_seconds": 29.39,
+  "engine_elapsed_seconds": 0.0,
+  "explain_elapsed_seconds": 1.65,
+  "elapsed_seconds": 34.46
+}

@@ -1,0 +1,562 @@
+{
+  "timestamp": "2026-03-26T15:46:43",
+  "model": "solar-pro2",
+  "prompt_versions": {
+    "LLM_FILTER": "V1",
+    "EXPLAIN_PROMPT": "V3",
+    "QA_PROMPT": "V1"
+  },
+  "experiment": "llm_filter_ranking",
+  "input": {
+    "total_budget": 500000,
+    "category_spending": {
+      "Coffee": 50000,
+      "Traffic": 100000,
+      "Shopping": 150000
+    }
+  },
+  "llm_filter_result": {
+    "total_cards": 29,
+    "selected_count": 7,
+    "selected": [
+      {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 10,000원으로 가성비가 우수함",
+        "relevance_score": 0.95
+      },
+      {
+        "card_name": "KB국민 탄탄대로 Biz카드",
+        "reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족",
+        "relevance_score": 0.92
+      },
+      {
+        "card_name": "신한카드 Discount Plan+",
+        "reason": "Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족",
+        "relevance_score": 0.88
+      },
+      {
+        "card_name": "KB국민 굿데이올림카드",
+        "reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 연회비 15,000원으로 합리적",
+        "relevance_score": 0.85
+      },
+      {
+        "card_name": "신한카드 처음",
+        "reason": "Coffee 5% 포인트, Food 5% 포인트, Shopping 5% 포인트로 주요 소비 카테고리에서 고른 혜택을 제공하며 연회비 15,000원으로 부담 적음",
+        "relevance_score": 0.82
+      },
+      {
+        "card_name": "KB국민 My WE:SH 카드",
+        "reason": "General 10% 할인, Food 10% 할인, Life 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족",
+        "relevance_score": 0.8
+      },
+      {
+        "card_name": "신한카드 SOL Plan",
+        "reason": "Traffic 2% 포인트, Shopping 2% 포인트로 주요 소비 카테고리에서 안정적인 포인트 적립을 제공하며 전월실적 400,000원 충족",
+        "relevance_score": 0.78
+      }
+    ],
+    "llm_raw": "```json\n{\n    \"selected_cards\": [\n        {\n            \"card_name\": \"KB국민 청춘대로 톡톡카드\",\n            \"reason\": \"Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 10,000원으로 가성비가 우수함\",\n            \"relevance_score\": 0.95\n        },\n        {\n            \"card_name\": \"KB국민 탄탄대로 Biz카드\",\n            \"reason\": \"Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족\",\n            \"relevance_score\": 0.92\n        },\n        {\n            \"card_name\": \"신한카드 Discount Plan+\",\n            \"reason\": \"Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족\",\n            \"relevance_score\": 0.88\n        },\n        {\n            \"card_name\": \"KB국민 굿데이올림카드\",\n            \"reason\": \"Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 연회비 15,000원으로 합리적\",\n            \"relevance_score\": 0.85\n        },\n        {\n            \"card_name\": \"신한카드 처음\",\n            \"reason\": \"Coffee 5% 포인트, Food 5% 포인트, Shopping 5% 포인트로 주요 소비 카테고리에서 고른 혜택을 제공하며 연회비 15,000원으로 부담 적음\",\n            \"relevance_score\": 0.82\n        },\n        {\n            \"card_name\": \"KB국민 My WE:SH 카드\",\n            \"reason\": \"General 10% 할인, Food 10% 할인, Life 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족\",\n            \"relevance_score\": 0.80\n        },\n        {\n            \"card_name\": \"신한카드 SOL Plan\",\n            \"reason\": \"Traffic 2% 포인트, Shopping 2% 포인트로 주요 소비 카테고리에서 안정적인 포인트 적립을 제공하며 전월실적 400,000원 충족\",\n            \"relevance_score\": 0.78\n        }\n    ]\n}\n```",
+    "elapsed_seconds": 4.97
+  },
+  "calc_results": [
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "expected_monthly_benefit": 20000,
+      "calculation_method": "유저 소비 카테고리(Coffee, Traffic, Shopping)에 대해 정률 할인 적용 후 월 한도 및 전월 실적 조건(300,000원 이상)을 고려하여 계산",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "50%",
+          "calculation": "50000 × 0.5 = 25000 → 월 한도 10000원 적용",
+          "monthly_limit": 10000,
+          "discount": 10000,
+          "reasoning": "스타벅스 50% 청구할인 적용, 월 할인한도 10000원 초과 시 한도 적용. 할인금액(10000원)은 전월 실적 산정에서 제외"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10%",
+          "calculation": "100000 × 0.1 = 10000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "대중교통/택시 10% 청구할인 적용, 월 할인한도 5000원 초과 시 한도 적용. 할인금액(5000원)은 전월 실적 산정에서 제외"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10%",
+          "calculation": "150000 × 0.1 = 15000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "간편결제 10% 청구할인 적용, 월 할인한도 5000원 초과 시 한도 적용. 할인금액(5000원)은 전월 실적 산정에서 제외"
+        }
+      ],
+      "unclear_benefits": [
+        "Food(버거/패스트푸드) - 유저 소비 패턴에 해당 카테고리 없음",
+        "Life(이동통신요금) - 유저 소비 패턴에 해당 카테고리 없음"
+      ],
+      "llm_reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 10,000원으로 가성비가 우수함",
+      "llm_relevance": 0.95
+    },
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "expected_monthly_benefit": 36667,
+      "calculation_method": "유저의 월 총 소비(500,000원)가 전월 실적 40만원 이상 조건을 충족하므로, 각 카테고리별 혜택과 월 한도를 적용하여 계산. 단, Coffee 카테고리는 해당 카드 혜택에 없으므로 제외",
+      "benefits_breakdown": [
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "리터당 100~130점 (옵션별 상이)",
+          "calculation": "주유금액 10만원 기준 리터당 100점 적용 시 100,000원 ÷ 1,500원(리터당 평균 가격) × 100점 = 6,667점 (약 6,667원). 단, 1구간(40만원 이상) 월 한도 15,000점 이내",
+          "monthly_limit": 15000,
+          "discount": 6667,
+          "reasoning": "주유금액 10만원 기준 리터당 100점 적용. 월 한도 15,000점 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "대형마트/식자재/이마트/롯데마트/홈플러스/하나로식자재매장 20% 적립",
+          "calculation": "150,000원 × 20% = 30,000점 (30,000원). 단, 1구간(40만원 이상) 월 한도 30,000점 이내",
+          "monthly_limit": 30000,
+          "discount": 30000,
+          "reasoning": "대형마트/식자재 카테고리 20% 적립. 월 한도 30,000점 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "인터넷쇼핑몰(G마켓, 옥션, 11번가, 인터파크, 롯데닷컴, 신세계몰) 20% 적립",
+          "calculation": "유저 소비 패턴에 인터넷쇼핑몰 소비 없음 → 0원",
+          "monthly_limit": 30000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 인터넷쇼핑몰 소비 없음"
+        },
+        {
+          "category": "Life",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "가맹점 운영지원(렌탈/보안/용품) 5% 적립",
+          "calculation": "유저 소비 패턴에 가맹점 운영지원 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 가맹점 운영지원 소비 없음"
+        },
+        {
+          "category": "Life",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "4대 사회보험/통신/전기·수도요금 5% 적립",
+          "calculation": "유저 소비 패턴에 공과금 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 공과금 소비 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "온라인몰(SK행복스토어, 플러스 O2O) 5% 적립",
+          "calculation": "유저 소비 패턴에 온라인몰 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 온라인몰 소비 없음"
+        }
+      ],
+      "unclear_benefits": [
+        "주유 리터당 100~130점 중 정확한 적립률 미확인",
+        "대형마트/식자재/이마트/롯데마트/홈플러스/하나로식자재매장 10~20% 중 20% 적용",
+        "인터넷쇼핑몰 5~20% 중 20% 적용",
+        "전자세금계산서 무료발행, 부가세 환급지원 등 비즈니스 지원 서비스 제공"
+      ],
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.92
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "expected_monthly_benefit": 22500,
+      "calculation_method": "유저의 월 소비 패턴(50만원)과 카드 혜택 조건을 매칭하여 카테고리별 할인 한도 및 조건을 적용한 후 총 혜택 계산",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% (Time Plan DAY)",
+          "calculation": "50000 × 0.1 = 5000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 5000원 적용. 일 1회/회당 최대 1000원 조건 충족 가정"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "5% (Daily Plan)",
+          "calculation": "100000 × 0.05 = 5000 → 월 한도 2500원 적용",
+          "monthly_limit": 2500,
+          "discount": 2500,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 2500원 적용. 일 1회/월 5회/회당 최대 2500원 조건 충족 가정"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% (Daily Plan)",
+          "calculation": "150000 × 0.1 = 15000 → 월 한도 15000원 적용",
+          "monthly_limit": 15000,
+          "discount": 15000,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 15000원 적용. 일 1회/월 5회/회당 최대 5000원 조건 충족 가정"
+        }
+      ],
+      "unclear_benefits": [
+        "Plan Day 서비스(매월 1일 첫 거래 할인율 2배) - 소비 패턴 미확인",
+        "Monthly Plan 정기결제 할인(공과금/구독) - 자동납부 여부 미확인",
+        "영화 예매 할인 - CGV/롯데시네마 이용 여부 미확인",
+        "Annual Plan 장보기 캐시백 - 연 1회 조건 미충족",
+        "차량정비/테마파크 할인 - 해당 소비 없음",
+        "Mastercard 플래티늄 서비스 - 해외겸용 카드 발급 여부 미확인"
+      ],
+      "llm_reason": "Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.88
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "expected_monthly_benefit": 10000,
+      "calculation_method": "유저 소비 패턴(Coffee, Traffic, Shopping)과 매칭되는 혜택만 계산. 전월실적 50만원(2구간) 기준 적용. 월 한도 및 조건 충족 여부 확인 후 계산",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% 청구할인",
+          "calculation": "50000 × 0.1 = 5000",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "Food 카테고리 10% 할인 적용. 전월실적 60만원 이상(2구간) 필요하나, 유저 소비 50만원으로 조건 미충족. 단, Coffee는 Food 혜택과 통합한도 공유하므로 0원 처리"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "리터당 60원 청구할인",
+          "calculation": "리터당 60원 할인 적용 불가(리터 수 미확인)",
+          "monthly_limit": 40000,
+          "discount": 0,
+          "reasoning": "주유 금액 기준 리터 수 계산 불가. 정액 할인 적용 불가"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% 청구할인",
+          "calculation": "100000 × 0.1 = 10000",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "대중교통 10% 할인 적용. 월 한도 5만원(최대 5천원) 초과로 5000원 할인"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% 청구할인",
+          "calculation": "150000 × 0.1 = 15000",
+          "monthly_limit": 50000,
+          "discount": 5000,
+          "reasoning": "대형마트 10% 할인 적용. 전월실적 50만원(2구간) 기준 월 한도 5만원(최대 5천원) 초과로 5000원 할인"
+        }
+      ],
+      "unclear_benefits": [
+        "Food 카테고리(커피 포함): 전월실적 60만원 이상 필요(2구간). 유저 소비 50만원으로 조건 미충족",
+        "EduHealth 카테고리: 전월실적 120만원 이상 필요(3구간). 유저 소비 50만원으로 조건 미충족",
+        "Life(통신), Travel(해외): 유저 소비 패턴과 무관"
+      ],
+      "llm_reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 연회비 15,000원으로 합리적",
+      "llm_relevance": 0.85
+    },
+    {
+      "card_name": "신한카드 처음",
+      "expected_monthly_benefit": 12500,
+      "calculation_method": "유저의 월 소비 패턴(50만원)에 따라 전월 실적 30~50만원 구간의 통합 적립 한도(5,000포인트) 내에서 카테고리별 5% 포인트 적립을 적용. 단, 커피/쇼핑/라이프 카테고리별 추가 조건 및 한도 고려",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "포인트적립",
+          "rate_or_amount": "5%",
+          "calculation": "50000 × 0.05 = 2500 (2,500P)",
+          "monthly_limit": 5000,
+          "discount": 2500,
+          "reasoning": "커피 카테고리 5% 적립. 월 통합 한도 5,000P 내 적용. 1회 최대 1만원, 매일 최대 1,000P 조건 충족 가정"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "포인트적립",
+          "rate_or_amount": "5%",
+          "calculation": "100000 × 0.05 = 5000 (5,000P)",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "교통(택시/KTX) 5% 적립. 월 통합 한도 5,000P 내 적용. 1회 최대 5만원 조건 충족 가정"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "포인트적립",
+          "rate_or_amount": "5%",
+          "calculation": "150000 × 0.05 = 7500 (7,500P) → 월 통합 한도 5,000P 초과로 5,000P 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "쇼핑 카테고리 5% 적립. 월 통합 한도 5,000P 초과로 한도 적용. 1회 최대 5만원 조건 충족 가정"
+        }
+      ],
+      "unclear_benefits": [
+        "계획소비 포인트(목표 설정 필요), 즉시결제 0.3% 포인트(조건 불명확), OTT/통신/멤버십 10~20% 포인트(유저 소비 패턴 미포함)"
+      ],
+      "llm_reason": "Coffee 5% 포인트, Food 5% 포인트, Shopping 5% 포인트로 주요 소비 카테고리에서 고른 혜택을 제공하며 연회비 15,000원으로 부담 적음",
+      "llm_relevance": 0.82
+    },
+    {
+      "card_name": "KB국민 My WE:SH 카드",
+      "expected_monthly_benefit": 12500,
+      "calculation_method": "유저 소비 카테고리(Coffee, Traffic, Shopping)와 직접 연관된 혜택만 계산. 선택형 서비스는 '노는데 진심' 선택 가정. 할인액은 월 한도 내에서만 인정.",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "5%",
+          "calculation": "50000 × 0.05 = 2500",
+          "monthly_limit": 5000,
+          "discount": 2500,
+          "reasoning": "선택형 서비스 '노는데 진심' 적용. 커피 업종 5% 할인. 월 한도 5,000원 이내"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "5%",
+          "calculation": "100000 × 0.05 = 5000",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "선택형 서비스 '노는데 진심' 적용. 택시 업종 5% 할인. 월 한도 5,000원 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10%",
+          "calculation": "150000 × 0.1 = 15000",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "간편결제(쇼핑) 10% 할인. 월 한도 5,000원 이내. 건당 2,500원 한도 적용 시 2건(5,000원)까지만 인정"
+        }
+      ],
+      "unclear_benefits": [
+        "선택형 서비스 중 '먹는데 진심' 또는 '관리에 진심' 선택 시 혜택 변동 가능",
+        "Happy Birth Month 혜택(생일 월 할인 한도 2배)",
+        "전월실적 채워드림 서비스(연 2회)"
+      ],
+      "llm_reason": "General 10% 할인, Food 10% 할인, Life 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.8
+    },
+    {
+      "card_name": "신한카드 SOL Plan",
+      "expected_monthly_benefit": 6750,
+      "calculation_method": "유저의 월 소비금액(500,000원)이 전월 실적 40만원 이상 100만원 미만 구간에 해당하므로, 각 카테고리별 기본 적립률(General 1.0%, Traffic 2.5%, Shopping 2.5%)을 적용. 월 한도 및 제외 조건 반영.",
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "1.0%",
+          "calculation": "50000 × 0.01 = 500",
+          "monthly_limit": 50000,
+          "discount": 500,
+          "reasoning": "General 카테고리 1.0% 적립 적용. 월 5만 포인트 한도 내 포함"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "2.5%",
+          "calculation": "100000 × 0.025 = 2500",
+          "monthly_limit": 300000,
+          "discount": 2500,
+          "reasoning": "Traffic 카테고리 2.5% 적립 적용. 월 30만원 한도 내 포함"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "2.5%",
+          "calculation": "150000 × 0.025 = 3750",
+          "monthly_limit": 300000,
+          "discount": 3750,
+          "reasoning": "Shopping 카테고리 2.5% 적립 적용. 월 30만원 한도 내 포함"
+        }
+      ],
+      "unclear_benefits": [
+        "Cultural: OTT/멤버십 100% 적립은 전월 실적 100만원 이상 및 신한은행 계좌 잔액 조건 미충족으로 계산 불가",
+        "Life: 포인트박스 10% 추가 적립은 포인트박스 보유 여부 불명으로 계산 불가",
+        "Travel: 해외겸용 카드 발급 여부 불명으로 계산 불가"
+      ],
+      "llm_reason": "Traffic 2% 포인트, Shopping 2% 포인트로 주요 소비 카테고리에서 안정적인 포인트 적립을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.78
+    }
+  ],
+  "top3": [
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "expected_monthly_benefit": 36667,
+      "benefits_breakdown": [
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "리터당 100~130점 (옵션별 상이)",
+          "calculation": "주유금액 10만원 기준 리터당 100점 적용 시 100,000원 ÷ 1,500원(리터당 평균 가격) × 100점 = 6,667점 (약 6,667원). 단, 1구간(40만원 이상) 월 한도 15,000점 이내",
+          "monthly_limit": 15000,
+          "discount": 6667,
+          "reasoning": "주유금액 10만원 기준 리터당 100점 적용. 월 한도 15,000점 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "대형마트/식자재/이마트/롯데마트/홈플러스/하나로식자재매장 20% 적립",
+          "calculation": "150,000원 × 20% = 30,000점 (30,000원). 단, 1구간(40만원 이상) 월 한도 30,000점 이내",
+          "monthly_limit": 30000,
+          "discount": 30000,
+          "reasoning": "대형마트/식자재 카테고리 20% 적립. 월 한도 30,000점 이내"
+        },
+        {
+          "category": "Shopping",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "인터넷쇼핑몰(G마켓, 옥션, 11번가, 인터파크, 롯데닷컴, 신세계몰) 20% 적립",
+          "calculation": "유저 소비 패턴에 인터넷쇼핑몰 소비 없음 → 0원",
+          "monthly_limit": 30000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 인터넷쇼핑몰 소비 없음"
+        },
+        {
+          "category": "Life",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "가맹점 운영지원(렌탈/보안/용품) 5% 적립",
+          "calculation": "유저 소비 패턴에 가맹점 운영지원 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 가맹점 운영지원 소비 없음"
+        },
+        {
+          "category": "Life",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "4대 사회보험/통신/전기·수도요금 5% 적립",
+          "calculation": "유저 소비 패턴에 공과금 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 공과금 소비 없음"
+        },
+        {
+          "category": "Shopping",
+          "spending": 0,
+          "benefit_type": "포인트 적립",
+          "rate_or_amount": "온라인몰(SK행복스토어, 플러스 O2O) 5% 적립",
+          "calculation": "유저 소비 패턴에 온라인몰 소비 없음 → 0원",
+          "monthly_limit": 5000,
+          "discount": 0,
+          "reasoning": "유저 소비 패턴에 온라인몰 소비 없음"
+        }
+      ],
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.92
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "expected_monthly_benefit": 22500,
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% (Time Plan DAY)",
+          "calculation": "50000 × 0.1 = 5000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 5000원 적용. 일 1회/회당 최대 1000원 조건 충족 가정"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "5% (Daily Plan)",
+          "calculation": "100000 × 0.05 = 5000 → 월 한도 2500원 적용",
+          "monthly_limit": 2500,
+          "discount": 2500,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 2500원 적용. 일 1회/월 5회/회당 최대 2500원 조건 충족 가정"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10% (Daily Plan)",
+          "calculation": "150000 × 0.1 = 15000 → 월 한도 15000원 적용",
+          "monthly_limit": 15000,
+          "discount": 15000,
+          "reasoning": "전월 실적 40~80만원 구간에서 월 할인 한도 15000원 적용. 일 1회/월 5회/회당 최대 5000원 조건 충족 가정"
+        }
+      ],
+      "llm_reason": "Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리에서 높은 할인 혜택을 제공하며 전월실적 400,000원 충족",
+      "llm_relevance": 0.88
+    },
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "expected_monthly_benefit": 20000,
+      "benefits_breakdown": [
+        {
+          "category": "Coffee",
+          "spending": 50000,
+          "benefit_type": "할인",
+          "rate_or_amount": "50%",
+          "calculation": "50000 × 0.5 = 25000 → 월 한도 10000원 적용",
+          "monthly_limit": 10000,
+          "discount": 10000,
+          "reasoning": "스타벅스 50% 청구할인 적용, 월 할인한도 10000원 초과 시 한도 적용. 할인금액(10000원)은 전월 실적 산정에서 제외"
+        },
+        {
+          "category": "Traffic",
+          "spending": 100000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10%",
+          "calculation": "100000 × 0.1 = 10000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "대중교통/택시 10% 청구할인 적용, 월 할인한도 5000원 초과 시 한도 적용. 할인금액(5000원)은 전월 실적 산정에서 제외"
+        },
+        {
+          "category": "Shopping",
+          "spending": 150000,
+          "benefit_type": "할인",
+          "rate_or_amount": "10%",
+          "calculation": "150000 × 0.1 = 15000 → 월 한도 5000원 적용",
+          "monthly_limit": 5000,
+          "discount": 5000,
+          "reasoning": "간편결제 10% 청구할인 적용, 월 할인한도 5000원 초과 시 한도 적용. 할인금액(5000원)은 전월 실적 산정에서 제외"
+        }
+      ],
+      "llm_reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 10,000원으로 가성비가 우수함",
+      "llm_relevance": 0.95
+    }
+  ],
+  "explain_raw": "주유 및 쇼핑 소비가 많으신 점을 고려해  \n**KB국민 탄탄대로 Biz카드**를 추천드립니다.  \n\n이 카드는 주유소(SK, GS칼텍스)에서 리터당 포인트 적립과  \n대형마트/온라인쇼핑몰에서 5~20% 포인트 적립 혜택을 제공해  \n월 150,000원 쇼핑 및 100,000원 주유 소비 시 효과적입니다.  \n\n예상 혜택으로는 월 약 3만 7천원,  \n연간 약 44만원의 혜택을 받으실 수 있습니다.  \n\n(※ 단, 전월 실적 40만원 이상 조건 충족 시)",
+  "calc_elapsed_seconds": 41.83,
+  "explain_elapsed_seconds": 1.18,
+  "elapsed_seconds": 48.11
+}

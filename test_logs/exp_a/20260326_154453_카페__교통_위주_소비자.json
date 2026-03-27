@@ -1,0 +1,257 @@
+{
+  "timestamp": "2026-03-26T15:44:47",
+  "model": "solar-pro2",
+  "prompt_versions": {
+    "LLM_FILTER": "V1",
+    "CALC": "Calc_tool",
+    "EXPLAIN_PROMPT": "V3",
+    "QA_PROMPT": "V1"
+  },
+  "experiment": "llm_filter_calc_tool",
+  "input": {
+    "total_budget": 500000,
+    "category_spending": {
+      "Coffee": 50000,
+      "Traffic": 100000,
+      "Shopping": 150000
+    }
+  },
+  "llm_filter_result": {
+    "total_cards": 29,
+    "selected_count": 7,
+    "selected": [
+      {
+        "card_name": "KB국민 청춘대로 톡톡카드",
+        "reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 대비 가성비가 우수함",
+        "relevance_score": 0.95
+      },
+      {
+        "card_name": "KB국민 탄탄대로 Biz카드",
+        "reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족",
+        "relevance_score": 0.92
+      },
+      {
+        "card_name": "신한카드 Discount Plan+",
+        "reason": "Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리와 완벽히 매칭되며 전월실적 400,000원 충족",
+        "relevance_score": 0.88
+      },
+      {
+        "card_name": "KB국민 굿데이올림카드",
+        "reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리와 매칭되며 연회비 대비 혜택이 우수함",
+        "relevance_score": 0.85
+      },
+      {
+        "card_name": "신한카드 Deep Oil",
+        "reason": "Traffic 10% 할인, Shopping 5% 할인으로 주요 소비 카테고리와 매칭되며 연회비 10,000원으로 가성비 우수",
+        "relevance_score": 0.82
+      },
+      {
+        "card_name": "KB국민 My WE:SH 카드",
+        "reason": "General 10% 할인으로 모든 카테고리에서 혜택을 제공하며 주요 소비 카테고리와 부분적으로 매칭됨",
+        "relevance_score": 0.78
+      },
+      {
+        "card_name": "현대카드 M",
+        "reason": "General 2% 포인트, Shopping 5% 포인트, Food 5% 포인트로 주요 소비 카테고리와 부분적으로 매칭되며 전월실적 충족",
+        "relevance_score": 0.75
+      }
+    ],
+    "elapsed_seconds": 4.34
+  },
+  "calc_results": [
+    {
+      "card_name": "KB국민 청춘대로 톡톡카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 20000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 10000,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "Coffee 50% 할인, Food 20% 할인, Shopping 10% 할인으로 주요 소비 카테고리에서 높은 실질 혜택을 제공하며 연회비 대비 가성비가 우수함"
+    },
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 88000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 65000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 23000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족"
+    },
+    {
+      "card_name": "신한카드 Discount Plan+",
+      "performance_met": true,
+      "expected_monthly_benefit": 9500,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2000,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 5000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "Coffee 10% 할인, Food 10% 할인으로 주요 소비 카테고리와 완벽히 매칭되며 전월실적 400,000원 충족"
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 31000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 15000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 16000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리와 매칭되며 연회비 대비 혜택이 우수함"
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "performance_met": true,
+      "expected_monthly_benefit": 35000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 25000,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "Traffic 10% 할인, Shopping 5% 할인으로 주요 소비 카테고리와 매칭되며 연회비 10,000원으로 가성비 우수"
+    },
+    {
+      "card_name": "KB국민 My WE:SH 카드",
+      "performance_met": true,
+      "expected_monthly_benefit": 0,
+      "category_breakdown": [],
+      "calc_warnings": [],
+      "llm_reason": "General 10% 할인으로 모든 카테고리에서 혜택을 제공하며 주요 소비 카테고리와 부분적으로 매칭됨"
+    },
+    {
+      "card_name": "현대카드 M",
+      "performance_met": true,
+      "expected_monthly_benefit": 7500,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        }
+      ],
+      "calc_warnings": [],
+      "llm_reason": "General 2% 포인트, Shopping 5% 포인트, Food 5% 포인트로 주요 소비 카테고리와 부분적으로 매칭되며 전월실적 충족"
+    }
+  ],
+  "top3": [
+    {
+      "card_name": "KB국민 탄탄대로 Biz카드",
+      "expected_monthly_benefit": 88000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 65000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 23000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 13% 포인트, Shopping 20% 포인트로 주요 소비 카테고리에서 높은 포인트 적립률을 제공하며 전월실적 400,000원 충족"
+    },
+    {
+      "card_name": "신한카드 Deep Oil",
+      "expected_monthly_benefit": 35000,
+      "category_breakdown": [
+        {
+          "category": "Coffee",
+          "monthly_discount_krw": 2500,
+          "warnings": []
+        },
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 7500,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 25000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 10% 할인, Shopping 5% 할인으로 주요 소비 카테고리와 매칭되며 연회비 10,000원으로 가성비 우수"
+    },
+    {
+      "card_name": "KB국민 굿데이올림카드",
+      "expected_monthly_benefit": 31000,
+      "category_breakdown": [
+        {
+          "category": "Shopping",
+          "monthly_discount_krw": 15000,
+          "warnings": []
+        },
+        {
+          "category": "Traffic",
+          "monthly_discount_krw": 16000,
+          "warnings": []
+        }
+      ],
+      "llm_reason": "Traffic 6% 할인, Shopping 10% 할인으로 주요 소비 카테고리와 매칭되며 연회비 대비 혜택이 우수함"
+    }
+  ],
+  "explain_raw": "쇼핑과 교통 분야에서 자주 소비하시는 패턴을 고려해  \n**KB국민 탄탄대로 Biz카드**를 추천드립니다.  \n\n이 카드는 대형마트/온라인쇼핑 시 5~20% 포인트 적립과  \n주유소(SK, GS칼텍스)에서 리터당 100~130점 혜택을 제공하며,  \n월 소비 기준으로 쇼핑 6만 5천원, 교통 2만 3천원 상당의 혜택을 기대할 수 있습니다.  \n\n예상되는 총 혜택은 월 약 8만 8천원, 연간 약 105만 6천원 수준으로  \n연회비(1만 5천원)를 고려하더라도 높은 효율성을 보여줍니다.",
+  "calc_elapsed_seconds": 0.0,
+  "explain_elapsed_seconds": 1.21,
+  "elapsed_seconds": 5.67
+}

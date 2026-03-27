@@ -47,7 +47,7 @@ MODEL = "solar-pro2"
 llm = init_chat_model(model=MODEL, temperature=0.0)
 
 # ===========================< Test Log >============================
-TEST_LOG_DIR = Path(__file__).resolve().parents[3] / "test_logs"
+TEST_LOG_DIR = Path(__file__).resolve().parents[3] / "test_logs" / "llmrun_test"
 PROMPT_VERSIONS = {"EXPLAIN_PROMPT": "V3", "QA_PROMPT": "V1"}
 
 _test_log: dict = {}
@@ -74,7 +74,7 @@ def _init_test_log(total_budget: int, category_spending: dict):
 
 def _save_test_log(case_name: str):
     """테스트 로그를 JSON 파일로 저장."""
-    TEST_LOG_DIR.mkdir(exist_ok=True)
+    TEST_LOG_DIR.mkdir(parents=True, exist_ok=True)
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     safe_name = case_name.replace(" ", "_").replace("+", "")
     filepath = TEST_LOG_DIR / f"{ts}_{safe_name}.json"
