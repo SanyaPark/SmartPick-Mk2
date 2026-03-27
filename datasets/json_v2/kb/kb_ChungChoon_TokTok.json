@@ -1,0 +1,61 @@
+{
+  "card_name": "KB국민 청춘대로 톡톡카드",
+  "card_company": "KB국민카드",
+  "annual_fee": 10000,
+  "minimum_performance": 300000,
+  "card_categories": [
+    "Coffee",
+    "Food",
+    "Shopping",
+    "Traffic",
+    "Life"
+  ],
+  "benefits": [
+    {
+      "category": "Coffee",
+      "content": "스타벅스 50% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.5,
+      "monthly_limit": 10000,
+      "condition_prev_month": 300000,
+      "conditions": "상품권 구매 및 건물 내 임대매장 이용금액 제외. 할인서비스 받은 이용건은 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Food",
+      "content": "버거/패스트푸드 업종(맥도날드, 버거킹, 롯데리아, 쉐이크쉑 등) 20% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.2,
+      "monthly_limit": 5000,
+      "condition_prev_month": 300000,
+      "conditions": "상품권 구매 및 건물 내 임대매장 이용금액 제외. 할인서비스 받은 이용건은 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Shopping",
+      "content": "간편결제(Pay) 이용 시 10% 청구할인 (삼성페이, 네이버페이, 카카오페이, KB국민 앱카드 등 온/오프라인 간편결제)",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": 5000,
+      "condition_prev_month": 300000,
+      "conditions": "ISP, MISP 이용금액 제외. 타 서비스와 중복 적용 가능하며 이 경우 할인한도는 각각 차감됨. 할인서비스 받은 이용건은 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Traffic",
+      "content": "대중교통(버스/지하철), 택시 10% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": 5000,
+      "condition_prev_month": 300000,
+      "conditions": "할인서비스 받은 이용건은 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Life",
+      "content": "이동통신요금(SKT, KT, LG U+ 자동납부) 10% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": 5000,
+      "condition_prev_month": 300000,
+      "conditions": "인터넷, IPTV 등 결합상품 및 알뜰폰 제외. 할인서비스 받은 이용건은 전월 실적 산정에서 제외."
+    }
+  ],
+  "unclear_benefits": []
+}

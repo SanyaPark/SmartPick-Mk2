@@ -1,0 +1,84 @@
+{
+  "card_name": "KB국민 탄탄대로 Biz카드",
+  "card_company": "KB국민카드",
+  "annual_fee": 15000,
+  "minimum_performance": 400000,
+  "card_categories": [
+    "Traffic",
+    "Shopping",
+    "Life",
+    "Others"
+  ],
+  "benefits": [
+    {
+      "category": "Traffic",
+      "content": "주유(SK, GS칼텍스) 리터당 100점 + 대형마트/식자재/인터넷쇼핑 10% 적립",
+      "benefit_type": "point",
+      "rate": 0.1,
+      "monthly_limit": 15000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 1구간(40만원 이상) 1만~1.5만점/월 20만원 주유금액, 2구간(80만원 이상) 1.5만~3만점/월 30만원 주유금액. Biz Favorite 서비스 받은 이용건 전체는 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Traffic",
+      "content": "주유(SK, GS칼텍스) 리터당 130점 적립",
+      "benefit_type": "point",
+      "rate": 0.13,
+      "monthly_limit": 30000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 1구간(40만원 이상) 1만~1.5만점/월 20만원 주유금액, 2구간(80만원 이상) 1.5만~3만점/월 30만원 주유금액. Biz Favorite 서비스 받은 이용건 전체는 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Shopping",
+      "content": "대형마트/식자재(이마트, 롯데마트, 홈플러스, 하나로식자재매장) 20% 적립",
+      "benefit_type": "point",
+      "rate": 0.2,
+      "monthly_limit": 30000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 1구간(40만원 이상) 1만~1.5만점/월 20만원 주유금액, 2구간(80만원 이상) 1.5만~3만점/월 30만원 주유금액. Biz Favorite 서비스 받은 이용건 전체는 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Shopping",
+      "content": "인터넷쇼핑몰(G마켓, 옥션, 11번가, 인터파크, 롯데닷컴, 신세계몰) 20% 적립",
+      "benefit_type": "point",
+      "rate": 0.2,
+      "monthly_limit": 30000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 1구간(40만원 이상) 1만~1.5만점/월 20만원 주유금액, 2구간(80만원 이상) 1.5만~3만점/월 30만원 주유금액. Biz Favorite 서비스 받은 이용건 전체는 전월 실적 산정에서 제외."
+    },
+    {
+      "category": "Life",
+      "content": "가맹점 운영지원(렌탈/보안/용품) 5% 적립",
+      "benefit_type": "point",
+      "rate": 0.05,
+      "monthly_limit": 5000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 각 영역별(운영지원/공과금) 월 5천점 적립 한도. 건당 1만원 이상 이용 시 적립."
+    },
+    {
+      "category": "Life",
+      "content": "4대 사회보험/통신/전기·수도요금 5% 적립",
+      "benefit_type": "point",
+      "rate": 0.05,
+      "monthly_limit": 5000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 각 영역별(운영지원/공과금) 월 5천점 적립 한도. 건당 1만원 이상 이용 시 적립. 각종 세금 및 공과금은 전월 실적 산정에서 제외되나 해당 혜택 적립은 제공됨."
+    },
+    {
+      "category": "Shopping",
+      "content": "온라인몰(SK행복스토어, 플러스 O2O) 5% 적립",
+      "benefit_type": "point",
+      "rate": 0.05,
+      "monthly_limit": 5000,
+      "condition_prev_month": 400000,
+      "conditions": "전월 이용실적 40만원 이상 시 제공. 월 5천점 적립 한도. 건당 1만원 이상 이용 시 적립."
+    }
+  ],
+  "unclear_benefits": [
+    {
+      "category": "Others",
+      "content": "마이비즈 사업지원: 전자세금계산서 무료발행, 부가세 환급지원 등",
+      "conditions": "KB국민 탄탄대로 Biz카드 회원 대상 제공."
+    }
+  ]
+}

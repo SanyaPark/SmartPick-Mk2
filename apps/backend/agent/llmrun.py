@@ -215,13 +215,19 @@ def score_and_shortlist_node(state: AgentState):
     scored_cards.sort(key=lambda x: x["_scores"]["total_score"], reverse=True)
     shortlist = scored_cards[:7]
 
-    print(f"  Top 7 선정:")
-    for i, card in enumerate(shortlist):
+    print(f"\n  === 전체 카드 스코어 ({len(scored_cards)}장) ===")
+    for i, card in enumerate(scored_cards):
         s = card["_scores"]
-        print(f"    {i+1}. {card['card_name']} (fit={s['fit_score']}, coverage={s['coverage_score']}, total={s['total_score']})")
+        marker = "★" if i < 7 else " "
+        print(f"    {marker} {i+1:2d}. {card['card_name']}")
+        print(f"         total={s['total_score']}  fit={s['fit_score']}  coverage={s['coverage_score']}  min_spend={s['min_spend_score']}")
+    if len(scored_cards) > 7:
+        print(f"\n  ── Top 7 컷라인: total_score >= {scored_cards[6]['_scores']['total_score']} ──")
+        print(f"  ── 탈락 카드: {len(scored_cards) - 7}장 ──")
 
     _test_log["scores"] = [
-        {"card_name": c["card_name"], **c["_scores"]} for c in shortlist
+        {"card_name": c["card_name"], "selected": i < 7, **c["_scores"]}
+        for i, c in enumerate(scored_cards)
     ]
 
     return {"shortlist_cards": shortlist}

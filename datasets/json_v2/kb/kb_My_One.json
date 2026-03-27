@@ -1,0 +1,63 @@
+{
+  "card_name": "홈플러스 KB국민카드",
+  "card_company": "KB국민카드",
+  "annual_fee": 3000,
+  "minimum_performance": 300000,
+  "card_categories": [
+    "Shopping",
+    "Food",
+    "Life",
+    "EduHealth"
+  ],
+  "benefits": [
+    {
+      "category": "Shopping",
+      "content": "홈플러스(할인점, 익스프레스, 문화센터, 온라인몰) 및 홈플러스 입점 애슐리 이용 시 5%~10% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.05,
+      "monthly_limit": 30000,
+      "condition_prev_month": 300000,
+      "conditions": "건당 5만원 이상 이용 시 할인 제공. 전월 이용실적별 할인율: 30만원 이상 5%, 60만원 이상 7%, 90만원 이상 10%. 월 할인 한도 3만원. 최초 카드 사용등록일로부터 90일간 실적 미달 시에도 5% 적용. 쇼핑몰 입점 매장 및 상품권 구매 제외."
+    },
+    {
+      "category": "Shopping",
+      "content": "홈플러스 이용 시 마이홈플러스포인트 기본 적립 외 0.5% 추가 적립",
+      "benefit_type": "point",
+      "rate": 0.005,
+      "monthly_limit": null,
+      "condition_prev_month": null,
+      "conditions": "홈플러스 이용 시 제공"
+    },
+    {
+      "category": "Food",
+      "content": "패밀리레스토랑(아웃백, VIPS, TGIF) 이용 시 10% 청구할인",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": 20000,
+      "condition_prev_month": 300000,
+      "conditions": "전월 이용실적 30만원 이상 시 제공. 1일 1회, 월 2회 제공. 월간 통합 할인한도 2만원."
+    }
+  ],
+  "unclear_benefits": [
+    {
+      "category": "Shopping",
+      "content": "홈플러스 건당 5만원 이상 결제 시 2~3개월 무이자 할부 제공",
+      "conditions": "홈플러스 이용 시 제공"
+    },
+    {
+      "category": "Life",
+      "content": "미용업종(미용실, 피부미용) 이용 시 청구할인 (할인율 미기재, 맥락상 10% 또는 정액 할인 추정 불가하나 혜택 존재 명시됨)",
+      "conditions": "전월 이용실적 30만원 이상 시 제공. 월간 통합 할인한도 2만원."
+    },
+    {
+      "category": "Life",
+      "content": "이동통신요금 자동이체 시 월 3,000원 정액 할인",
+      "conditions": "전월 이용실적 30만원 이상 시 제공. 자동납부 금액 1만원 이상 시 적용. 유무선 통합청구방식 자동납부 건은 제외. 최초 사용등록일로부터 90일간 실적 미달 시에도 제공."
+    },
+    {
+      "category": "EduHealth",
+      "content": "홈플러스 구매물품 보상보험 무료가입(가입기간 1년, 보상한도 500만원), 맛있는교육 영어 캠프 할인(국내캠프 10만원, 해외캠프 20만원, 관리형 조기유학 50만원)",
+      "conditions": "보험: 최초 카드 발급 시 1회 제공. 교육: 맛있는교육 홈페이지 및 고객센터 문의 필요."
+    }
+  ]
+}

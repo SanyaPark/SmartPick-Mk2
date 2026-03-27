@@ -1,0 +1,112 @@
+{
+  "card_name": "신한카드 Mr.Life",
+  "card_company": "신한카드",
+  "annual_fee": 15000,
+  "minimum_performance": 300000,
+  "card_categories": [
+    "Life",
+    "Shopping",
+    "EduHealth",
+    "Food",
+    "Traffic"
+  ],
+  "benefits": [
+    {
+      "category": "Life",
+      "content": "전기요금, 도시가스요금, 통신요금(SKT, LG U+, KT) 10% 할인. 인터넷/집전화/이동통신요금 결합상품 포함.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "월 할인 한도는 전월 실적 30~50만원: 3천원, 50~100만원: 7천원, 100만원 이상: 1만원. 일 1회, 1회 승인금액 5만원까지 할인 적용(1회 최대 5천원 할인)."
+    },
+    {
+      "category": "Life",
+      "content": "병원/약국(동물병원 제외) 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "All Day 서비스(24시간) 적용. Time 할인 통합 월 할인 한도(전월 실적 30~50만원: 1만원, 50~100만원: 2만원, 100만원 이상: 3만원) 내 적용. 각 영역별 일 1회, 월 5회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "EduHealth",
+      "content": "병원/약국(동물병원 제외) 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "All Day 서비스(24시간) 적용. Time 할인 통합 월 할인 한도(전월 실적 30~50만원: 1만원, 50~100만원: 2만원, 100만원 이상: 3만원) 내 적용. 각 영역별 일 1회, 월 5회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "Life",
+      "content": "편의점, 세탁소 업종 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "All Day 서비스(24시간) 적용. Time 할인 통합 월 할인 한도(전월 실적 30~50만원: 1만원, 50~100만원: 2만원, 100만원 이상: 3만원) 내 적용. 각 영역별 일 1회, 월 5회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "Shopping",
+      "content": "온라인쇼핑(옥션, G마켓, AK몰, 11번가, 티몬, 위메프, 쿠팡) 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "Night 서비스(오후 9시 ~ 오전 9시) 적용. Time 할인 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 10회, 1회 승인금액 1만원까지 할인(1회 최대 1천원). 티몬/위메프/쿠팡은 사이트 직접 접속 또는 앱 이용 시 할인."
+    },
+    {
+      "category": "Food",
+      "content": "식음료(한식, 양식, 일식, 중식, 뷔페, 일반대중음식점, 패스트푸드, 커피전문점) 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "Night 서비스(오후 9시 ~ 오전 9시) 적용. Time 할인 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 10회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "Coffee",
+      "content": "커피전문점 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "Night 서비스(오후 9시 ~ 오전 9시) 적용. Time 할인 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 10회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "Traffic",
+      "content": "택시 10% 할인.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "Night 서비스(오후 9시 ~ 오전 9시) 적용. Time 할인 통합 월 할인 한도 내 적용. 각 영역별 일 1회, 월 10회, 1회 승인금액 1만원까지 할인(1회 최대 1천원)."
+    },
+    {
+      "category": "Life",
+      "content": "3대 할인마트(이마트, 롯데마트, 홈플러스) 10% 할인. 기업형 슈퍼마켓, 온라인몰 포함.",
+      "benefit_type": "discount",
+      "rate": 0.1,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "주말(토/일) 이용 시 제공(공휴일 여부 무관). 주말 할인(마트+주유) 통합 월 할인 한도(전월 실적 30~50만원: 3천원, 50~100만원: 7천원, 100만원 이상: 1만원) 내 적용. 일 1회, 1회 승인금액 5만원까지 할인(1회 최대 5천원). 상품권 제외."
+    },
+    {
+      "category": "Traffic",
+      "content": "4대 주유소(SK에너지, GS칼텍스, 에이치디현대오일뱅크, S-OIL) 리터당 60원 할인. 휘발유, 등유, 경유 (LPG 제외).",
+      "benefit_type": "discount",
+      "rate": null,
+      "monthly_limit": null,
+      "condition_prev_month": 300000,
+      "conditions": "주말(토/일) 이용 시 제공(공휴일 여부 무관). 주말 할인 통합 월 할인 한도 내 적용. 일 1회, 1회 승인금액 10만원까지, 월 승인금액 30만원까지 할인 적용. 정유사 고시 기준 휘발유가로 환산하여 적용."
+    }
+  ],
+  "unclear_benefits": [
+    {
+      "category": "Shopping",
+      "content": "인테이크몰(www.shopintake.com) 결제 시 20% 할인.",
+      "conditions": "전월 신판이용금액(일시불+할부) 유실적 고객 대상(실적 금액 무관). 월 4회 제공. 인테이크 직접 접속 시에만 할인 적용(간편결제 등 제외 가능성 있음)."
+    }
+  ]
+}
