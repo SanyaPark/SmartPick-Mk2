@@ -5,7 +5,8 @@ import urllib.request
 from typing import List, Dict, Optional
 
 
-NAVER_SEARCH_ENDPOINT = "https://openapi.naver.com/v1/search/blog.json"
+NAVER_BLOG_ENDPOINT = "https://openapi.naver.com/v1/search/blog.json"
+NAVER_WEB_ENDPOINT = "https://openapi.naver.com/v1/search/webkr.json"
 
 
 class NaverSearchError(Exception):
@@ -44,7 +45,7 @@ def search_blog(
         "start": max(1, min(start, 1000)),
         "sort": sort,
     }
-    url = NAVER_SEARCH_ENDPOINT + "?" + urllib.parse.urlencode(params)
+    url = NAVER_BLOG_ENDPOINT + "?" + urllib.parse.urlencode(params)
     headers = _get_headers()
 
     req = urllib.request.Request(url, headers=headers)
@@ -69,6 +70,52 @@ def search_blog(
                 "link": it.get("link"),
                 "bloggername": it.get("bloggername"),
                 "postdate": it.get("postdate"),
+            }
+        )
+    return results
+
+
+def search_web(
+    query: str,
+    display: int = 5,
+    start: int = 1,
+) -> List[Dict[str, Optional[str]]]:
+    """
+    네이버 웹 검색 API를 호출해 결과를 반환합니다.
+    블로그보다 공식 사이트, 뉴스, 카드사 페이지 등 폭넓은 결과를 포함합니다.
+    반환 형식: [{"title": ..., "description": ..., "link": ...}, ...]
+    """
+    if not query:
+        return []
+
+    params = {
+        "query": query,
+        "display": max(1, min(display, 10)),
+        "start": max(1, min(start, 1000)),
+    }
+    url = NAVER_WEB_ENDPOINT + "?" + urllib.parse.urlencode(params)
+    headers = _get_headers()
+
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            raw = resp.read().decode("utf-8")
+    except Exception as exc:
+        raise NaverSearchError(f"네이버 웹 검색 API 호출 실패: {exc}") from exc
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise NaverSearchError("네이버 웹 검색 API 응답 파싱 실패") from exc
+
+    items = data.get("items", [])
+    results = []
+    for it in items:
+        results.append(
+            {
+                "title": it.get("title"),
+                "description": it.get("description"),
+                "link": it.get("link"),
             }
         )
     return results
