@@ -1,0 +1,8 @@
+{"t":0,"agent":"a336574","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a336574","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":131006}
+{"t":0,"agent":"a699eec","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a0a6ca3","agent_type":"Explore","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a0a6ca3","agent_type":"Explore","event":"agent_stop","success":true,"duration_ms":121681}
+{"t":0,"agent":"a81b103","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"a81b103","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":151791}
+{"t":0,"agent":"system","event":"keyword_detected","keyword":"pipeline"}

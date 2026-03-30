@@ -250,7 +250,9 @@ class BenefitCalculator:
         return {
             "benefit_id": benefit.get("benefit_id"),
             "category": benefit.get("category"),
+            "content": benefit.get("content", ""),
             "frequency": freq,
+            "calc_method": calc_method,
             "reward_type": benefit.get("reward_type"),
             "raw_amount": round(final_amount, 2),
             "amount_krw": round(krw),
@@ -264,7 +266,9 @@ class BenefitCalculator:
         return {
             "benefit_id": benefit.get("benefit_id"),
             "category": benefit.get("category"),
+            "content": benefit.get("content", ""),
             "frequency": benefit.get("frequency", "MONTHLY"),
+            "calc_method": None,
             "reward_type": benefit.get("reward_type"),
             "raw_amount": 0,
             "amount_krw": 0,
@@ -493,6 +497,23 @@ class BenefitCalculator:
         result["category_breakdown"].sort(
             key=lambda x: (x["category"] == "All_Domestic", x["category"])
         )
+
+        # ── 개별 혜택 계산 상세 (디버그/로그용) ──
+        result["benefit_details"] = [
+            {
+                "benefit_id": r.get("benefit_id"),
+                "category": r["category"],
+                "content": r.get("content", ""),
+                "calc_method": r.get("calc_method"),
+                "reward_type": r.get("reward_type"),
+                "raw_amount": r.get("raw_amount", 0),
+                "amount_krw": r.get("amount_krw", 0),
+                "used_budget": r.get("used_budget", 0),
+                "group_id": r.get("group_id"),
+                "warnings": r.get("warnings", []),
+            }
+            for r in monthly_results
+        ]
 
         result["monthly_total_krw"] = round(
             sum(r["amount_krw"] for r in monthly_results)

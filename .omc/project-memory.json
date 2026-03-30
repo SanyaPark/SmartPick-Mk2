@@ -1,0 +1,219 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774574980060,
+  "projectRoot": "/Users/ayeon/Documents/workspace/SmartPick-Mk2",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Python",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "pyproject.toml"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "fastapi",
+        "version": null,
+        "category": "backend"
+      }
+    ],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "pytest",
+    "lintCommand": "ruff check",
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "apps": {
+      "path": "apps",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1774574980034,
+      "keyFiles": []
+    },
+    "datasets": {
+      "path": "datasets",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1774574980035,
+      "keyFiles": [
+        "index.csv"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 2,
+      "lastAccessed": 1774574980035,
+      "keyFiles": [
+        "architecture.md",
+        "pipeline.md"
+      ]
+    },
+    "infrastructure": {
+      "path": "infrastructure",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1774574980035,
+      "keyFiles": [
+        "Dockerfile",
+        "docker-compose.yml"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1774574980035,
+      "keyFiles": [
+        "convert_json.py",
+        "generate_digest.py"
+      ]
+    },
+    "test_logs": {
+      "path": "test_logs",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1774574980036,
+      "keyFiles": [
+        "20260318_151919_카페__교통_위주_소비자.json",
+        "20260323_141201_카페__교통_위주_소비자.json",
+        "20260325_100157_카페__교통_위주_소비자.json",
+        "20260325_153316_카페__교통_위주_소비자.json",
+        "20260325_162356_카페__교통_위주_소비자.json"
+      ]
+    },
+    "utils": {
+      "path": "utils",
+      "purpose": "Utility functions",
+      "fileCount": 0,
+      "lastAccessed": 1774574980036,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "apps/backend/agent/llmrun.py",
+      "accessCount": 15,
+      "lastAccessed": 1774591990408,
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate_json_v3.py",
+      "accessCount": 14,
+      "lastAccessed": 1774587480226,
+      "type": "file"
+    },
+    {
+      "path": "apps/backend/tools/Calc_tool.py",
+      "accessCount": 10,
+      "lastAccessed": 1774596154447,
+      "type": "file"
+    },
+    {
+      "path": "apps/backend/agent/llmrun_v3.py",
+      "accessCount": 10,
+      "lastAccessed": 1774596268836,
+      "type": "file"
+    },
+    {
+      "path": "apps/backend/agent/llmrun_exp_e.py",
+      "accessCount": 5,
+      "lastAccessed": 1774592034583,
+      "type": "file"
+    },
+    {
+      "path": "test_logs/llmrun_test/20260327_105838_카페__교통_위주_소비자.json",
+      "accessCount": 3,
+      "lastAccessed": 1774578012224,
+      "type": "directory"
+    },
+    {
+      "path": "datasets/markdown_upstage/shinhan/new/신한카드 Mr.Life.md",
+      "accessCount": 3,
+      "lastAccessed": 1774579198943,
+      "type": "file"
+    },
+    {
+      "path": "scripts/verify_json_v3.py",
+      "accessCount": 3,
+      "lastAccessed": 1774590036324,
+      "type": "file"
+    },
+    {
+      "path": "apps/backend/agent/llmrun_exp.py",
+      "accessCount": 3,
+      "lastAccessed": 1774592010363,
+      "type": "file"
+    },
+    {
+      "path": "test_logs/exp_e/20260327_105513_카페__교통_위주_소비자.json",
+      "accessCount": 2,
+      "lastAccessed": 1774578012890,
+      "type": "directory"
+    },
+    {
+      "path": "datasets/markdown_upstage/kb/manuals/KB_KB Easy Pick 카드_.md",
+      "accessCount": 2,
+      "lastAccessed": 1774579186789,
+      "type": "file"
+    },
+    {
+      "path": "scripts/convert_json.py",
+      "accessCount": 2,
+      "lastAccessed": 1774579205964,
+      "type": "file"
+    },
+    {
+      "path": "test_logs",
+      "accessCount": 1,
+      "lastAccessed": 1774577861026,
+      "type": "directory"
+    },
+    {
+      "path": "datasets/json_v3/shinhan/shinhan_mr_life.json",
+      "accessCount": 1,
+      "lastAccessed": 1774585369504,
+      "type": "file"
+    },
+    {
+      "path": "apps/backend/agent",
+      "accessCount": 1,
+      "lastAccessed": 1774592207805,
+      "type": "directory"
+    },
+    {
+      "path": "test_logs/llmrun_v3/20260327_152058_카페__교통_위주_소비자.json",
+      "accessCount": 1,
+      "lastAccessed": 1774595967560,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

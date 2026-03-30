@@ -1,12 +1,16 @@
 """
-JSON v3 + BenefitCalculator 기반 카드 추천 (llmrun_v3)
+JSON v3 + BenefitCalculator 기반 카드 추천 + UI 선택형 QnA (llmrun_v4_QnA)
 
-흐름: 유저 입력 → 필터링 → BenefitCalculator 전체 계산 → 랭킹 → LLM 설명
+기본 흐름:
+  추천: 유저 입력 → 필터링 → BenefitCalculator 전체 계산 → 랭킹 → LLM 설명
+  QnA(UI 선택형):
+    action_type + card_id 기반으로 바로 분기하여 상세/후기/신청 안내 제공
+
 - json_v3 스키마의 카드 데이터 사용
 - BenefitCalculator(Calc_tool.py)로 정밀 혜택 계산
-- 스코어링 필터 없이 전체 카드 계산 → 혜택 금액 기준 랭킹
+- 채팅 의도 분석 없이 UI 선택값으로 분기
 
-사용법: python -m apps.backend.agent.llmrun_v3
+사용법: python -m apps.backend.agent.llmrun_v4_QnA
 """
 
 import os
@@ -31,6 +35,7 @@ from langfuse import observe, Langfuse
 
 from apps.backend.agent.prompts import EXPLAIN_PROMPT, QA_PROMPT
 from apps.backend.tools.Calc_tool import BenefitCalculator
+from apps.backend.tools.naver_search import search_blog, NaverSearchError
 
 # ===========================< Setting >============================
 load_dotenv(Path(__file__).resolve().parents[3] / ".env")
@@ -41,7 +46,7 @@ for key in REQUIRED_KEYS:
         print(f"[WARN] {key}가 환경 변수에 설정되지 않았습니다.")
 
 os.environ["LANGSMITH_TRACING_V2"] = "true"
-os.environ["LANGSMITH_PROJECT"] = "Smart_Pick_V3"
+os.environ["LANGSMITH_PROJECT"] = "Smart_Pick_V4_QnA"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
 langfuse = Langfuse()
@@ -51,7 +56,52 @@ llm = init_chat_model(model=MODEL, temperature=0.0)
 
 # ===========================< Test Log >============================
 TEST_LOG_DIR = Path(__file__).resolve().parents[3] / "test_logs" / "llmrun_v3"
-PROMPT_VERSIONS = {"EXPLAIN_PROMPT": "V3", "QA_PROMPT": "V1"}
+PROMPT_VERSIONS = {
+    "EXPLAIN_PROMPT": "V3",
+    "QA_PROMPT": "V1",
+    "DETAIL_PROMPT": "V1",
+    "REVIEWS_PROMPT": "V1",
+    "APPLY_PROMPT": "V1",
+}
+
+DETAIL_PROMPT = """
+당신은 신용카드 상담사입니다. 아래 카드 정보를 바탕으로 사용자가 이해하기 쉬운 설명을 작성하세요.
+
+[카드 메타]
+{card_meta}
+
+[카드 요약(digest)]
+{card_digest}
+
+[혜택 상세(일부)]
+{benefit_snippets}
+
+작성 규칙:
+- 6~10문장 이내의 간결한 설명
+- 연회비, 전월실적, 주요 혜택 카테고리를 반드시 언급
+- 데이터에 없는 내용은 추정하지 말 것
+"""
+
+REVIEWS_PROMPT = """
+당신은 신용카드 상담사입니다.
+아래 카드명에 대해 웹에 공개된 실제 후기를 요약해 전달하세요.
+요약은 중립적으로 작성하고, 장점/단점을 균형 있게 포함하세요.
+
+카드명: {card_name}
+"""
+
+APPLY_PROMPT = """
+당신은 신용카드 상담사입니다.
+아래 카드에 대해 신청 방법과 준비할 내용을 간단히 안내하세요.
+
+[카드 메타]
+{card_meta}
+
+작성 규칙:
+- 4~6문장 이내
+- 신청 경로(카드사 공식 앱/웹)와 일반적인 준비 정보(신분증, 소득 확인 등) 안내
+- 데이터에 없는 링크/세부 절차는 '카드사 공식 채널 확인'으로 안내
+"""
 
 _test_log: dict = {}
 
@@ -221,6 +271,27 @@ def load_digest(card: dict) -> str:
     return f"# {card_name}\n(digest 파일 없음)"
 
 
+def _find_card_by_id(card_id: str) -> Optional[dict]:
+    if not card_id:
+        return None
+    all_cards = load_all_cards_v3()
+    for card in all_cards:
+        if card.get("card_meta", {}).get("card_id") == card_id:
+            return card
+    return None
+
+
+def _build_benefit_snippets(card: dict, limit: int = 6) -> str:
+    benefits = card.get("benefits", [])
+    lines = []
+    for b in benefits[:limit]:
+        content = b.get("content", "").strip()
+        category = b.get("category", "")
+        if content:
+            lines.append(f"- [{category}] {content}")
+    return "\n".join(lines) if lines else "(혜택 정보 없음)"
+
+
 # ===========================< State >============================
 
 class AgentState(TypedDict):
@@ -231,9 +302,121 @@ class AgentState(TypedDict):
     calc_results: NotRequired[Optional[list]]
     recommended_cards: NotRequired[Optional[list]]
     last_raw_data: NotRequired[Optional[str]]
+    action_type: NotRequired[Optional[Literal["detail", "reviews", "apply_method"]]]
+    selected_card_id: NotRequired[Optional[str]]
+    selected_card: NotRequired[Optional[dict]]
 
 
 # ===========================< Nodes >============================
+
+def route_input_node(state: AgentState):
+    """UI 선택형 QnA 요청 여부를 확인하는 라우팅 노드."""
+    return {}
+
+
+def resolve_selected_card_node(state: AgentState):
+    """selected_card_id로 카드 원본(json_v3)을 찾습니다."""
+    print("[DEBUG] resolve_selected_card_node (v4)")
+    card_id = state.get("selected_card_id")
+    if not card_id:
+        return {
+            "messages": [AIMessage(content="selected_card_id가 필요합니다.")],
+            "selected_card": None,
+        }
+    card = _find_card_by_id(card_id)
+    if not card:
+        return {
+            "messages": [AIMessage(content="선택한 카드 정보를 찾지 못했습니다.")],
+            "selected_card": None,
+        }
+    return {"selected_card": card}
+
+
+def detail_explain_node(state: AgentState):
+    """카드 상세 설명을 제공합니다 (json_v3 + digest 기반)."""
+    print("[DEBUG] detail_explain_node (v4)")
+    card = state.get("selected_card")
+    if not card:
+        return {"messages": [AIMessage(content="카드 상세 정보를 찾지 못했습니다.")]}
+
+    card_meta = card.get("card_meta", {})
+    card_digest = load_digest(card)
+    benefit_snippets = _build_benefit_snippets(card, limit=8)
+
+    prompt = DETAIL_PROMPT.format(
+        card_meta=json.dumps(card_meta, ensure_ascii=False),
+        card_digest=card_digest,
+        benefit_snippets=benefit_snippets,
+    )
+    response = llm.invoke([SystemMessage(content=prompt)]).content
+    return {"messages": [AIMessage(content=response)]}
+
+
+def reviews_node(state: AgentState):
+    """카드 후기 요약 (웹서치 연결 예정)."""
+    print("[DEBUG] reviews_node (v4)")
+    card = state.get("selected_card")
+    if not card:
+        return {"messages": [AIMessage(content="카드 후기를 찾지 못했습니다.")]}
+
+    card_name = card.get("card_meta", {}).get("card_name", "알 수 없음")
+    query = f"{card_name} 카드 후기"
+
+    try:
+        results = search_blog(query=query, display=5, start=1, sort="sim")
+    except NaverSearchError as exc:
+        msg = (
+            f"네이버 검색 API 호출을 위한 설정이 필요합니다.\n"
+            f"- {exc}\n"
+            f"환경 변수: NAVER_CLIENT_ID, NAVER_CLIENT_SECRET"
+        )
+        return {"messages": [AIMessage(content=msg)]}
+
+    if not results:
+        return {"messages": [AIMessage(content="후기 검색 결과가 없습니다.")]}
+
+    # 검색 결과를 LLM에 요약 요청
+    sources = []
+    for r in results:
+        title = r.get("title") or ""
+        desc = r.get("description") or ""
+        blogger = r.get("bloggername") or ""
+        postdate = r.get("postdate") or ""
+        link = r.get("link") or ""
+        sources.append(
+            f"- {title}\n  {desc}\n  작성자: {blogger} | 날짜: {postdate} | 링크: {link}"
+        )
+    sources_text = "\n".join(sources)
+
+    prompt = (
+        f"{REVIEWS_PROMPT.format(card_name=card_name)}\n\n"
+        f"[검색 결과]\n{sources_text}\n\n"
+        f"요약 시 주의사항:\n"
+        f"- 광고성/과장 표현은 중립적으로 재서술\n"
+        f"- 반복적으로 언급되는 장단점을 중심으로 정리"
+    )
+    response = llm.invoke([SystemMessage(content=prompt)]).content
+    return {"messages": [AIMessage(content=response)]}
+
+
+def apply_method_node(state: AgentState):
+    """카드 신청 방법/활용 안내."""
+    print("[DEBUG] apply_method_node (v4)")
+    card = state.get("selected_card")
+    if not card:
+        return {"messages": [AIMessage(content="카드 신청 정보를 찾지 못했습니다.")]}
+
+    card_meta = card.get("card_meta", {})
+    prompt = APPLY_PROMPT.format(
+        card_meta=json.dumps(card_meta, ensure_ascii=False),
+    )
+    response = llm.invoke([SystemMessage(content=prompt)]).content
+    return {"messages": [AIMessage(content=response)]}
+
+
+def unknown_action_node(state: AgentState):
+    return {"messages": [AIMessage(content="지원하지 않는 요청입니다.")]}
+
 
 @observe(name="v3_filter_cards")
 @traceable(run_type="chain", name="v3_filter_cards")
@@ -496,17 +679,63 @@ def check_filter_result(state: AgentState) -> Literal["calculate", "no_results"]
     return "calculate" if filtered else "no_results"
 
 
+def check_action_route(state: AgentState) -> Literal["action", "recommend"]:
+    action_type = state.get("action_type")
+    if action_type:
+        return "action"
+    return "recommend"
+
+
+def check_action_type(state: AgentState) -> Literal["detail", "reviews", "apply_method", "unknown"]:
+    action_type = state.get("action_type")
+    if action_type in ("detail", "reviews", "apply_method"):
+        return action_type
+    return "unknown"
+
+
 # ===========================< Graph Construction >============================
 
 workflow = StateGraph(AgentState)
 
+workflow.add_node("route_input", route_input_node)
+workflow.add_node("resolve_selected_card", resolve_selected_card_node)
+workflow.add_node("detail_explain", detail_explain_node)
+workflow.add_node("reviews", reviews_node)
+workflow.add_node("apply_method", apply_method_node)
+workflow.add_node("unknown_action", unknown_action_node)
 workflow.add_node("filter_cards", filter_cards_node)
 workflow.add_node("calculate_benefits", calculate_benefits_node)
 workflow.add_node("rank_and_explain", rank_and_explain_node)
 workflow.add_node("answer_qa", answer_qa_node)
 
-# 메인 흐름: filter → calculate → explain → END (스코어링 단계 없음)
-workflow.add_edge(START, "filter_cards")
+# 입력 라우팅: UI 선택형 QnA면 action 흐름, 아니면 추천 흐름
+workflow.add_edge(START, "route_input")
+workflow.add_conditional_edges(
+    "route_input",
+    check_action_route,
+    {
+        "action": "resolve_selected_card",
+        "recommend": "filter_cards",
+    },
+)
+
+# action 흐름
+workflow.add_conditional_edges(
+    "resolve_selected_card",
+    check_action_type,
+    {
+        "detail": "detail_explain",
+        "reviews": "reviews",
+        "apply_method": "apply_method",
+        "unknown": "unknown_action",
+    },
+)
+workflow.add_edge("detail_explain", END)
+workflow.add_edge("reviews", END)
+workflow.add_edge("apply_method", END)
+workflow.add_edge("unknown_action", END)
+
+# 추천 흐름: filter → calculate → explain → END (스코어링 단계 없음)
 workflow.add_conditional_edges(
     "filter_cards",
     check_filter_result,
