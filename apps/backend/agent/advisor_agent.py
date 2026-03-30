@@ -46,7 +46,14 @@ os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
 MODEL = "solar-pro2"
 
-QueryType = Literal["credit_fees", "international_fees", "reviews", "how_to_apply"]
+QueryType = Literal[
+    "credit_fees",
+    "international_fees",
+    "reviews",
+    "how_to_apply",
+    "late_payment",
+    "revolving",
+]
 
 MARKDOWN_DIR = Path(__file__).resolve().parents[3] / "datasets" / "markdown"
 
@@ -69,14 +76,73 @@ _HARDCODED_CARD_FILE = (
 )
 
 # ===========================< Button Queries (반말) >============================
-# 버튼 클릭 시 LLM에 전달되는 사용자 쿼리
+# UI 버튼 구조:
+#   [후기 보기]          → QUERIES_STANDALONE["reviews"]
+#   [신청 방법]          → QUERIES_STANDALONE["how_to_apply"]
+#   [추가 정보 ▼]        → 하위 버튼 펼침
+#     ├ [수수료]         → QUERIES_DETAILS["credit_fees"]
+#     ├ [해외 이용]       → QUERIES_DETAILS["international_fees"]
+#     ├ [연체 안내]       → QUERIES_DETAILS["late_payment"]
+#     └ [리볼빙]         → QUERIES_DETAILS["revolving"]
 
-QUERIES: dict[str, str] = {
-    "credit_fees": "이 카드 할부 수수료 알려줘.",
-    "international_fees": "이 카드 해외 사용 수수료 알려줘.",
-    "reviews": "이 카드 사용자 후기랑 주요 불만 알려줘.",
-    "how_to_apply": "이 카드 온라인 신청 방법 알려줘.",
+# --- Standalone buttons (top-level) ---
+
+QUERIES_STANDALONE: dict[str, str] = {
+    "reviews": (
+        "이 카드의 실사용자 후기를 검색해서 아래 형식으로만 답해줘. "
+        "카드 혜택·장점 설명은 하지 마. "
+        "\n\n[전반적 평가]\n실사용자들의 전반적인 만족도와 분위기를 2~3문장으로 요약해줘."
+        "\n\n[참고한 후기 목록]\n각 후기마다 • 작성 시기 / 작성자 유형(실사용자 or 카드 추천 블로거) / 한 줄 요약 형식으로 나열해줘."
+        "\n\n[주요 불만 및 페인포인트]\n실사용자들이 공통적으로 언급한 불만이나 불편한 점을 불릿 포인트로 정리해줘."
+    ),
+    "how_to_apply": (
+        "이 카드 온라인 신청 방법과 발급 조건만 알려줘. "
+        "카드사 메인 홈페이지가 아닌 이 카드의 신청 페이지 직접 URL을 검색해서 알려줘. "
+        "발급 자격(나이·소득 등 조건)과 필요 서류도 함께 안내해줘. "
+        "카드 혜택, 연회비, 사용자 후기 등 신청과 무관한 정보는 절대 포함하지 마."
+    ),
 }
+
+# --- Detail sub-buttons (shown after "추가 정보" is expanded) ---
+
+QUERIES_DETAILS: dict[str, str] = {
+    "credit_fees": (
+        "이 카드의 이용형태별 수수료율을 알려줘. "
+        "다음 항목을 각각 찾아서 정확한 수치와 함께 안내해줘: "
+        "① 일시불 수수료, "
+        "② 할부 수수료율(연, 최저~최고), "
+        "③ 단기카드대출(현금서비스) 수수료율(연, 최저~최고), "
+        "④ 일부결제금액이월약정(리볼빙) 수수료율(연, 최저~최고). "
+        "수수료율이 개인신용평점에 따라 달라지는 경우 그 사실도 안내해줘."
+    ),
+    "international_fees": (
+        "이 카드의 해외 사용 수수료를 알려줘. "
+        "다음 항목을 각각 찾아서 정확한 수치와 함께 안내해줘: "
+        "① 국제브랜드수수료(비자·마스터·JCB·아멕스 등 브랜드별 요율), "
+        "② 해외서비스수수료율, "
+        "③ 현금서비스 해외 이용 시 수수료 면제 조건(조기 결제 기간 등). "
+        "원화 청구 시 적용되는 환율 기준(전신환매도율 기준일 등)도 알려줘."
+    ),
+    "late_payment": (
+        "이 카드 이용대금을 연체하면 어떻게 되는지 알려줘. "
+        "다음 항목을 각각 찾아서 안내해줘: "
+        "① 연체이자율 계산 방식(정상이자율 + 가산금리, 최고 연이율), "
+        "② 일시불·무이자할부 연체 시 적용 기준, "
+        "③ 연체로 인한 불이익(신용점수 하락, 카드 이용 정지, 한도 감액, 계약 해지 등), "
+        "④ 기한의 이익 상실 주요 사유."
+    ),
+    "revolving": (
+        "이 카드의 리볼빙(일부결제금액이월약정) 서비스를 설명해줘. "
+        "다음 항목을 각각 찾아서 안내해줘: "
+        "① 리볼빙 수수료율 범위(연 최저~최고), "
+        "② 약정결제비율과 최소결제비율의 차이, "
+        "③ 리볼빙 수수료 계산 방식(계산 예시 포함), "
+        "④ 이월잔액이 발생할 경우 신용점수에 미치는 영향."
+    ),
+}
+
+# Combined lookup used by run_advisor
+QUERIES: dict[str, str] = {**QUERIES_STANDALONE, **QUERIES_DETAILS}
 
 # ===========================< Search Tools >============================
 
@@ -172,20 +238,20 @@ ACTIVE_WEB_SEARCH_TOOL = naver_web_search
 _SYSTEM_PROMPT = """
 너는 {card_company} {card_name} 전문 상담사야.
 사용자 질문에 대해 아래 [카드 공식 정보]를 우선 참고해서 답해줘.
-공식 정보만으로 부족하면 아래 툴로 직접 검색해서 보완해.
-- naver_blog_search: 실사용자 후기, 경험담 등 비공식 의견이 필요할 때
-- {web_tool_name}: 카드사 공식 신청 페이지, 발급 조건 등 공식 출처가 필요할 때
+공식 정보만으로 부족하다고 판단되면 아래 툴을 자유롭게 활용해:
+- naver_blog_search: 실사용자 후기, 개인 경험담 등 비공식 의견이 필요할 때
+- {web_tool_name}: 공식 신청 페이지, 발급 조건 등 공식 출처 정보가 필요할 때
 
 [카드 공식 정보]
 {card_info}
 
 [답변 규칙]
-- 공식 정보에 있는 수치(할인율, 연회비, 조건 등)는 정확히 인용해
-- 공식 정보에 없는 항목(세부 약관, 수수료율 등)은 추측하지 말고 "카드사 공식 홈페이지나 약관을 직접 확인해야 해"라고 안내해
-- 검색 결과의 사용자 의견은 출처 없이 자연스럽게 요약해
+- 공식 정보에 있는 수치(할인율, 연회비, 수수료율 등)는 정확히 인용해
+- 공식 정보에 없는 항목은 추측하지 말고 "카드사 공식 홈페이지나 약관을 직접 확인해야 해"라고 안내해
+- 검색 결과의 사용자 의견은 후기를 명시적으로 요청한 경우에만 출처 없이 자연스럽게 요약해
 - 답변은 핵심 항목별로 불릿 포인트(•)로 정리해
 - 반말로 친근하게 답해줘
-- 답변 마지막에 공식 채널(앱, 홈페이지)을 안내해줘
+- 답변 마지막에 공식 채널(앱, 홈페이지)을 안내해줘 (단, 본문에서 이미 언급한 URL·채널은 중복 표기하지 마)
 """.strip()
 
 
@@ -227,10 +293,16 @@ def run_advisor(
     # 1. Load card markdown
     card_info = _load_card_info(card_company, card_name)
 
-    # 2. Build LLM with tool
+    # 2. Build LLM with tools
+    # naver_blog_search is only relevant for reviews; all other queries use web search only
+    tools = (
+        [naver_blog_search, ACTIVE_WEB_SEARCH_TOOL]
+        if query_type == "reviews"
+        else [ACTIVE_WEB_SEARCH_TOOL]
+    )
     llm = init_chat_model(model=MODEL, temperature=0.0)
-    llm_with_tools = llm.bind_tools([naver_blog_search, ACTIVE_WEB_SEARCH_TOOL])
-    logger.info("LLM initialised | model=%s", MODEL)
+    llm_with_tools = llm.bind_tools(tools)
+    logger.info("LLM initialised | model=%s | tools=%s", MODEL, [t.name for t in tools])
 
     messages = [
         SystemMessage(content=_SYSTEM_PROMPT.format(
@@ -255,7 +327,7 @@ def run_advisor(
             logger.info("No tool calls — generating final answer (turn=%d)", turn)
             break
 
-        _tools = {t.name: t for t in [naver_blog_search, ACTIVE_WEB_SEARCH_TOOL]}
+        _tools = {t.name: t for t in tools}
         logger.info("%d tool call(s) requested", len(response.tool_calls))
         for tool_call in response.tool_calls:
             name = tool_call["name"]
@@ -269,3 +341,20 @@ def run_advisor(
 
     logger.info("run_advisor complete | answer length=%d chars", len(str(response.content)))
     return str(response.content)
+
+
+# ===========================< Test Run >============================
+
+if __name__ == "__main__":
+    TEST_CARD_NAME = "KB 국민 굿데이 카드"
+    TEST_CARD_COMPANY = "KB"
+
+    # One from QUERIES_DETAILS, both from QUERIES_STANDALONE
+    for qtype in ["how_to_apply"]:
+        print(f"\n{'='*60}")
+        print(f"Query type: {qtype}")
+        print(f"Query: {QUERIES[qtype]}")
+        print("="*60)
+        answer = run_advisor(TEST_CARD_NAME, TEST_CARD_COMPANY, qtype)
+        print(answer)
+        print()

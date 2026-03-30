@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(py --version)",
+      "Read(//c/Users/sesac/AppData/Local/Programs/**)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/sesac/miniconda3/Scripts/**)",
+      "Read(//c/Users/sesac/Anaconda3/Scripts/**)",
+      "Bash(cmd.exe /c \"where python 2>&1 & where pip 2>&1 & where conda 2>&1\")",
+      "Bash(cmd.exe /c \"where python\")",
+      "Bash(cmd.exe /c \"where pip\")",
+      "Bash(cmd.exe /c \"where conda\")",
+      "Bash(cmd.exe /c \"python --version\")",
+      "Bash(PYTHON=\"/c/Users/sesac/AppData/Local/Python/bin/python.exe\")",
+      "Bash(\"$PYTHON\" -c \":*)",
+      "Bash(\"C:\\\\Users\\\\sesac\\\\Documents\\\\GitHub\\\\SmartPick-Mk2\\\\apps\\\\backend\\\\agent\\\\advisor_agent.py\")",
+      "Bash(xargs grep:*)",
+      "Bash(uv run:*)",
+      "Bash(python -m apps.backend.agent.advisor_agent)"
+    ]
+  }
+}

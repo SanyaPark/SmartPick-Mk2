@@ -1,0 +1,36 @@
+{
+  "page_stats": [
+    {
+      "page_id": 0,
+      "num_blocks": 25
+    },
+    {
+      "page_id": 1,
+      "num_blocks": 15
+    },
+    {
+      "page_id": 2,
+      "num_blocks": 13
+    },
+    {
+      "page_id": 3,
+      "num_blocks": 17
+    },
+    {
+      "page_id": 4,
+      "num_blocks": 22
+    },
+    {
+      "page_id": 5,
+      "num_blocks": 18
+    },
+    {
+      "page_id": 6,
+      "num_blocks": 13
+    },
+    {
+      "page_id": 7,
+      "num_blocks": 4
+    }
+  ]
+}
