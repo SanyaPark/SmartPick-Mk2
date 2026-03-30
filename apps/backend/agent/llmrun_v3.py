@@ -189,9 +189,9 @@ def load_all_cards_v3() -> list[dict]:
             card_categories = set()
             for b in adapted["benefits"]:
                 cat = b.get("category", "")
-                if cat and cat not in ("All_Domestic", "General"):
+                if cat and cat != "General":
                     card_categories.add(cat)
-                elif cat in ("All_Domestic", "General"):
+                elif cat == "General":
                     card_categories.add(cat)
             adapted["_card_categories"] = card_categories
 
@@ -252,11 +252,11 @@ def filter_cards_node(state: AgentState):
         if card["card_meta"].get("minimum_performance", 0) <= total_budget
     ]
 
-    # 필터 B: 카테고리 겹침 (All_Domestic/General은 항상 매칭)
+    # 필터 B: 카테고리 겹침 (General은 항상 매칭)
     filtered = []
     for card in after_performance:
         cats = card["_card_categories"]
-        if cats & user_categories or "All_Domestic" in cats or "General" in cats:
+        if cats & user_categories or "General" in cats:
             filtered.append(card)
 
     print(f"  전체 {len(all_cards)}개 → 실적 충족 {len(after_performance)}개 → 카테고리 매칭 {len(filtered)}개")
@@ -300,7 +300,7 @@ def calculate_benefits_node(state: AgentState):
 
             # 스코어 계산 (분석/로그용)
             card_categories = card.get("_card_categories", set())
-            specific_cats = card_categories - {"All_Domestic", "General"}
+            specific_cats = card_categories - {"General"}
             overlapping = user_categories & specific_cats
             fit_score = len(overlapping) / len(user_categories) if user_categories else 0.0
             covered_spend = sum(category_spending.get(cat, 0) for cat in overlapping)
