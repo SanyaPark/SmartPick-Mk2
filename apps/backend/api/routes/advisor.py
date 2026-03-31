@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from apps.backend.agent.advisor_agent import QUERIES, QueryType, run_advisor
+from apps.backend.agent.advisor_agent import QUERIES, QUERIES_DETAILS, QUERIES_STANDALONE, QueryType, run_advisor
 
 router = APIRouter(prefix="/advisor", tags=["advisor"])
 
@@ -13,7 +11,7 @@ router = APIRouter(prefix="/advisor", tags=["advisor"])
 class AdvisorRequest(BaseModel):
     card_name: str = Field(..., description="카드 이름 (예: '현대카드 M')")
     card_company: str = Field(..., description="카드사 이름 (예: 'Hyundai', 'KB', 'Shinhan')")
-    query_type: Literal["credit_fees", "international_fees", "reviews", "how_to_apply"] = Field(
+    query_type: QueryType = Field(
         ..., description="질문 유형"
     )
 
@@ -40,7 +38,10 @@ def ask(payload: AdvisorRequest) -> AdvisorResponse:
     )
 
 
-@router.get("/queries", response_model=dict[str, str])
-def list_queries() -> dict[str, str]:
-    """사용 가능한 query_type 목록과 실제 쿼리 텍스트 반환 (프론트엔드 버튼 레이블 참고용)"""
-    return QUERIES
+@router.get("/queries", response_model=dict[str, dict[str, str]])
+def list_queries() -> dict[str, dict[str, str]]:
+    """버튼 그룹별 query_type 목록 반환 (프론트엔드 버튼 구성용)"""
+    return {
+        "standalone": QUERIES_STANDALONE,
+        "details": QUERIES_DETAILS,
+    }

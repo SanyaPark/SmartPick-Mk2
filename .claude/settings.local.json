@@ -17,7 +17,10 @@
       "Bash(\"C:\\\\Users\\\\sesac\\\\Documents\\\\GitHub\\\\SmartPick-Mk2\\\\apps\\\\backend\\\\agent\\\\advisor_agent.py\")",
       "Bash(xargs grep:*)",
       "Bash(uv run:*)",
-      "Bash(python -m apps.backend.agent.advisor_agent)"
+      "Bash(python -m apps.backend.agent.advisor_agent)",
+      "Read(//mnt/c/Users/sesac/Documents/GitHub/SmartPick-Mk2/apps/**)",
+      "Read(//mnt/c/Users/sesac/Documents/GitHub/SmartPick-Mk2/apps/frontend/**)",
+      "Bash(ls \"C:/Users/sesac/Documents/GitHub/SmartPick-Mk2/apps/frontend/.env\"*)"
     ]
   }
 }

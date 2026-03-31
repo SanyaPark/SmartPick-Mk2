@@ -25,8 +25,10 @@ from langchain.tools import tool
 from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 from langsmith import traceable
 
-from apps.backend.tools.naver_search import search_blog, search_web, NaverSearchError
 from apps.backend.tools.web_search import (
+    search_blog,
+    search_web,
+    NaverSearchError,
     tavily_search,
     duckduckgo_search,
     serper_search,
@@ -97,7 +99,9 @@ QUERIES_STANDALONE: dict[str, str] = {
     ),
     "how_to_apply": (
         "이 카드 온라인 신청 방법과 발급 조건만 알려줘. "
-        "카드사 메인 홈페이지가 아닌 이 카드의 신청 페이지 직접 URL을 검색해서 알려줘. "
+        "반드시 실제 카드 신청서를 작성할 수 있는 페이지의 URL을 찾아줘. "
+        "이벤트 페이지, 카드 소개 페이지, 혜택 안내 페이지 URL은 절대 포함하지 마. "
+        "신청 URL은 '신청하기' 버튼이 있는 페이지여야 해. "
         "발급 자격(나이·소득 등 조건)과 필요 서류도 함께 안내해줘. "
         "카드 혜택, 연회비, 사용자 후기 등 신청과 무관한 정보는 절대 포함하지 마."
     ),
