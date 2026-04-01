@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from apps.backend.api.routes.agent import router as agent_router
 from apps.backend.api.routes.advisor import router as advisor_router
+from apps.backend.api.routes.users import router as users_router
+from apps.backend.api.routes.recommend import router as recommend_router
 
 
 def get_cors_origins() -> list[str]:
@@ -33,6 +35,8 @@ def create_app() -> FastAPI:
 
     app.include_router(agent_router)
     app.include_router(advisor_router)
+    app.include_router(users_router)
+    app.include_router(recommend_router)
     return app
 
 
