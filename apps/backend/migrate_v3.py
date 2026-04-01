@@ -44,6 +44,8 @@ for file in json_files:
             "min_performance": card_meta.get("minimum_performance", 0),
             "reward_currency": card_meta.get("reward_currency", "KRW"),
             "currency_rate": card_meta.get("currency_to_krw_rate", 1.0),
+            "digest_file_path": f"digest/{card_slug}.md", # TODO: Actual Markdown filename mapping
+            "manual_file_path": f"manual/{card_slug}.md", # TODO: Actual Markdown filename mapping
             "image_url": None
         }
         res = supabase.table("cards").insert(card_insert_payload).execute()
