@@ -15,11 +15,11 @@ def update_user_preferences(payload: UserPreferencesUpdate):
     
     # 1. Update total tracking in user_profiles
     try:
-        # Upsert the profile. Note: If auth.users FK constraint is strictly enabled,
-        # user_id MUST exist in auth.users manually created via Supabase dashboard first!
+        # upsert requires email due to DB NOT NULL constraint if inserting a new dummy user
         supabase.table("user_profiles").upsert({
             "id": user_id, 
             "nickname": payload.nickname,
+            "email": f"test_{user_id[:8]}@example.com",
             "total_monthly_spending": payload.total_monthly_spending
         }).execute()
     except Exception as e:
